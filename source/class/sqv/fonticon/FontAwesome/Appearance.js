@@ -21,7 +21,6 @@
  * Font Awesome icons (http://fortawesome.github.io/Font-Awesome/)
  * 
  * @require(sqv.ui.basic.MImage)
- * @require(sqv.theme.icon.MFontAwesome)
  */
 qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
 {
@@ -38,6 +37,20 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
           width : 30,
           height : 30,	
           font: "FontAwesome-big",
+          textAlign : "left",
+          decorator : "fa-calendar"
+        };
+      }
+    },
+    
+    "fa-calendar-std" :
+    {
+      style : function(states)
+      {
+        return {
+          width : 18,
+          height : 18,	
+          font: "FontAwesome-std",
           textAlign : "left",
           decorator : "fa-calendar"
         };

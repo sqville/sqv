@@ -1585,10 +1585,10 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           icon : states.hovered ? "icon/18/editor/insert-invitation-black.png" : "icon/18/editor/insert-invitation-gray.png",
+          //icon : "",
           padding : [0, 0, 0, 6],
           backgroundColor : undefined,
           decorator : undefined
-          //width: 20
         };
       }
     },
@@ -1606,6 +1606,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         };
       }
     },
+   
+   //"datefield/button/icon" : "fa-calendar-std",
 
     "datefield/textfield" : {
       alias : "textfield",

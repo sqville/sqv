@@ -117,7 +117,6 @@ qx.Class.define("sqv.Application",
       iconbutton1.setPadding([10,10]);
       
       //stand alone icon
-      //var sqviconsolo = new qx.ui.basic.Image().set({appearance:"sqvcssarttest"});
       var faiconsearch = new qx.ui.basic.Image().set({appearance:"fa-search"});
       var faiconcal = new qx.ui.basic.Image().set({appearance:"fa-calendar"});
       var faiconhtml5 = new qx.ui.basic.Image().set({appearance:"fa-html5"});

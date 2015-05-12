@@ -21,7 +21,7 @@
  * Font Awesome icons (http://fortawesome.github.io/Font-Awesome/)
  * 
  * @require(sqv.ui.basic.MImage)
- * @require(sqv.theme.icon.MFontAwesome)
+ * @require(sqv.ui.decoration.MBeforeContent)
  */
 qx.Theme.define("sqv.fonticon.FontAwesome.Decoration",
 {

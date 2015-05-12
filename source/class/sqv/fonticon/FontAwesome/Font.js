@@ -45,6 +45,12 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Font",
 
     },
     
+    "FontAwesome-std" :
+    {
+    	size : 16,
+    	family : ["FontAwesome"]
+    },
+    
     "FontAwesome-big" :
     {
     	size : 24,
