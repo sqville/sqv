@@ -61,6 +61,7 @@ qx.Class.define("sqv.Application",
 	  //qx.Theme.include(CURRENT THEME, sqv.theme.icon.FontAwesome)
 	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.theme.icon.AFontAwesome);
 	  qx.Theme.include(sqv.theme.clean.Decoration, sqv.theme.icon.DFontAwesome);
+	  qx.Theme.include(sqv.theme.clean.Font, sqv.theme.icon.FFontAwesome);
 	  
       // Create a button
       var button1 = new qx.ui.form.Button("Follow");

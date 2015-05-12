@@ -41,32 +41,6 @@ qx.Theme.define("sqv.theme.clean.Font",
       lineHeight: 1.33
     },
     
-    
-    "FontAwesome" :
-    {
-    	size : 12,
-    	family : ["FontAwesome"],
-    	sources: [
-	        {
-	          family : "FontAwesome",
-	          source:
-	          [
-	            "sqv/fonts/fontawesome-webfont.eot",
-	            "sqv/fonts/fontawesome-webfont.ttf",
-	            "sqv/fonts/fontawesome-webfont.woff",
-	            "sqv/fonts/FontAwesome.otf"
-	          ]
-	        }
-	      ]
-
-    },
-    
-    "FontAwesome-big" :
-    {
-    	size : 24,
-    	family : ["FontAwesome"]
-    },
-    
     "unicode-icons-sm" :
     {
     	size : 20,
