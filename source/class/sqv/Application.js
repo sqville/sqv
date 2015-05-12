@@ -57,11 +57,11 @@ qx.Class.define("sqv.Application",
       //qx.Class.patch(qx.ui.basic.Atom, sqv.ui.basic.MAtom);
 	  //qx.Class.include(qx.ui.decoration.Decorator, sqv.theme.icon.MLittlebox);
 	  qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
-	  qx.Class.include(qx.ui.decoration.Decorator, sqv.theme.icon.MFontAwesome);
+	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MBeforeContent);
 	  //qx.Theme.include(CURRENT THEME, sqv.theme.icon.FontAwesome)
-	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.theme.icon.AFontAwesome);
-	  qx.Theme.include(sqv.theme.clean.Decoration, sqv.theme.icon.DFontAwesome);
-	  qx.Theme.include(sqv.theme.clean.Font, sqv.theme.icon.FFontAwesome);
+	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.fonticon.FontAwesome.Appearance);
+	  qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
+	  qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
 	  
       // Create a button
       var button1 = new qx.ui.form.Button("Follow");
