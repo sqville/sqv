@@ -44,15 +44,15 @@ Temporary Items
 
 
 # Resources
-build
-node_modules
-source/script
-source/resource/sqv/css/font-awesome.css
-source/resource/sqv/fonts/fontawesome-webfont.eot
-source/resource/sqv/fonts/fontawesome-webfont.svg
-source/resource/sqv/fonts/fontawesome-webfont.ttf
-source/resource/sqv/fonts/fontawesome-webfont.woff
-source/resource/sqv/fonts/FontAwesome.otf
+/build
+/node_modules
+/source/script
+/source/resource/sqv/css/font-awesome.css
+/source/resource/sqv/fonts/fontawesome-webfont.eot
+/source/resource/sqv/fonts/fontawesome-webfont.svg
+/source/resource/sqv/fonts/fontawesome-webfont.ttf
+/source/resource/sqv/fonts/fontawesome-webfont.woff
+/source/resource/sqv/fonts/FontAwesome.otf
 generate.py
 Gruntfile.js
 .project
