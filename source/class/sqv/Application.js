@@ -56,9 +56,14 @@ qx.Class.define("sqv.Application",
       //patch Atom with MAtom
       //qx.Class.patch(qx.ui.basic.Atom, sqv.ui.basic.MAtom);
 	  //qx.Class.include(qx.ui.decoration.Decorator, sqv.theme.icon.MLittlebox);
+	  
+	  // Prep the Image widget
 	  qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
+	  
+	  // Add the beforeContent property to the Decorator class
 	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MBeforeContent);
-	  //qx.Theme.include(CURRENT THEME, sqv.theme.icon.FontAwesome)
+	  
+	  // Add FontAwesome specific Appearance, Decoration and Font entries to the current theme 
 	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.fonticon.FontAwesome.Appearance);
 	  qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
 	  qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
