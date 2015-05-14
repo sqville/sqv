@@ -3,10 +3,8 @@ qooxdoo themes and more for qx.Desktop applications
 
 <img src="http://sqville.com/examples/images/sqv/clean-logo-2.svg" \>Clean
 ===========
-A theme for qx.Desktop + It's objective is to live up to it's name + Inspired by Semantic UI
-<br>
-Coming Soon
-<br><br>
+Coming Soon - A theme for qx.Desktop + It's objective is to live up to it's name + Inspired by Semantic UI
+<br><br><br><br>
 
 FontAwesome for qx.Desktop
 ==========================
