@@ -12,9 +12,9 @@ The fully integrated way of using Font Icons in your qx.Desktop application.
 
 To use:
 
-Step #1 Download sqv<br>
-Step #2 Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br>
-Step #3 Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts" folder <br>
+Step #1 Download sqv<br><br>
+Step #2 Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br><br>
+Step #3 Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts" folder <br><br>
 Step #4 Link sqv to your qx.Desktop project as a library by adding the following library entry to your app's config.json file:
 
 	"library" :
@@ -37,9 +37,19 @@ Step #5 Add the following lines of qooxdoo code to the start of the main functio
 	qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
 	qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
 
-Step #6 Run "generate.py source" in the command line to link the sqv project files to your application
+Step #6 Run "generate.py source" in the command line to link the sqv project files to your application <br><br>
 
-Step #7 Run your source application
+Step #7 Create an image in your application and set its appearance property to "fa-search"
+
+	//stand alone icon example
+    var faiconsearch = new qx.ui.basic.Image().set({appearance:"fa-search"});
+    
+    //example button with a fonticon
+    //the appearance "search-button" is an example appearance found in sqv.iconfont.FontAwesome.Appearance
+    var button = new qx.ui.form.Button("Icon Button", "");
+    button.setAppearance("search-button");
+    
+Step #8 Run your project and see the results
 
 
 Demos
