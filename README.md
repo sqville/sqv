@@ -12,10 +12,10 @@ The fully integrated way of using Font Icons in your qx.Desktop application.
 
 To use:
 
-Step #1 Download sqv<br><br>
-Step #2 Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br><br>
-Step #3 Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts" folder <br><br>
-Step #4 Link sqv to your qx.Desktop project as a library by adding the following library entry to your app's config.json file:
+<b>Step 1</b> Download sqv<br><br>
+<b>Step 2</b> Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br><br>
+<b>Step 3</b> Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts" folder <br><br>
+<b>Step 4</b> Link sqv to your qx.Desktop project as a library by adding the following library entry to your app's config.json file:
 
 	"library" :
       [
@@ -24,7 +24,7 @@ Step #4 Link sqv to your qx.Desktop project as a library by adding the following
         }
       ]
 
-Step #5 Add the following lines of qooxdoo code to the start of the main function of your application (replace "sqv.theme.clean.Appearance|Decoration|Font" with the class names of the theme your app is currently using)
+<b>Step 5</b> Add the following lines of qooxdoo code to the start of the main function of your application (replace "sqv.theme.clean.Appearance|Decoration|Font" with the class names of the theme your app is currently using)
 
 	// Add font and text properties to the qx Image widget
 	qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
@@ -37,9 +37,9 @@ Step #5 Add the following lines of qooxdoo code to the start of the main functio
 	qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
 	qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
 
-Step #6 Run "generate.py source" in the command line to link the sqv project files to your application <br><br>
+<b>Step 6</b> Run "generate.py source" in the command line to link the sqv project files to your application <br><br>
 
-Step #7 Create an image in your application and set its appearance property to "fa-search"
+<b>Step 7</b> Create an image in your application and set its appearance property to "fa-search"
 
 	//stand alone icon example
     var faiconsearch = new qx.ui.basic.Image().set({appearance:"fa-search"});
@@ -49,7 +49,7 @@ Step #7 Create an image in your application and set its appearance property to "
     var button = new qx.ui.form.Button("Icon Button", "");
     button.setAppearance("search-button");
     
-Step #8 Run your project and see the results
+<b>Step 8</b> Run your project and see the results
 
 
 Demos
