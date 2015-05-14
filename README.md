@@ -12,9 +12,9 @@ The fully integrated way of using Font Icons in your qx.Desktop application.
 
 To use:
 
-Step #1 Download sqv
-Step #2 Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/
-Step #3 Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts" folder
+Step #1 Download sqv<br>
+Step #2 Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br>
+Step #3 Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts" folder <br>
 Step #4 Link sqv to your qx.Desktop project as a library by adding the following library entry to your app's config.json file:
 
 	"library" :
