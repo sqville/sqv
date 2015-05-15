@@ -3,7 +3,6 @@ qooxdoo themes and more for qx.Desktop applications
 
 <img src="http://sqville.com/examples/images/sqv/clean-logo-2.svg" \>Clean
 ===========
-<<<<<<< HEAD
 A theme for qx.Desktop + It's objective is to live up to it's name + Inspired by Semantic UI
 <br>
 Coming Soon
@@ -12,7 +11,7 @@ Coming Soon
 =======
 Coming Soon - A theme for qx.Desktop + It's objective is to live up to it's name + Inspired by Semantic UI
 <br><br><br><br>
->>>>>>> origin/master
+
 
 FontAwesome for qx.Desktop
 ==========================
@@ -22,7 +21,7 @@ To use:
 
 <b>Step 1</b> Download sqv<br><br>
 <b>Step 2</b> Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br><br>
-<b>Step 3</b> Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts" folder <br><br>
+<b>Step 3</b> Copy the contents of the FontAwesome "fonts" folder to the empty "sqv\source\resource\sqv\fonts\FontAwesome" folder <br><br>
 <b>Step 4</b> Link sqv to your qx.Desktop project as a library by adding the following library entry to your app's config.json file:
 
 	"library" :
