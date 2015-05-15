@@ -34,8 +34,8 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
       style : function(states)
       {
         return {
-          width : 30,
-          height : 30,	
+          width : 40,
+          height : 40,	
           font: "FontAwesome-big",
           textAlign : "left",
           decorator : "fa-calendar"
@@ -62,8 +62,8 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
       style : function(states)
       {
         return {
-          width : 30,
-          height : 30,	
+          width : 40,
+          height : 40,	
           font: "FontAwesome-big",
           decorator : "fa-html5"
         };
@@ -75,8 +75,8 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
       style : function(states)
       {
         return {
-          width : 30,
-          height : 30,	
+          width : 40,
+          height : 40,	
           font: "FontAwesome-big",
           decorator : "fa-folder-open"
         };

@@ -70,9 +70,6 @@ qx.Mixin.define("sqv.ui.decoration.MBeforeContent",
 	  	// Border Radius
 	  	var borderradiuspropName = qx.core.Environment.get("css.borderradius");
 		borderradiuspropName = qx.bom.Style.getCssName(borderradiuspropName);
-		// Transform
-		var transformpropName = qx.core.Environment.get("css.transform");
-		transformpropName = qx.bom.Style.getCssName(transformpropName.name);
 	  	// Animations
 		var animationpropName = qx.core.Environment.get("css.animation");
 		animationpropName = qx.bom.Style.getCssName(animationpropName.name);
@@ -82,6 +79,10 @@ qx.Mixin.define("sqv.ui.decoration.MBeforeContent",
 	  	var boxshadowpropName = qx.core.Environment.get("css.boxshadow");
 		boxshadowpropName = qx.bom.Style.getCssName(boxshadowpropName);
 		*/
+		
+		// Transform
+		var transformpropName = qx.core.Environment.get("css.transform");
+		transformpropName = qx.bom.Style.getCssName(transformpropName.name);
 
 	  	
 	  	/**
@@ -90,6 +91,7 @@ qx.Mixin.define("sqv.ui.decoration.MBeforeContent",
 	  	 */
   		styles["-webkit-font-smoothing"] = "antialiased";
   		styles["-moz-osx-font-smoothing"] = "grayscale";
+  		styles[transformpropName] = "translate(0, 0)";
   		
   		
   		styles[":before"] = 
