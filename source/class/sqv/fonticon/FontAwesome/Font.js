@@ -25,25 +25,6 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Font",
 {
   fonts :
   {
-       
-    "FontAwesome" :
-    {
-    	size : 12,
-    	family : ["FontAwesome"],
-    	sources: [
-	        {
-	          family : "FontAwesome",
-	          source:
-	          [
-	            "sqv/fonts/fontawesome-webfont.eot",
-	            "sqv/fonts/fontawesome-webfont.ttf",
-	            "sqv/fonts/fontawesome-webfont.woff",
-	            "sqv/fonts/FontAwesome.otf"
-	          ]
-	        }
-	      ]
-
-    },
     
     "FontAwesome-std" :
     {

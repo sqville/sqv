@@ -19,9 +19,12 @@
 
 /**
  * The simple qooxdoo font theme.
+ * 
+ * 
  */
 qx.Theme.define("sqv.theme.clean.Font",
 {
+  
   fonts :
   {
     "default" :
@@ -39,6 +42,27 @@ qx.Theme.define("sqv.theme.clean.Font",
       color : "text",
       bold: true,
       lineHeight: 1.33
+    },
+    
+    "FontAwesome" :
+    {
+    	size : 12,
+    	family : ["FontAwesome"],
+    	sources: [
+	        {
+	          family : "FontAwesome",
+	          source:
+	          [
+	            "resource/sqv/fonts/FontAwesome/fontawesome-webfont.eot",
+	            "resource/sqv/fonts/FontAwesome/fontawesome-webfont.ttf",
+	            "resource/sqv/fonts/FontAwesome/fontawesome-webfont.woff",
+	            "resource/sqv/fonts/FontAwesome/fontawesome-webfont.woff2",
+	            "resource/sqv/fonts/FontAwesome/fontawesome-webfont.svg",
+	            "resource/sqv/fonts/FontAwesome/FontAwesome.otf"
+	          ]
+	        }
+	      ]
+
     },
     
     "unicode-icons-sm" :
