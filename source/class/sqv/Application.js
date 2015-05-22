@@ -274,7 +274,10 @@ qx.Class.define("sqv.Application",
       var splitButton = new qx.ui.form.SplitButton("SplitButton", null, this.__createMenuForSplitButton());
       splitButton.setWidth(140);
       
-      // Table
+      // TABLE
+      // MENUBAR
+      // TOOLBAR
+      // PROGRESSBAR
       
       
       //Window

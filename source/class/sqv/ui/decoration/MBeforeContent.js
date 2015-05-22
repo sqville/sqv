@@ -92,7 +92,8 @@ qx.Mixin.define("sqv.ui.decoration.MBeforeContent",
   		styles["-webkit-font-smoothing"] = "antialiased";
   		styles["-moz-osx-font-smoothing"] = "grayscale";
   		styles[transformpropName] = "translate(0, 0)";
-  		
+  		styles["text-rendering"] = "auto";
+  		styles["display"] = "inline-block";
   		
   		styles[":before"] = 
   		{

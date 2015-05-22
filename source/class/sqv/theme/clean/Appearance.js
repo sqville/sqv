@@ -1064,9 +1064,19 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     ---------------------------------------------------------------------------
       SCROLLBAR
     ---------------------------------------------------------------------------
-    */
+    */ 
 
-    "scrollbar" : {},
+    "scrollbar" : 
+    {
+      style : function(states)
+      {
+
+        return {
+          backgroundColor: "scrollbar-bright"
+        };
+      }
+    },
+    
     "scrollbar/slider" : {},
 
     "scrollbar/slider/knob" :
