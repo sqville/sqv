@@ -1086,13 +1086,15 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         width : 1,
-        color : "window-border",
+        //color : "window-border",
+        color : "textfield-selected",
         innerWidth : 4,
         innerColor: "window-border-inner",
         shadowLength : 1,
         shadowBlurRadius : 3,
         shadowColor : "shadow",
-        backgroundColor : "background"
+        backgroundColor : "background",
+        radius : 3
       }
     },
 
@@ -1112,7 +1114,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         width : [0, 0, 2, 0],
-        color : "window-border-inner"
+        //color : "window-border-inner"
+        color : "background"
       }
     },
 
@@ -1608,7 +1611,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         widthTop : 1,
-        colorTop : "background-selected",
+        //colorTop : "background-selected",
+        colorTop : "textfield-selected",
         styleTop : "solid"
       }
     },

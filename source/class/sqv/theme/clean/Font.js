@@ -44,6 +44,14 @@ qx.Theme.define("sqv.theme.clean.Font",
       lineHeight: 1.33
     },
     
+    "window-header" :
+    {
+      size : 20,
+      family : ["Lato", "Helvetica Neue", "arial", "Helvetica", "sans-serif"],
+      bold : false,
+      lineHeight: 1.33
+    },
+    
     "unicode-icons-sm" :
     {
     	size : 20,

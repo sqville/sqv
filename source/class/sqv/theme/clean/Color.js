@@ -104,7 +104,8 @@ qx.Theme.define("sqv.theme.clean.Color",
 
     // window
     "window-border" : "#2E3A46",
-    "window-border-inner" : "#9DCBFE",
+    //"window-border-inner" : "#9DCBFE",
+    "window-border-inner" : "white",
 
     // group box
     "white-box-border" : "#D8D8D8",

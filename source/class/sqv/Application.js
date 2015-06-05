@@ -284,7 +284,18 @@ qx.Class.define("sqv.Application",
       var openwindowbutton = new qx.ui.form.Button("Open Window", "icon/18/apps/open-window-white.png");
       openwindowbutton.setAppearance("primary-button");
       openwindowbutton.setGap(10);
-      //openwindowbutton.addListener("execute", wm1.open, wm1);
+      
+      // Create the Window
+      var win1 = new qx.ui.window.Window("Clean Theme default Window");
+      win1.setLayout(new qx.ui.layout.VBox(10));
+      win1.setShowStatusbar(true);
+      win1.setStatus("Image (Happy Phone Guy) created by Roxarama.com");
+      //create an image for the body of the window
+      var roxaramaguy = new qx.ui.basic.Image("sqv/Roxarama-Guy.png");
+      win1.add(roxaramaguy);
+      //this.getRoot().add(win, {left:20, top:20});
+      
+      openwindowbutton.addListener("execute", win1.open, win1);
       
       // Document is the application root
       var doc = this.getRoot();

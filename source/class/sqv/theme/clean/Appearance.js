@@ -2529,7 +2529,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : states.active ? "light-background" : "background-disabled",
+          //backgroundColor : states.active ? "background" : "background-disabled",
+          backgroundColor : "background",
           padding : 8,
           font: "bold",
           decorator : "window-caption"
@@ -2553,7 +2554,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           cursor : "default",
-          font : "bold",
+          font : "window-header",
           marginRight : 20,
           alignY: "middle"
         };
