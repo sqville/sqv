@@ -2570,6 +2570,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           icon : sqv.theme.clean.Image.URLS["window-minimize"],
           padding : [ 1, 2 ],
+          marginRight : 4,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
@@ -2584,6 +2585,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           icon : sqv.theme.clean.Image.URLS["window-restore"],
           padding : [ 1, 2 ],
+          marginRight : 4,
+          marginLeft : 4,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
@@ -2598,6 +2601,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           icon : sqv.theme.clean.Image.URLS["window-maximize"],
           padding : [ 1, 2 ],
+          marginRight : 4,
+          marginLeft : 4,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
@@ -2613,6 +2618,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           marginLeft : 2,
           icon : sqv.theme.clean.Image.URLS["window-close"],
           padding : [ 1, 2 ],
+          marginLeft: 4,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
