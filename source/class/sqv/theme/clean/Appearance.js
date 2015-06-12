@@ -45,6 +45,7 @@
  * @asset(sqv/icon/Material/18/image/filter-drama.png)
  * @asset(sqv/icon/Material/18/image/filter-frames.png)
  * @asset(sqv/icon/Material/18/image/filter-hdr.png)
+ * @asset(sqv/icon/Material/18/image/grid-white.png)
  * 
  * @asset(sqv/icon/Material/18/hardware/iphone.png)
  * @asset(sqv/icon/Material/18/hardware/iphone-black.png)
@@ -2011,6 +2012,20 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       }
     },
     
+    "secondary-button/icon" :
+    {
+    	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			scale : true,
+    			width : 18,
+    			height : 18
+    		};
+    	}
+    },
+    
     /*
     ---------------------------------------------------------------------------
       SQv
@@ -2615,7 +2630,6 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          marginLeft : 2,
           icon : sqv.theme.clean.Image.URLS["window-close"],
           padding : [ 1, 2 ],
           marginLeft: 4,

@@ -274,13 +274,13 @@ qx.Class.define("sqv.Application",
       var splitButton = new qx.ui.form.SplitButton("SplitButton", null, this.__createMenuForSplitButton());
       splitButton.setWidth(140);
       
-      // TABLE
+ 
       // MENUBAR
       // TOOLBAR
       // PROGRESSBAR
       
       
-      //Window
+      // Window
       var openwindowbutton = new qx.ui.form.Button("Open Window", "icon/18/apps/open-window-white.png");
       openwindowbutton.setAppearance("primary-button");
       openwindowbutton.setGap(10);
@@ -296,6 +296,18 @@ qx.Class.define("sqv.Application",
       //this.getRoot().add(win, {left:20, top:20});
       
       openwindowbutton.addListener("execute", win1.open, win1);
+      
+      // TABLE
+      var showtablebutton = new qx.ui.form.Button("Show Table", "icon/18/image/grid-white.png");
+      showtablebutton.setAppearance("secondary-button");
+      showtablebutton.setGap(10);
+      
+      /* Good table code 
+      var table = this.__createTable();
+      table.setFocusedCell(2,5);
+      widgets.push(table);
+      this.add(table);
+      */
       
       // Document is the application root
       var doc = this.getRoot();
@@ -379,6 +391,9 @@ qx.Class.define("sqv.Application",
       
       // Add Open Window Button
       doc.add(openwindowbutton, {left: 1320, top: 500});
+      
+      // Add Show Table Button
+      doc.add(showtablebutton, {left: 1320, top: 560});
 
 
       // Add an event listener
@@ -487,6 +502,46 @@ qx.Class.define("sqv.Application",
       menu.add(site4);
 
       return menu;
-    }
+    },
+    
+    __createTable : function()
+    {
+      var rowData = this.__createRandomRows(100);
+
+      var tableModel = new qx.ui.table.model.Simple();
+      tableModel.setColumns([ "ID", "A number", "A date", "Boolean" ]);
+      tableModel.setData(rowData);
+      tableModel.setColumnEditable(1, true);
+      tableModel.setColumnEditable(2, true);
+      tableModel.setColumnSortable(3, false);
+
+      var table = new qx.ui.table.Table(tableModel);
+
+      table.set({
+        width: 600,
+        height: 400,
+        decorator : null
+      });
+
+      table.getSelectionModel().setSelectionMode(qx.ui.table.selection.Model.MULTIPLE_INTERVAL_SELECTION);
+
+      var tcm = table.getTableColumnModel();
+
+      tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
+      tcm.setHeaderCellRenderer(2, new qx.ui.table.headerrenderer.Icon("icon/18/image/filter-frames.png", "A date"));
+
+      return table;
+    },
+    
+    __createRandomRows : function(rowCount)
+    {
+      var rowData = [];
+      var now = new Date().getTime();
+      var dateRange = 400 * 24 * 60 * 60 * 1000; // 400 days
+      for (var row = 0; row < rowCount; row++) {
+        var date = new Date(now + Math.random() * dateRange - dateRange / 2);
+        rowData.push([ this.__nextId++, Math.random() * 10000, date, (Math.random() > 0.5) ]);
+      }
+     }
   }
 });
