@@ -299,7 +299,7 @@ qx.Class.define("sqv.Application",
       
       // TABLE
       var showtablebutton = new qx.ui.form.Button("Show Table", "icon/18/image/grid-white.png");
-      showtablebutton.setAppearance("secondary-button");
+      showtablebutton.setAppearance("tertiary-button");
       showtablebutton.setGap(10);
       
       /* Good table code 

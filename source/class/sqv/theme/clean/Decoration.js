@@ -117,7 +117,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     ---------------------------------------------------------------------------
       SQv
       
-      PRIMARY and SECONDARY BUTTONS
+      PRIMARY, SECONDARY and TERTIARY BUTTONS 
     ---------------------------------------------------------------------------
     */
     "primary-button-box" :
@@ -182,6 +182,37 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         backgroundColor : "secondary-button-box-hovered"
+      }
+    },
+    
+    "tertiary-button-box" :
+    {
+      include : "secondary-button-box",
+      
+      style :
+      {
+        backgroundColor : "tertiary-button-box",
+        shadowColor : "tertiary-button-inset-shadow"
+      }
+    },
+
+    "tertiary-button-box-pressed" :
+    {
+      include : "primary-button-box",
+
+      style :
+      {
+        backgroundColor : "tertiary-button-box-pressed"
+      }
+    },
+
+    "tertiary-button-box-hovered" :
+    {
+      include : "primary-button-box",
+
+      style :
+      {
+        backgroundColor : "tertiary-button-box-hovered"
       }
     },
     

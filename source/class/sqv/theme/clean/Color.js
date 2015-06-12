@@ -96,7 +96,14 @@ qx.Theme.define("sqv.theme.clean.Color",
 	"secondary-button-box-hovered" : "#222425",
 	"secondary-button-box-pressed" : "#0a0a0b",
 	"secondary-button-inset-shadow" : "rgba(39, 41, 43, 0.15)",
-	"secondary-button-text" : "#ffffff",
+	"secondary-button-text" : "primary-button-text",
+	
+	//*** SQv Tertiary Button colors
+	"tertiary-button-box" : "#5bbd72",
+	"tertiary-button-box-hovered" : "#66C17B",
+	"tertiary-button-box-pressed" : "#46AE5F",
+	"tertiary-button-inset-shadow" : "rgba(39, 41, 43, 0.15)",
+	"tertiary-button-text" : "primary-button-text",
 	
 	"sqv-black" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 1)" : "#000000",
 	"sqv-arrow-gray" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.6)" : "#444444",

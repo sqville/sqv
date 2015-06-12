@@ -2012,19 +2012,56 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       }
     },
     
-    "secondary-button/icon" :
+    "secondary-button/icon" : "primary-button/icon",
+    
+    /*
+    ---------------------------------------------------------------------------
+      SQv
+      
+      TERTIARY BUTTON
+    ---------------------------------------------------------------------------
+    */
+   
+    "tertiary-button-frame" :
     {
-    	include : "image",
-    	
-    	style : function(states)
-    	{
-    		return {
-    			scale : true,
-    			width : 18,
-    			height : 18
-    		};
-    	}
+	  include :"button-frame",
+      style : function(states)
+      {
+        var decorator = "tertiary-button-box";
+
+        if (!states.disabled) {
+          if (states.hovered && !states.pressed && !states.checked) {
+            decorator = "tertiary-button-box-hovered";
+          } else if (states.hovered && (states.pressed || states.checked)) {
+            decorator = "tertiary-button-box-pressed";
+          } else if (states.pressed || states.checked) {
+            decorator = "tertiary-button-box-pressed";
+          }
+        }
+
+        return {
+          decorator : decorator,
+          textColor : "tertiary-button-text"
+        };
+      }
     },
+    
+    "tertiary-button" :
+    {
+      alias : "tertiary-button-frame",
+      include : "tertiary-button-frame",
+
+      style : function(states)
+      {
+        return {
+          center : true,
+          padding : [10, 18]
+        };
+      }
+    },
+    
+    "tertiary-button/icon" : "primary-button/icon",
+
     
     /*
     ---------------------------------------------------------------------------
