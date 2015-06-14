@@ -302,12 +302,18 @@ qx.Class.define("sqv.Application",
       showtablebutton.setAppearance("tertiary-button");
       showtablebutton.setGap(10);
       
-      /* Good table code 
+      // create the window to show the table
+      var win2 = new qx.ui.window.Window("Clean Theme default Table");
+      win2.setLayout(new qx.ui.layout.VBox(10));
+      win2.setShowStatusbar(true);
+      win2.setStatus("default Table widget");
+      // create the Table and add it to the window widget
       var table = this.__createTable();
-      table.setFocusedCell(2,5);
-      widgets.push(table);
-      this.add(table);
-      */
+      //table.setFocusedCell(2,5);
+      win2.add(table);
+      
+      showtablebutton.addListener("execute", win2.open, win2);
+      
       
       // Document is the application root
       var doc = this.getRoot();
@@ -506,11 +512,11 @@ qx.Class.define("sqv.Application",
     
     __createTable : function()
     {
-      var rowData = this.__createRandomRows(100);
+      //var rowData = this.__createRandomRows(100);
 
       var tableModel = new qx.ui.table.model.Simple();
       tableModel.setColumns([ "ID", "A number", "A date", "Boolean" ]);
-      tableModel.setData(rowData);
+      //tableModel.setData(rowData);
       tableModel.setColumnEditable(1, true);
       tableModel.setColumnEditable(2, true);
       tableModel.setColumnSortable(3, false);
@@ -527,8 +533,8 @@ qx.Class.define("sqv.Application",
 
       var tcm = table.getTableColumnModel();
 
-      tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
-      tcm.setHeaderCellRenderer(2, new qx.ui.table.headerrenderer.Icon("icon/18/image/filter-frames.png", "A date"));
+      //tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
+      //tcm.setHeaderCellRenderer(2, new qx.ui.table.headerrenderer.Icon("icon/18/image/filter-frames.png", "A date"));
 
       return table;
     },
