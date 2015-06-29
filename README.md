@@ -1,5 +1,13 @@
 # sqv
-qooxdoo themes and more for qx.Desktop applications<br><br>
+qooxdoo themes and more for qx.Desktop applications<br>
+Included in this package:
+<ul>
+<li>CLEAN - A flat qx.Desktop theme that promotes simplicity, open spaces, crips edges and bright colors</li>
+<li>FontAwesome for qx.Desktop - Font Icons for qooxdoo Desktop web applications</li>
+</ul>
+
+
+<br>
 		<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
 		<h3>CLEAN</h3>
 <ul>
