@@ -5,11 +5,11 @@ Included in this package:
 <li>CLEAN - A flat qx.Desktop theme that promotes simplicity, open spaces, crips edges and bright colors</li>
 <li>FontAwesome for qx.Desktop - Font Icons for qooxdoo Desktop web applications</li>
 </ul>
-
+<br><br>
 
 CLEAN
 ==========================
-		<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
+<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
 <ul>
 <li>A theme for qx.Desktop</li>
 <li>It's objective is to live up to it's name</li>
