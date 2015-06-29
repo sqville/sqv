@@ -1,5 +1,5 @@
 # sqv
-qooxdoo themes and more for qx.Desktop applications
+qooxdoo themes and more for qx.Desktop applications<br><br>
 CLEAN
 <img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
 ===========
