@@ -13,7 +13,7 @@ CLEAN
 <ul>
 <li>A theme for qx.Desktop applications</li>
 <li>It's objective is to live up to it's name</li>
-<li>Inspired by Semantic UI</li>
+<li>Inspired by <a href="http://semantic-ui.com/" target="_blank">Semantic UI</a></li>
 </ul>
 <br><br><br>
 
