@@ -7,9 +7,9 @@ Included in this package:
 </ul>
 
 
-<br>
+CLEAN
+==========================
 		<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
-		<h3>CLEAN</h3>
 <ul>
 <li>A theme for qx.Desktop</li>
 <li>It's objective is to live up to it's name</li>
