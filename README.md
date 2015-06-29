@@ -1,7 +1,7 @@
 # sqv
 qooxdoo themes and more for qx.Desktop applications<br><br>
-	<h2>CLEAN</h2>
-	<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
+		<h3>CLEAN</h3>
+		<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
 ===========
 Coming Soon - A theme for qx.Desktop + It's objective is to live up to it's name + Inspired by Semantic UI
 <br><br><br><br>
