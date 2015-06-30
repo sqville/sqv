@@ -2,8 +2,8 @@
 qooxdoo themes and more for qx.Desktop applications<br>
 <em>Included in this package:</em>
 <ul>
-<li>CLEAN - A flat qx.Desktop theme that promotes simplicity, open spaces, crips edges and bright colors</li>
-<li>FontAwesome for qx.Desktop - Font Icons for qooxdoo Desktop web applications</li>
+<li><b>CLEAN</b> - A flat qx.Desktop theme that promotes simplicity, open spaces, crips edges and bright colors</li>
+<li><b>FontAwesome for qx.Desktop</b> - Font Icons for qooxdoo Desktop web applications</li>
 </ul>
 <br><br><br>
 
