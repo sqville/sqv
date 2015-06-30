@@ -22,7 +22,7 @@ FontAwesome for qx.Desktop
 ==========================
 The fully integrated way of using Font Icons in your qx.Desktop application.
 
-To use:
+<em>To use:</em>
 
 <b>Step 1</b> Download sqv<br><br>
 <b>Step 2</b> Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br><br>
