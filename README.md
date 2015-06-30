@@ -4,8 +4,9 @@ qooxdoo themes and more for qx.Desktop applications<br>
 <ul>
 <li><b>CLEAN</b> - A flat qx.Desktop theme that promotes simplicity, open spaces, crips edges and bright colors</li>
 <li><b>FontAwesome for qx.Desktop</b> - Font Icons for qooxdoo Desktop web applications</li>
+<li><b><a href="http://sqville.com/examples/qxthemes/clean/index.html" target="_blank">Demos</a></b></li>
 </ul>
-<br><br><br>
+<br><br>
 
 CLEAN
 ==========================
@@ -15,7 +16,7 @@ CLEAN
 <li>It's objective is to live up to it's name</li>
 <li>Inspired by <a href="http://semantic-ui.com/" target="_blank">Semantic UI</a></li>
 </ul>
-<br><br><br>
+<br><br>
 
 
 FontAwesome for qx.Desktop
