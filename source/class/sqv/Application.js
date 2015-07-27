@@ -512,11 +512,11 @@ qx.Class.define("sqv.Application",
     
     __createTable : function()
     {
-      //var rowData = this.__createRandomRows(100);
+      var rowData = this.__createRandomRows(25);
 
       var tableModel = new qx.ui.table.model.Simple();
       tableModel.setColumns([ "ID", "A number", "A date", "Boolean" ]);
-      //tableModel.setData(rowData);
+      tableModel.setData(rowData);
       tableModel.setColumnEditable(1, true);
       tableModel.setColumnEditable(2, true);
       tableModel.setColumnSortable(3, false);
@@ -533,7 +533,7 @@ qx.Class.define("sqv.Application",
 
       var tcm = table.getTableColumnModel();
 
-      //tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
+      tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
       //tcm.setHeaderCellRenderer(2, new qx.ui.table.headerrenderer.Icon("icon/18/image/filter-frames.png", "A date"));
 
       return table;
@@ -546,8 +546,9 @@ qx.Class.define("sqv.Application",
       var dateRange = 400 * 24 * 60 * 60 * 1000; // 400 days
       for (var row = 0; row < rowCount; row++) {
         var date = new Date(now + Math.random() * dateRange - dateRange / 2);
-        rowData.push([ this.__nextId++, Math.random() * 10000, date, (Math.random() > 0.5) ]);
+        rowData.push([ row, Math.random() * 10000, date, (Math.random() > 0.5) ]);
       }
+      return rowData;
      }
   }
 });

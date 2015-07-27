@@ -1636,6 +1636,17 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       TABLE
     ---------------------------------------------------------------------------
     */
+   
+   "table-standard" :
+   {
+      style :
+      {
+        radius : 3,
+        width : [1, 1, 1, 1],
+        color : "table-border",
+        style : "solid"
+      }
+    },
 
     "statusbar" :
     {
@@ -1660,12 +1671,14 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
     "table-header" :
     {
-      include : "button-box",
+      //include : "button-box",
 
       style :
       {
-        radius : 0,
-        width : [1, 0, 1, 0]
+        radius : [3,0,0,3],
+        width : [1, 1, 1, 1],
+        color : "#DEDEDE"
+        
       }
     },
 
@@ -1691,7 +1704,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       include : "table-header-cell",
       style : {
-        widthLeft : 1
+        widthLeft : 1,
+        radius : [0,0,0,0]
       }
     },
 

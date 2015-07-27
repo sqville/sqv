@@ -279,7 +279,17 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    "table" : "widget",
+    //"table" : "widget",
+    
+    "table" :
+    {
+    	style : function(states)
+	    {
+	      return {
+	        decorator : "table-standard"
+	      };
+	    }	
+    },
 
     "table/statusbar" :
     {
@@ -365,8 +375,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           decorator : states.first ? "table-header-cell-first" : "table-header-cell",
           minWidth: 13,
           font : "bold",
-          paddingTop: 3,
-          paddingLeft: 5,
+          paddingTop: 12,
+          paddingBottom: 12,
+          paddingLeft: 10,
           cursor : states.disabled ? undefined : "pointer",
           sortIcon : states.sorted ?
               (sqv.theme.clean.Image.URLS["table-" +

@@ -153,6 +153,7 @@ qx.Theme.define("sqv.theme.clean.Color",
     "tooltip-text" : "black",
 
     // table
+    "table-border" : "#DEDEDE",
     "table-header" : [ 242, 242, 242 ],
     "table-focus-indicator" : [ 179, 217, 255 ],
 
