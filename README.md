@@ -1,17 +1,29 @@
 # sqv
-qooxdoo themes and more for qx.Desktop applications
+qooxdoo themes and more for qx.Desktop applications<br>
+<em>Included in this package:</em>
+<ul>
+<li><b>CLEAN</b> - A flat qx.Desktop theme that promotes simplicity, open spaces, crips edges and bright colors</li>
+<li><b>FontAwesome for qx.Desktop</b> - Font Icons for qooxdoo Desktop web applications</li>
+<li><b><a href="http://sqville.com/examples/qxthemes/clean/index.html" target="_blank">Demos</a></b> - Clean theme with FontAwesome icons at the top</li>
+</ul>
+<br>
 
-<img src="http://sqville.com/examples/images/sqv/clean-logo-2.svg" \>Clean
-===========
-Coming Soon - A theme for qx.Desktop + It's objective is to live up to it's name + Inspired by Semantic UI
-<br><br><br><br>
+CLEAN
+==========================
+<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
+<ul>
+<li>A theme for qx.Desktop applications</li>
+<li>It's objective is to live up to it's name</li>
+<li>Inspired by <a href="http://semantic-ui.com/" target="_blank">Semantic UI</a></li>
+</ul>
+<br>
 
 
 FontAwesome for qx.Desktop
 ==========================
 The fully integrated way of using Font Icons in your qx.Desktop application.
 
-To use:
+<em>To use:</em>
 
 <b>Step 1</b> Download sqv<br><br>
 <b>Step 2</b> Download the latest FontAwesome zip file from the FontAwesome github site - http://fortawesome.github.io/Font-Awesome/ <br><br>
