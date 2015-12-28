@@ -61,10 +61,10 @@ qx.Class.define("sqv.theme.clean.Image",
       "arrow-right" : "decoration/arrows/right.gif",
       "arrow-left" : "decoration/arrows/left.gif",
       "arrow-up" : "decoration/arrows/up.gif",
-      "arrow-down" : "decoration/arrows/down.gif",
+      "arrow-down" : "decoration/arrows/down.gif",  //Replaced by CSS:: sqv-css-icon-arrow-down
       "arrow-forward" : "decoration/arrows/forward.gif",
       "arrow-rewind" : "decoration/arrows/rewind.gif",
-      "arrow-down-small" : "decoration/arrows/down-small.gif",
+      "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by CSS:: sqv-css-icon-arrow-down-small
       "arrow-up-small" : "decoration/arrows/up-small.gif",
       "arrow-up-invert" : "decoration/arrows/up-invert.gif",
       "arrow-down-invert" : "decoration/arrows/down-invert.gif",

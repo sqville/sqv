@@ -1,19 +1,13 @@
 /* ************************************************************************
 
-   qooxdoo - the new era of web development
+   SQville Software - Always in dvelopment mode
 
-   http://qooxdoo.org
-
-   Copyright:
-     2004-2011 1&1 Internet AG, Germany, http://www.1und1.de
+   http://sqville.com
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
-     See the LICENSE file in the project's top-level directory for details.
-
+     
    Authors:
-   * Martin Wittemann (martinwittemann)
+   * Chris Eskew 
 
 ************************************************************************* */
 
@@ -30,32 +24,6 @@
  * @asset(qx/icon/Tango/16/actions/window-close.png)
  * @asset(qx/icon/Tango/16/actions/dialog-cancel.png)
  * @asset(qx/icon/Tango/16/actions/dialog-ok.png)
- * 
- * @asset(sqv/icon/Material/18/file/folder-open.png)
- * @asset(sqv/icon/Material/18/file/folder.png)
- * @asset(sqv/icon/Material/18/editor/insert-invitation-black.png)
- * @asset(sqv/icon/Material/18/editor/insert-invitation-gray.png)
- * @asset(sqv/icon/Material/18/editor/insert-drive-file.png)
- * @asset(sqv/icon/Material/18/hardware/desktop-windows.png)
- * @asset(sqv/icon/Material/18/hardware/desktop-windows-black.png)
- * @asset(sqv/icon/Material/18/apps/open-window-white.png)
- * @asset(sqv/icon/Material/18/apps/open-window-white-tru.png)
- * 
- * @asset(sqv/icon/Material/18/image/filter-b-and-w.png)
- * @asset(sqv/icon/Material/18/image/filter-drama.png)
- * @asset(sqv/icon/Material/18/image/filter-frames.png)
- * @asset(sqv/icon/Material/18/image/filter-hdr.png)
- * @asset(sqv/icon/Material/18/image/grid-white.png)
- * 
- * @asset(sqv/icon/Material/18/hardware/iphone.png)
- * @asset(sqv/icon/Material/18/hardware/iphone-black.png)
- * @asset(sqv/icon/Material/18/hardware/ipad.png)
- * @asset(sqv/icon/Material/18/hardware/ipad-black.png)
- * @asset(sqv/icon/Material/18/hardware/iwatch.png)
- * @asset(sqv/icon/Material/18/hardware/iwatch-black.png)
- * 
- * @asset(sqv/icon/Material/18/devices/devices-black.png)
- * @asset(sqv/icon/Material/18/devices/devices.png)
  * 
  */
 qx.Theme.define("sqv.theme.clean.Appearance",
@@ -301,7 +269,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           decorator : "table-header-column-button",
           padding : 3,
-          icon : qx.theme.simple.Image.URLS["select-column-order"]
+          icon : sqv.theme.clean.Image.URLS["select-column-order"]
         };
       }
     },
@@ -369,7 +337,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           paddingLeft: 5,
           cursor : states.disabled ? undefined : "pointer",
           sortIcon : states.sorted ?
-              (qx.theme.simple.Image.URLS["table-" +
+              (sqv.theme.clean.Image.URLS["table-" +
                  (states.sortedAscending ? "ascending" : "descending")
               ]) : undefined
         };
