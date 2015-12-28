@@ -2445,9 +2445,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
         return {
           padding : [3, 8, 3, 5],
-          icon : states.opened ? "icon/18/file/folder-open.png" : "icon/18/file/folder.png",
+          icon : states.opened ? "icon/folder-open.svg" : "icon/folder.svg",
           backgroundColor : backgroundColor,
-          iconOpened : "icon/18/file/folder-open.png",
+          iconOpened : "icon/folder-open.svg",
           opacity : states.drag ? 0.5 : undefined
         };
       }
@@ -2486,7 +2486,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : "icon/18/editor/insert-drive-file.png",
+          icon : "icon/insert-drive-file.svg",
           opacity : states.drag ? 0.5 : undefined
         };
       }

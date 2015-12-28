@@ -21,10 +21,13 @@
  * Materail Design icons by Google (https://github.com/google/material-design-icons)
  * 
  * @asset(sqv/icon/Material/18/file/folder-open.png)
+ * @asset(sqv/icon/Material/folder-open.svg)
  * @asset(sqv/icon/Material/18/file/folder.png)
+ * @asset(sqv/icon/Material/folder.svg)
  * @asset(sqv/icon/Material/18/editor/insert-invitation-black.png)
  * @asset(sqv/icon/Material/18/editor/insert-invitation-gray.png)
  * @asset(sqv/icon/Material/18/editor/insert-drive-file.png)
+ * @asset(sqv/icon/Material/insert-drive-file.svg)
  * @asset(sqv/icon/Material/18/hardware/desktop-windows.png)
  * @asset(sqv/icon/Material/18/hardware/desktop-windows-black.png)
  * @asset(sqv/icon/Material/18/apps/open-window-white.png)

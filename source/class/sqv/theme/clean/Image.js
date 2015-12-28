@@ -42,7 +42,7 @@ qx.Class.define("sqv.theme.clean.Image",
 
       // checkbox
       "checkbox-checked" : "decoration/checkbox/checked.png",
-      "checkbox-undetermined" : "decoration/checkbox/undetermined.png",
+      "checkbox-undetermined" : "decoration/checkbox/undetermined.png",  //Replaced by CSS:: checkbox-undetermined
       "checkbox-checked-disabled" : "decoration/checkbox/checked-disabled.png",
 
       // window
@@ -58,14 +58,14 @@ qx.Class.define("sqv.theme.clean.Image",
       "cursor-nodrop" : "decoration/cursors/nodrop.gif",
 
       // arrows
-      "arrow-right" : "decoration/arrows/right.gif",
+      "arrow-right" : "decoration/arrows/right.gif", //Replaced by CSS:: sqv-css-icon-arrow-right
       "arrow-left" : "decoration/arrows/left.gif",
       "arrow-up" : "decoration/arrows/up.gif",
       "arrow-down" : "decoration/arrows/down.gif",  //Replaced by CSS:: sqv-css-icon-arrow-down
       "arrow-forward" : "decoration/arrows/forward.gif",
       "arrow-rewind" : "decoration/arrows/rewind.gif",
       "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by CSS:: sqv-css-icon-arrow-down-small
-      "arrow-up-small" : "decoration/arrows/up-small.gif",
+      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by CSS:: sqv-css-icon-arrow-up-small
       "arrow-up-invert" : "decoration/arrows/up-invert.gif",
       "arrow-down-invert" : "decoration/arrows/down-invert.gif",
       "arrow-right-invert" : "decoration/arrows/right-invert.gif",
