@@ -18,7 +18,8 @@
 ************************************************************************ */
 
 /**
- * A mixin that enables the font property
+ * A mixin that enables the font property, and thus, font handling abilities to the Image object
+ * This mixin is needed to enable font icons to show up using the Font object
  */
 qx.Mixin.define("sqv.ui.basic.MImage",
 {

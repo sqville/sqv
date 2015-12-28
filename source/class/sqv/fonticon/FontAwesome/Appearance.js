@@ -37,7 +37,7 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
           width : 40,
           height : 40,	
           font: "FontAwesome-big",
-          textAlign : "left",
+          //textAlign : "left",
           decorator : "fa-calendar"
         };
       }
@@ -51,7 +51,7 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
           width : 18,
           height : 18,	
           font: "FontAwesome-std",
-          textAlign : "left",
+          //textAlign : "left",
           decorator : "fa-calendar"
         };
       }
@@ -94,7 +94,7 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Appearance",
           width : 30,
           height : 30,
           font: "FontAwesome-big",
-          textAlign: "left",
+          //textAlign: "left",
           decorator : "fa-search"
         };
       }

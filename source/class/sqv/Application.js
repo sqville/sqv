@@ -57,8 +57,14 @@ qx.Class.define("sqv.Application",
       //qx.Class.patch(qx.ui.basic.Atom, sqv.ui.basic.MAtom);
 	  //qx.Class.include(qx.ui.decoration.Decorator, sqv.theme.icon.MLittlebox);
 	  
-	  // Prep the Image widget
+	  // Prep the Image widget to have font handling abilities
 	  qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
+	  
+	  // Prep the Image widget to handle SVG data
+	  //qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.svg.MImage); 
+	  
+	  //qx.Class.include(qx.ui.basic.Label, sqv.ui.basic.MLabel);
+	  //qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.basic.MLabel);
 	  
 	  // Add the beforeContent property to the Decorator class
 	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MBeforeContent);

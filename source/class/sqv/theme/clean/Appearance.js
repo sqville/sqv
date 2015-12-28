@@ -3260,7 +3260,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          padding : [0, 1, 0, 1]
+          padding : [0, 1, 0, 1],
+          decorator : "tabview-page-label-topvert"
         };
       }
     },

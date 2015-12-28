@@ -38,7 +38,7 @@ qx.Mixin.define("sqv.ui.basic.MLabel",
     */
 
     /** name of icon */
-    rotatevertical :
+    rotateVertical :
     {
       nullable : true,
       check : "String",
@@ -60,8 +60,8 @@ qx.Mixin.define("sqv.ui.basic.MLabel",
 	  	
 		// Transform
 		var transformpropName = qx.core.Environment.get("css.transform");
-		transformpropNameR = qx.bom.Style.getCssName(transformpropName.name);
-		transformpropNameTO = qx.bom.Style.getCssName(transformpropName.origin);
+		var transformpropNameR = qx.bom.Style.getCssName(transformpropName.name);
+		var transformpropNameTO = qx.bom.Style.getCssName(transformpropName.origin);
 
   		//*** Rotate ***//
   		styles[transformpropNameR] = "rotate(" + rotatevertical + ")";
