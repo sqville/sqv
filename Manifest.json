@@ -18,7 +18,7 @@
     ],
 
     "version" : "master",
-    "qooxdoo-versions": ["4.1"]
+    "qooxdoo-versions": ["5.0.1"]
   },
   
   "provides" : 

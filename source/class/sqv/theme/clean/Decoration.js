@@ -1499,17 +1499,6 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     ---------------------------------------------------------------------------
     */
    
-   
-   "tabview-page-label-topvert" :
-    {
-      style :
-      {
-        width : [1, 1, 0, 1],
-        backgroundColor: "background",
-        color : "white-box-border",
-        radius : [3, 3, 0, 0]
-      }
-    },
 
     "tabview-page-button-top" :
     {

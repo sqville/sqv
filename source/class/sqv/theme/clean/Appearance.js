@@ -279,17 +279,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    //"table" : "widget",
-    
-    "table" :
-    {
-    	style : function(states)
-	    {
-	      return {
-	        decorator : "table-standard"
-	      };
-	    }	
-    },
+    "table" : "widget",
 
     "table/statusbar" :
     {
@@ -311,7 +301,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           decorator : "table-header-column-button",
           padding : 3,
-          icon : sqv.theme.clean.Image.URLS["select-column-order"]
+          icon : qx.theme.simple.Image.URLS["select-column-order"]
         };
       }
     },
@@ -375,12 +365,11 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           decorator : states.first ? "table-header-cell-first" : "table-header-cell",
           minWidth: 13,
           font : "bold",
-          paddingTop: 12,
-          paddingBottom: 12,
-          paddingLeft: 10,
+          paddingTop: 3,
+          paddingLeft: 5,
           cursor : states.disabled ? undefined : "pointer",
           sortIcon : states.sorted ?
-              (sqv.theme.clean.Image.URLS["table-" +
+              (qx.theme.simple.Image.URLS["table-" +
                  (states.sortedAscending ? "ascending" : "descending")
               ]) : undefined
         };
@@ -3260,8 +3249,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          padding : [0, 1, 0, 1],
-          decorator : "tabview-page-label-topvert"
+          padding : [0, 1, 0, 1]
         };
       }
     },
