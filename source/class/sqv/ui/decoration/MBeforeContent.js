@@ -64,21 +64,6 @@ qx.Mixin.define("sqv.ui.decoration.MBeforeContent",
     {
 	  var beforecontent = this.getBeforeContent();
 	  if (beforecontent.length > 0) {
-	  	
-	  	/**
-	  	//establish env specific property names
-	  	// Border Radius
-	  	var borderradiuspropName = qx.core.Environment.get("css.borderradius");
-		borderradiuspropName = qx.bom.Style.getCssName(borderradiuspropName);
-	  	// Animations
-		var animationpropName = qx.core.Environment.get("css.animation");
-		animationpropName = qx.bom.Style.getCssName(animationpropName.name);
-		var keyframepropName = qx.core.Environment.get("css.animation").keyframes;
-		//keyframepropName = keyframepropName.keyframes;
-	  	// Box Shadow
-	  	var boxshadowpropName = qx.core.Environment.get("css.boxshadow");
-		boxshadowpropName = qx.bom.Style.getCssName(boxshadowpropName);
-		*/
 		
 		// Transform
 		var transformpropName = qx.core.Environment.get("css.transform");

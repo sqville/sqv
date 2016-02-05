@@ -1,0 +1,135 @@
+
+UPGRADE TO 4.1.1
+----------------------------------------------------------------------------
+  * Number of script input files: 27
+  * Number of HTML input files: 0
+  * Update to version: 4.1.1
+  * Searching for patch module...
+  * Searching for info expression data...
+    - Compiling expressions...
+    - Number of infos: 0
+  * Searching for patch expression data...
+    - Compiling expressions...
+    - Number of patches: 0
+
+  FILE PROCESSING:
+----------------------------------------------------------------------------
+  * Processing script files:
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\io\SharePoint\Settings.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MImage.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Color.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Littlebox.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\SqvIcon3.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\decoration\MCssIcon.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\Clean.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MAtom.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\SqvIcon.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\io\SharePoint\DataLoader.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Decoration.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Material.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\svg\MImage.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\__init__.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Font.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Appearance.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Font.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\decoration\MBeforeContent.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Entypo.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\Application.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Image.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Appearance.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Decoration.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\MLittlebox.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MLabel.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\Canvas.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\__init__.js
+  * Done
+
+UPGRADE TO 5.0
+----------------------------------------------------------------------------
+  * Number of script input files: 27
+  * Number of HTML input files: 0
+  * Update to version: 5.0
+  * Searching for patch module...
+  * Searching for info expression data...
+    - Compiling expressions...
+    - Number of infos: 0
+  * Searching for patch expression data...
+    - Compiling expressions...
+    - Number of patches: 0
+
+  FILE PROCESSING:
+----------------------------------------------------------------------------
+  * Processing script files:
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\io\SharePoint\Settings.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MImage.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Color.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Littlebox.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\SqvIcon3.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\decoration\MCssIcon.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\Clean.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MAtom.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\SqvIcon.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\io\SharePoint\DataLoader.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Decoration.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Material.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\svg\MImage.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\__init__.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Font.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Appearance.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Font.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\decoration\MBeforeContent.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Entypo.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\Application.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Image.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Appearance.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Decoration.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\MLittlebox.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MLabel.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\Canvas.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\__init__.js
+  * Done
+
+UPGRADE TO 5.0.1
+----------------------------------------------------------------------------
+  * Number of script input files: 27
+  * Number of HTML input files: 0
+  * Update to version: 5.0.1
+  * Searching for patch module...
+  * Searching for info expression data...
+    - Compiling expressions...
+    - Number of infos: 0
+  * Searching for patch expression data...
+    - Compiling expressions...
+    - Number of patches: 0
+
+  FILE PROCESSING:
+----------------------------------------------------------------------------
+  * Processing script files:
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\io\SharePoint\Settings.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MImage.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Color.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Littlebox.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\SqvIcon3.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\decoration\MCssIcon.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\Clean.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MAtom.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\SqvIcon.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\io\SharePoint\DataLoader.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Decoration.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Material.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\svg\MImage.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\__init__.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Font.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Appearance.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Font.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\decoration\MBeforeContent.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\Entypo.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\Application.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\Image.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Appearance.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\fonticon\FontAwesome\Decoration.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\icon\MLittlebox.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\MLabel.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\ui\basic\Canvas.js
+  - File: C:\Users\sqville\Documents\Qooxdoo\qooxdoo-5.0.1-sdk\application\sqv\source\class\sqv\theme\clean\__init__.js
+  * Done

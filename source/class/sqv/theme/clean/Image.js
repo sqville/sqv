@@ -23,7 +23,7 @@
 /**
  * Mapping class for all images used in the clean theme.
  *
- * 
+ * @asset(sqv/decoration/Clean/*)
  */
 qx.Class.define("sqv.theme.clean.Image",
 {
@@ -31,6 +31,28 @@ qx.Class.define("sqv.theme.clean.Image",
 
   statics :
   {
+    
+    CSSICONS :
+    {
+    	"checkbox-checked" :
+    	{
+    		"before" : 
+    		{
+    			"width" : "6px",
+    			"height" : "11px",
+    			"top" : "1px",
+    			"left" : "5px",
+    			"transform" : "rotate(45deg)",
+    			"border-radius" : "2px",
+    			"position" : "absolute",
+    			"border-top" : "0px solid",
+				"border-right" : "2px solid",
+				"border-bottom" : "2px solid",
+				"border-left" : "0px solid",
+    			"color" : "black", //color of the check mark
+    		}
+    	}
+    },
     
     /**
      * Holds a map containig all the URL to the images.
@@ -41,13 +63,13 @@ qx.Class.define("sqv.theme.clean.Image",
       "blank" : "qx/static/blank.png",
 
       // checkbox
-      "checkbox-checked" : "decoration/checkbox/checked.png",
-      "checkbox-undetermined" : "decoration/checkbox/undetermined.png",  //Replaced by CSS:: checkbox-undetermined
-      "checkbox-checked-disabled" : "decoration/checkbox/checked-disabled.png",
+      "checkbox-checked" : "decoration/checkbox/checked.svg", //Replaced with CSS
+      "checkbox-undetermined" : "decoration/checkbox/undetermined.png",  //Replaced by Decoration entry:: checkbox-undetermined
+      "checkbox-checked-disabled" : "decoration/checkbox/checked-disabled.svg", //Replaced with SVG file - needs to be replaced with CSS
 
       // window
-      "window-minimize" : "decoration/window/minimize.gif",
-      "window-maximize" : "decoration/window/maximize.gif",
+      "window-minimize" : "decoration/window/minimize.gif", //Replaced with Decoration entry:: window-button-minimize-icon
+      "window-maximize" : "decoration/window/maximize.gif", //Replaced with Decoration entry:: window-button-maximize-icon
       "window-restore" : "decoration/window/restore.gif",
       "window-close" : "decoration/window/close.gif",
 
@@ -58,17 +80,17 @@ qx.Class.define("sqv.theme.clean.Image",
       "cursor-nodrop" : "decoration/cursors/nodrop.gif",
 
       // arrows
-      "arrow-right" : "decoration/arrows/right.gif", //Replaced by CSS:: sqv-css-icon-arrow-right
-      "arrow-left" : "decoration/arrows/left.gif",
-      "arrow-up" : "decoration/arrows/up.gif",
-      "arrow-down" : "decoration/arrows/down.gif",  //Replaced by CSS:: sqv-css-icon-arrow-down
+      "arrow-right" : "decoration/arrows/right.gif", //Replaced by Decoration:: sqv-css-icon-arrow-right
+      "arrow-left" : "decoration/arrows/left.gif", //Replaced by Decoration:: sqv-css-icon-arrow-left
+      "arrow-up" : "decoration/arrows/up.gif", //Replaced by Decoration:: sqv-css-icon-arrow-up
+      "arrow-down" : "decoration/arrows/down.gif",  //Replaced by Decoration:: sqv-css-icon-arrow-down
       "arrow-forward" : "decoration/arrows/forward.gif",
       "arrow-rewind" : "decoration/arrows/rewind.gif",
-      "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by CSS:: sqv-css-icon-arrow-down-small
-      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by CSS:: sqv-css-icon-arrow-up-small
-      "arrow-up-invert" : "decoration/arrows/up-invert.gif",
-      "arrow-down-invert" : "decoration/arrows/down-invert.gif",
-      "arrow-right-invert" : "decoration/arrows/right-invert.gif",
+      "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by Decoration:: sqv-css-icon-arrow-down-small
+      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by Decoration:: sqv-css-icon-arrow-up-small
+      "arrow-up-invert" : "decoration/arrows/up-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-up-invert
+      "arrow-down-invert" : "decoration/arrows/down-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-down-invert
+      "arrow-right-invert" : "decoration/arrows/right-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-right-invert
 
       // split pane
       "knob-horizontal" : "decoration/splitpane/knob-horizontal.png",

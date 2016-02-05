@@ -234,6 +234,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
    },
    
+   "sqv-css-icon-arrow-up-invert" :
+   {
+   	  include : "sqv-css-icon-arrow-up",
+   	  
+   	  style :
+      {
+        color : [null,"transparent","white","transparent"]
+      }
+   },
+   
    "sqv-css-icon-arrow-up-small" :
    {
    	  style :
@@ -251,6 +261,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         color : ["sqv-black","transparent",null,"transparent"],
         style : ["solid", "solid",null,"solid"],
         width : [4,4.5,0,4.5]
+      }
+   },
+   
+   "sqv-css-icon-arrow-down-invert" :
+   {
+   	  include : "sqv-css-icon-arrow-down",
+   	  
+   	  style :
+      {
+        color : ["white","transparent",null,"transparent"],
       }
    },
    
@@ -286,6 +306,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
    },
    
+   "sqv-css-icon-arrow-right-invert" :
+   {
+   	  include : "sqv-css-icon-arrow-right",
+   	  
+   	  style :
+      {
+        color : ["transparent",null,"transparent","white"]
+      }
+   },
+   
    "sqv-css-icon-arrow-right-small" :
    {
    	  style :
@@ -294,6 +324,28 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         style : ["solid",null,"solid","solid"],
         width : [3.5,0,3.5,4]
       }
+   },
+   
+   "sqv-css-icon-arrow-forward" :
+   {
+   	  style :
+      {
+        color : ["transparent",null,"transparent","sqv-black"],
+        innerColor : ["transparent",null,"transparent","green"],
+        style : ["solid",null,"solid","solid"],
+        innerWidth : [3.5,0,3.5,4],
+        width : [3.5,0,3.5,4]
+      }
+   },
+   
+   "sqv-css-icon-arrow-left" :
+   {
+   	  style :
+   	  {
+   	  	color : ["transparent","sqv-arrow-gray","transparent",null],
+        style : ["solid","solid","solid",null],
+        width : [4.5,4,4.5,0]
+   	  }
    },
    
    "sqv-css-icon-arrow-left-small" :
@@ -1149,6 +1201,24 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         color : "background"
       }
     },
+    
+    "window-button-minimize-icon" :
+    {
+      style :
+      {
+        width : [0,6,2,0],
+        color : "black"
+      }
+    },
+    
+    "window-button-maximize-icon" :
+    {
+      style :
+      {
+        width : [2,1,1,1],
+        color : "black"
+      }
+    },
 
 
     /*
@@ -1820,6 +1890,17 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         radius : 3,
         innerWidth: 0
       }
+    },
+    
+    "checkbox-checked" :
+    {
+    	include : "checkbox",
+    	
+    	style :
+    	{
+    		cssiconName : "checkbox-checked",
+    		innerWidth : [0,0,4,0]
+    	}
     },
    
 

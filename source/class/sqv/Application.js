@@ -68,6 +68,7 @@ qx.Class.define("sqv.Application",
 	  
 	  // Add the beforeContent property to the Decorator class
 	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MBeforeContent);
+	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MCssIcon);
 	  
 	  // Add FontAwesome specific Appearance, Decoration and Font entries to the current theme 
 	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.fonticon.FontAwesome.Appearance);
@@ -296,6 +297,7 @@ qx.Class.define("sqv.Application",
       win1.setLayout(new qx.ui.layout.VBox(10));
       win1.setShowStatusbar(true);
       win1.setStatus("Image (Happy Phone Guy) created by Roxarama.com");
+      //win1.fadeIn(1200);
       //create an image for the body of the window
       var roxaramaguy = new qx.ui.basic.Image("sqv/Roxarama-Guy.png");
       win1.add(roxaramaguy);
@@ -313,6 +315,7 @@ qx.Class.define("sqv.Application",
       win2.setLayout(new qx.ui.layout.VBox(10));
       win2.setShowStatusbar(true);
       win2.setStatus("default Table widget");
+      //win2.fadeIn(1400);
       // create the Table and add it to the window widget
       var table = this.__createTable();
       //table.setFocusedCell(2,5);
