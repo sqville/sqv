@@ -19,6 +19,8 @@
 
 /**
  * The simple qooxdoo decoration theme.
+ * 
+ * @require(sqv.ui.decoration.MCssIcon)
  */
 qx.Theme.define("sqv.theme.clean.Decoration",
 {
@@ -30,6 +32,9 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
   decorations :
   {
+    
+    
+    
     /*
     ---------------------------------------------------------------------------
       CORE
@@ -270,7 +275,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
    	  
    	  style :
       {
-        color : ["white","transparent",null,"transparent"],
+        color : ["white","transparent",null,"transparent"]
       }
    },
    
@@ -1693,7 +1698,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
     
-    "tabviewspot-bar-top" : "tabview-bor-top",
+    "tabviewspot-bar-top" : "tabview-bar-top",
     
     "tabviewspot-bar-bottom" : "tabviewspacebar-bar-top",
     

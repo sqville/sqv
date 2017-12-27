@@ -87,11 +87,13 @@ qx.Mixin.define("sqv.ui.decoration.MCssIcon",
 	  	//variables for looping
 	  	var entryval;
 	  	
-	  	styles[":after"] = {};
+	  	//styles[":after"] = {};
+	  	//styles[":before"] = {};
 	  	
 	  	//general loop to add content based on map
 	  	for (var sudo in sudostylemap) {
 		  	if (sudo == "before" || sudo == "after"){
+			  	//styles[":" + sudo] = {};
 			  	for (var entry in sudostylemap[sudo]) {
 		  			entryval = sudostylemap[sudo][entry];
 		  			switch(entry) {

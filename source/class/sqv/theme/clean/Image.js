@@ -36,6 +36,7 @@ qx.Class.define("sqv.theme.clean.Image",
     {
     	"checkbox-checked" :
     	{
+    		"html" : {},
     		"before" : 
     		{
     			"width" : "6px",
@@ -49,8 +50,9 @@ qx.Class.define("sqv.theme.clean.Image",
 				"border-right" : "2px solid",
 				"border-bottom" : "2px solid",
 				"border-left" : "0px solid",
-    			"color" : "black", //color of the check mark
-    		}
+    			"color" : "black" //color of the check mark
+    		},
+    		"after" : {}
     	}
     },
     

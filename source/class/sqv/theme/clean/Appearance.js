@@ -31,6 +31,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
   appearances :
   {
     
+    
+    
     /*
     ---------------------------------------------------------------------------
       SQV

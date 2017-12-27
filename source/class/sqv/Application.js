@@ -323,9 +323,16 @@ qx.Class.define("sqv.Application",
       
       showtablebutton.addListener("execute", win2.open, win2);
       
+      //Scroll area to fit all controls
+      var scroll = new qx.ui.container.Scroll();
+      scroll.set({padding: 0, margin: 0, contentPadding: [0,0,0,0]});
+      
+      // new canvas to hold controls
+      var doc = new qx.ui.container.Composite(new qx.ui.layout.Canvas());
+      doc.set({padding:[0,90,26,0]});
       
       // Document is the application root
-      var doc = this.getRoot();
+      var appdoc = this.getRoot();
       
       // Add stand alone fa icons
       doc.add(new qx.ui.basic.Label("FontAwesome Icons:"), {left: 20, top: 10});
@@ -410,11 +417,10 @@ qx.Class.define("sqv.Application",
       // Add Show Table Button
       doc.add(showtablebutton, {left: 1320, top: 560});
 
-
-      // Add an event listener
-      //button1.addListener("execute", function(e) {
-      //  alert("Hello World!");
-      //});
+      // Add scroll to the application widget
+      scroll.add(doc);
+      appdoc.add(scroll, {left: 0, top: 0, right: 0, bottom: 0});
+      //appdoc.add(scroll, {flex: 1});
     },
     
     getTree : function()
