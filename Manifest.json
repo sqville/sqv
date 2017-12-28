@@ -3,17 +3,17 @@
   {
     "name" : "sqv",
 
-    "summary" : "Custom Application",
-    "description" : "This is a skeleton for a custom application with qooxdoo.",
+    "summary" : "SQv test application, Clean theme and fonticon implementation",
+    "description" : "SQv test application, Clean theme and fonticon implementation",
     
-    "homepage" : "http://some.homepage.url/",
+    "homepage" : "http://villesoftware.com/",
 
-    "license" : "SomeLicense",
-    "authors" : 
+    "license" : "MIT",
+    "authors" : "Chris Eskew"
     [
       {
-        "name" : "First Author (uid)",
-        "email" : "first.author@some.domain"
+        "name" : "Chris Eskew",
+        "email" : "chris.eskew@sqville.com"
       }
     ],
 
