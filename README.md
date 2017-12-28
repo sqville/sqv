@@ -50,9 +50,21 @@ The fully integrated way of using Font Icons in your qx.Desktop application.
 	qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
 	qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
 
-<b>Step 6</b> Run "generate.py source" in the command line to link the sqv project files to your application <br><br>
+<b>Step 6</b> Add the following config entry (add-css) into sqv's config.json file, common entry (12/28/2017 - removed since this is an alternative to the qx @font implemention of font icons). This will bring in the necessary fontawesome css classes:
 
-<b>Step 7</b> Create an image in your application and set its appearance property to "fa-search"
+	"common" :
+      {
+      	"add-css" :
+      	[
+	        {
+	          "uri" : "resource/sqv/css/font-awesome.min.css"
+	        }
+	    ]
+      }
+
+<b>Step 7</b> Run "generate.py source" in the command line to link the sqv project files to your application <br><br>
+
+<b>Step 8</b> Create an image in your application and set its appearance property to "fa-search"
 
 	//stand alone icon example
     var faiconsearch = new qx.ui.basic.Image().set({appearance:"fa-search"});
@@ -62,7 +74,7 @@ The fully integrated way of using Font Icons in your qx.Desktop application.
     var button = new qx.ui.form.Button("Icon Button", "");
     button.setAppearance("search-button");
     
-<b>Step 8</b> Run your project and see the results
+<b>Step 9</b> Run your project and see the results
 
 
 Demos
