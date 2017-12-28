@@ -53,6 +53,14 @@ Temporary Items
 /source/resource/sqv/fonts/fontawesome-webfont.ttf
 /source/resource/sqv/fonts/fontawesome-webfont.woff
 /source/resource/sqv/fonts/FontAwesome.otf
+/.settings
 generate.py
 Gruntfile.js
 .project
+.pydevproject
+migration.log
+generate.py
+Gruntfile.js
+readme.txt
+config.json
+.gitignore
