@@ -68,15 +68,6 @@
           "manifest" : "contrib://SkeletonApplication/trunk/Manifest.json"
         }
       ]
-    },
-    "common" :
-    {
-      "add-css" :
-	  [
-	  	{
-	  		"uri" : "resource/sqv/css/font-awesome.min.css"
-	  	}
-	  ]
     }*/
     
     // If you want to tweak a job setting, see the following sample where
