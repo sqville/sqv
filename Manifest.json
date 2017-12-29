@@ -9,16 +9,16 @@
     "homepage" : "http://villesoftware.com/",
 
     "license" : "MIT",
-    "authors" : "Chris Eskew"
+    "authors" : 
     [
       {
-        "name" : "Chris Eskew",
+        "name" : "Chris Eskew (sqville)",
         "email" : "chris.eskew@sqville.com"
       }
     ],
 
     "version" : "master",
-    "qooxdoo-versions": ["5.0.1"]
+    "qooxdoo-versions": ["5.0.2"]
   },
   
   "provides" : 
