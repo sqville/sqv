@@ -59,9 +59,5 @@ Gruntfile.js
 .project
 .pydevproject
 migration.log
-generate.py
-Gruntfile.js
 readme.txt
-config.json
-.gitignore
 config.json

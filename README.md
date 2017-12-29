@@ -10,7 +10,7 @@ qooxdoo themes and more for qx.Desktop applications<br>
 
 CLEAN
 ==========================
-<img width=150 height=150 src="http://sqville.com/examples/images/sqv/noun_26805_cc.svg" \>
+![Clean](http://sqville.com/examples/images/sqv/noun_26805_cc.svg)
 <ul>
 <li>A theme for qx.Desktop applications</li>
 <li>It's objective is to live up to it's name</li>
