@@ -135,14 +135,32 @@ qx.Class.define("sqv.Application",
       var faiconfolderopen = new qx.ui.basic.Image().set({appearance:"fa-folder-open"});
       
       // List
+      //var list = new qx.ui.form.List();
       var list = new qx.ui.form.List();
       list.setHeight(180);
       list.setWidth(155);
-      for (var i=0; i<24; i++)
+      list.setSpacing(2);
+      
+      /*for (var i=0; i<24; i++)
       {
         var templistItem = new qx.ui.form.ListItem("Item " + (i+1));
         list.add(templistItem);
-      }
+      }*/
+      list.add(new qx.ui.form.ListItem("<b>Widgets</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "primary-button-box", textColor: "white"}));
+      list.add(new qx.ui.form.ListItem("Button"));
+      list.add(new qx.ui.form.ListItem("TextField"));
+      list.add(new qx.ui.form.ListItem("DateField"));
+      list.add(new qx.ui.form.ListItem("ComboBox"));
+      list.add(new qx.ui.form.ListItem("GroupBox"));
+      list.add(new qx.ui.form.ListItem("RadioButton"));
+      list.add(new qx.ui.form.ListItem("CheckBox"));
+      list.add(new qx.ui.form.ListItem("TabView"));
+      list.add(new qx.ui.form.ListItem("Tree"));
+      list.add(new qx.ui.form.ListItem("Spinner"));
+      list.add(new qx.ui.form.ListItem("MenuButton"));
+      list.add(new qx.ui.form.ListItem("SplitButton"));
+      list.add(new qx.ui.form.ListItem("Window"));
+      list.add(new qx.ui.form.ListItem("Table"));
       
       // TextField
       var textbox = new qx.ui.form.TextField();
@@ -323,6 +341,10 @@ qx.Class.define("sqv.Application",
       
       showtablebutton.addListener("execute", win2.open, win2);
       
+      /*********************************************************************
+       ******************** SCAFFOLDING ************************************
+       *********************************************************************/
+      
       //Scroll area to fit all controls
       var scroll = new qx.ui.container.Scroll();
       scroll.set({padding: 0, margin: 0, contentPadding: [0,0,0,0]});
@@ -333,13 +355,24 @@ qx.Class.define("sqv.Application",
       
       // Document is the application root
       var appdoc = this.getRoot();
+      // App's Dock 
+      var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "yellow"});
+      // Dock north's HBox
+      var northhbox = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({spacing: 10})).set({backgroundColor: "red"});
+      // Dock east's VBox
+      var westbox = new qx.ui.container.Composite(new qx.ui.layout.VBox()).set({backgroundColor: "blue"});
+      // Dock center's VBox
+      //var centerbox = new qx.ui.container.Composite(new qx.ui.layout.VBox()).set({backgroundColor: "green"});
       
       // Add stand alone fa icons
-      doc.add(new qx.ui.basic.Label("FontAwesome Icons:"), {left: 20, top: 10});
-      doc.add(faiconsearch, {left: 170, top: 10});
-      doc.add(faiconcal, {left: 210, top: 10});
-      doc.add(faiconhtml5, {left: 250, top: 10});
-      doc.add(faiconfolderopen, {left: 290, top: 10});
+      northhbox.add(new qx.ui.basic.Label("FontAwesome Icons:"));
+      northhbox.add(faiconfolderopen);
+      northhbox.add(faiconhtml5);
+      northhbox.add(faiconcal);
+      northhbox.add(faiconsearch);
+      
+      
+      appcompdock.add(northhbox, {edge:"north"});
 
       // Add button to document at fixed coordinates
       doc.add(button1, {left: 100, top: 50});
@@ -364,9 +397,6 @@ qx.Class.define("sqv.Application",
             
       // Add an Icon button example
       doc.add(iconbutton1, {left: 210, top: 50});
-      
-      // Add List
-      doc.add(list, {left: 100, top: 190});
       
       // Add Textfield
       doc.add(textbox, {left: 320, top: 120});
@@ -419,8 +449,13 @@ qx.Class.define("sqv.Application",
 
       // Add scroll to the application widget
       scroll.add(doc);
-      appdoc.add(scroll, {left: 0, top: 0, right: 0, bottom: 0});
-      //appdoc.add(scroll, {flex: 1});
+      
+      appcompdock.add(list, {edge:"west"});
+      
+      appcompdock.add(scroll, {edge:"center"});
+      
+      appdoc.add(appcompdock, {edge: 0});
+          
     },
     
     getTree : function()
