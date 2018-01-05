@@ -2833,7 +2833,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           font            : "bold",
           textAlign       : "center",
           textColor       : states.disabled ? "text-disabled" : states.weekend ? "text" : "background",
-          backgroundColor : states.weekend ? "background" : "primary-button-box",
+          backgroundColor : states.weekend ? "background" : "primary",
           paddingTop: 2
         };
       }
@@ -2847,7 +2847,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           textAlign       : "center",
           decorator       : states.today ? "main" : undefined,
           textColor       : states.disabled ? "text-disabled" : states.selected ? "text-selected" : states.otherMonth ? "text-disabled" : undefined,
-          backgroundColor : states.disabled ? undefined : states.selected ? "primary-button-box" : undefined,
+          backgroundColor : states.disabled ? undefined : states.selected ? "primary" : undefined,
           padding         : states.today ? [ 1, 3 ] : [2, 4]
         };
       }

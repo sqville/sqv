@@ -85,6 +85,15 @@ qx.Theme.define("sqv.theme.clean.Color",
 	"textfield-selected" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.3)" : "#BDBEBE",
 	"textfield-selected-darker" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.5)" : "#BDBEBE",
 	
+	
+	//************************
+	//*** Color Pallette 1 ***
+	//************************
+	"primary" : "#3b83c0",
+	"secondary" : "#1b1c1d",
+	"tertiary" : "#5bbd72",
+	
+	
 	//*** SQv Primary Button colors
 	"primary-button-box" : "#3b83c0",
 	"primary-button-box-hovered" : "#458ac6",

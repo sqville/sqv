@@ -116,6 +116,20 @@ qx.Theme.define("sqv.theme.clean.Font",
     {
       size : 11,
       family : [ "DejaVu Sans Mono", "Courier New", "monospace" ]
+    },
+    
+    // Theme Browser Content Formatting
+    "control-header" :
+    {
+    	include : "default",
+    	size : 24,
+    	bold : true
+    },
+    
+    "control-header2" :
+    {
+    	include : "default",
+    	size : 20
     }
   }
 });

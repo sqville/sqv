@@ -27,6 +27,10 @@ qx.Class.define("sqv.Application",
 
   members :
   {
+    _northBox : null,
+    
+    _westBox : null,
+    
     /**
      * This method contains the initial application code and gets called 
      * during startup of the application
@@ -76,7 +80,11 @@ qx.Class.define("sqv.Application",
 	  qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
 	  
       // Create a button
-      var button1 = new qx.ui.form.Button("Follow");
+      var button1 = new qx.ui.form.Button("Follow").set({allowGrowX: false});
+      
+      // icon button example
+      var iconbutton1 = new qx.ui.form.Button("Icon only Button", "sqv/test.png").set({show: "icon", allowGrowX: false, padding: [10,10]});
+       
      
       var button2 = new qx.ui.form.Button("Icon Button", "");
       button2.setAppearance("search-button");
@@ -91,14 +99,12 @@ qx.Class.define("sqv.Application",
 
       
       // primary button example
-      var primbutton1 = new qx.ui.form.Button("Save");
-      primbutton1.setAppearance("primary-button");
-      var button3 = new qx.ui.form.Button("Discard");
+      var primbutton1 = new qx.ui.form.Button("Save").set({appearance: "primary-button", allowGrowX: false});
+      var button3 = new qx.ui.form.Button("Discard").set({allowGrowX: false});
       button3.setFocusable(false);
       
       // seconary button example
-      var secbutton1 = new qx.ui.form.Button("Okay");
-      secbutton1.setAppearance("secondary-button");
+      var secbutton1 = new qx.ui.form.Button("Okay").set({appearance: "secondary-button", allowGrowX: false});
       var button4 = new qx.ui.form.Button("Cancel");
       button4.setFocusable(false);
       
@@ -123,10 +129,7 @@ qx.Class.define("sqv.Application",
       var virtselectBox = new qx.ui.form.VirtualSelectBox(model);
       virtselectBox.setWidth(270);
       
-      // icon button example
-      var iconbutton1 = new qx.ui.form.Button("Icon only Button", "sqv/test.png");
-      iconbutton1.setShow("icon");
-      iconbutton1.setPadding([10,10]);
+
       
       //stand alone icon
       var faiconsearch = new qx.ui.basic.Image().set({appearance:"fa-search"});
@@ -134,33 +137,7 @@ qx.Class.define("sqv.Application",
       var faiconhtml5 = new qx.ui.basic.Image().set({appearance:"fa-html5"});
       var faiconfolderopen = new qx.ui.basic.Image().set({appearance:"fa-folder-open"});
       
-      // List
-      //var list = new qx.ui.form.List();
-      var list = new qx.ui.form.List();
-      list.setHeight(180);
-      list.setWidth(155);
-      list.setSpacing(2);
       
-      /*for (var i=0; i<24; i++)
-      {
-        var templistItem = new qx.ui.form.ListItem("Item " + (i+1));
-        list.add(templistItem);
-      }*/
-      list.add(new qx.ui.form.ListItem("<b>Widgets</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "primary-button-box", textColor: "white"}));
-      list.add(new qx.ui.form.ListItem("Button"));
-      list.add(new qx.ui.form.ListItem("TextField"));
-      list.add(new qx.ui.form.ListItem("DateField"));
-      list.add(new qx.ui.form.ListItem("ComboBox"));
-      list.add(new qx.ui.form.ListItem("GroupBox"));
-      list.add(new qx.ui.form.ListItem("RadioButton"));
-      list.add(new qx.ui.form.ListItem("CheckBox"));
-      list.add(new qx.ui.form.ListItem("TabView"));
-      list.add(new qx.ui.form.ListItem("Tree"));
-      list.add(new qx.ui.form.ListItem("Spinner"));
-      list.add(new qx.ui.form.ListItem("MenuButton"));
-      list.add(new qx.ui.form.ListItem("SplitButton"));
-      list.add(new qx.ui.form.ListItem("Window"));
-      list.add(new qx.ui.form.ListItem("Table"));
       
       // TextField
       var textbox = new qx.ui.form.TextField();
@@ -172,7 +149,7 @@ qx.Class.define("sqv.Application",
       textboxform.setPlaceholder("First Name");
       textboxform.setWidth(270);
       textboxform.setAppearance("textfield-form");
-      var datefield = new qx.ui.form.DateField();
+      var datefield = new qx.ui.form.DateField().set({allowGrowX: false});
       datefield.setPlaceholder("Date of Birth");
       datefield.setWidth(270);
       
@@ -341,6 +318,8 @@ qx.Class.define("sqv.Application",
       
       showtablebutton.addListener("execute", win2.open, win2);
       
+      
+      
       /*********************************************************************
        ******************** SCAFFOLDING ************************************
        *********************************************************************/
@@ -358,11 +337,15 @@ qx.Class.define("sqv.Application",
       // App's Dock 
       var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "yellow"});
       // Dock north's HBox
-      var northhbox = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({spacing: 10})).set({backgroundColor: "red"});
+      var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({spacing: 10})).set({backgroundColor: "silver"});
       // Dock east's VBox
-      var westbox = new qx.ui.container.Composite(new qx.ui.layout.VBox()).set({backgroundColor: "blue"});
+      var westbox = this._westBox = new qx.ui.container.Composite(new qx.ui.layout.VBox().set({spacing: 10})).set({backgroundColor: "white", padding: [10,10]});
       // Dock center's VBox
-      //var centerbox = new qx.ui.container.Composite(new qx.ui.layout.VBox()).set({backgroundColor: "green"});
+      var centerbox = new qx.ui.container.Composite(new qx.ui.layout.VBox().set({spacing: 10})).set({backgroundColor: "white", padding: [10,26]});
+      
+      /*scroll.addListener("changeWidth", function(e) {
+        this.debug("Checked: " + e.getData());
+      }, this);*/
       
       // Add stand alone fa icons
       northhbox.add(new qx.ui.basic.Label("FontAwesome Icons:"));
@@ -370,21 +353,99 @@ qx.Class.define("sqv.Application",
       northhbox.add(faiconhtml5);
       northhbox.add(faiconcal);
       northhbox.add(faiconsearch);
-      
-      
+           
       appcompdock.add(northhbox, {edge:"north"});
+            
+      // List    
+      /*list.add(new qx.ui.form.ListItem("ComboBox"));
+      list.add(new qx.ui.form.ListItem("GroupBox"));
+      list.add(new qx.ui.form.ListItem("RadioButton"));
+      list.add(new qx.ui.form.ListItem("CheckBox"));
+      list.add(new qx.ui.form.ListItem("TabView"));
+      list.add(new qx.ui.form.ListItem("Tree"));
+      list.add(new qx.ui.form.ListItem("Spinner"));
+      list.add(new qx.ui.form.ListItem("MenuButton"));
+      list.add(new qx.ui.form.ListItem("SplitButton"));
+      list.add(new qx.ui.form.ListItem("Window"));
+      list.add(new qx.ui.form.ListItem("Table"));*/
+      
+      
+      // Populate centerBox with content
+      
+      // centerBox -> BUTTON
+      var lblHeaderButton = new qx.ui.basic.Label("Button").set({font: "control-header"});
+      centerbox.add(lblHeaderButton);
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.Button</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"button"</b> <em>(default)</em>').set({rich: true, paddingTop: 20}));
+      centerbox.add(button1);
+      centerbox.add(new qx.ui.basic.Label("<em>(icon only)</em>").set({rich: true}));
+      centerbox.add(iconbutton1);
+      centerbox.add(new qx.ui.basic.Label('<b>"primary-button"</b> <em>(backgroundColor property is set to a color named "primary", and defined in the themes Color class)</em>').set(
+      	{rich: true, wrap: true, paddingTop: 20}));
+      centerbox.add(primbutton1);
+      centerbox.add(new qx.ui.basic.Label('<b>"secondary-button"</b> <em>(backgroundColor property is set to a color named "secondary", and defined in the themes Color class)</em>').set(
+      	{rich: true, wrap: true, paddingTop: 20}));
+      centerbox.add(secbutton1);
+      
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> TEXTFIELD
+      var lblHeaderTextField = new qx.ui.basic.Label("TextField").set({font: "control-header"});
+      centerbox.add(lblHeaderTextField);
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.TextField</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"textfield"</b> <em>(default)</em>').set({rich: true, paddingTop: 20}));
+      centerbox.add(textbox);
+      centerbox.add(new qx.ui.basic.Label('<b>"textfield-form"</b>').set({rich: true, paddingTop: 20}));
+      centerbox.add(textboxform);
+      
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> DATEFIELD
+      var lblHeaderDateField = new qx.ui.basic.Label("DateField").set({font: "control-header"});
+      centerbox.add(lblHeaderDateField);
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.DateField</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"datefield"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(datefield);
+      
+      // Add centerbox to scroll area
+      scroll.add(centerbox);
+      
+      // Populate westBox with content
+      westbox.add(new qx.ui.basic.Label("Theme Browser"));
+      westbox.add(new qx.ui.basic.Label("Widgets").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "primary-button-box", textColor: "white"}));
+      var lblButton = new qx.ui.basic.Label("Button"); 
+      lblButton.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
+      });
+      westbox.add(lblButton);
+      var lblTextField = new qx.ui.basic.Label("TextField"); 
+      lblTextField.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderTextField, "top");
+      });
+      westbox.add(lblTextField);
+      var lblDateField = new qx.ui.basic.Label("DateField"); 
+      lblDateField.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderDateField, "top");
+      });
+      westbox.add(lblDateField);
+
 
       // Add button to document at fixed coordinates
-      doc.add(button1, {left: 100, top: 50});
-      doc.add(button2, {left: 100, top: 120});
+      //doc.add(button1, {left: 100, top: 50});
+      //doc.add(button2, {left: 100, top: 120});
       
       // Add primary button example
-      doc.add(primbutton1, {left: 320, top: 50});
-      doc.add(button3, {left: 400, top: 50});
+      //doc.add(primbutton1, {left: 320, top: 50});
+      //doc.add(button3, {left: 400, top: 50});
       
       // Add secondary button example
-      doc.add(secbutton1, {left: 560, top: 50});
-      doc.add(button4, {left: 641, top: 50});
+      //doc.add(secbutton1, {left: 560, top: 50});
+      //doc.add(button4, {left: 641, top: 50});
       
       // Add Qx Image
       //doc.add(qximage, {left: 880, top: 50});
@@ -396,12 +457,12 @@ qx.Class.define("sqv.Application",
       doc.add(virtselectBox, {left: 1100, top: 50});
             
       // Add an Icon button example
-      doc.add(iconbutton1, {left: 210, top: 50});
+      //doc.add(iconbutton1, {left: 210, top: 50});
       
       // Add Textfield
-      doc.add(textbox, {left: 320, top: 120});
-      doc.add(textboxform, {left: 320, top: 170});
-      doc.add(datefield, {left: 320, top: 220});
+      //doc.add(textbox, {left: 320, top: 120});
+      //doc.add(textboxform, {left: 320, top: 170});
+      //doc.add(datefield, {left: 320, top: 220});
       doc.add(combobox1, {left: 320, top: 270});
       doc.add(virtcomboBox, {left: 320, top: 320});
       
@@ -448,9 +509,10 @@ qx.Class.define("sqv.Application",
       doc.add(showtablebutton, {left: 1320, top: 560});
 
       // Add scroll to the application widget
-      scroll.add(doc);
-      
-      appcompdock.add(list, {edge:"west"});
+      //scroll.add(doc);
+
+          
+      appcompdock.add(westbox, {edge:"west"});
       
       appcompdock.add(scroll, {edge:"center"});
       

@@ -131,7 +131,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         radius : 3,
         width : 0,
-        backgroundColor : "primary-button-box"
+        backgroundColor : "primary"
       }
     },
 
@@ -555,18 +555,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     */
     "button-box-focused" :
     {
-      include : "button-box",
-
-      style :
-      {
-        inset : false,
-        width : 0,
-        //color : "background-selected"
-        shadowColor : "button-focus-shadow",
-        shadowLength : [0, 0],
-        shadowBlurRadius : 3,
-        shadowSpreadRadius : 2
-      }
+      include : "button-box-pressed"
     },
 
     "button-box-pressed-focused" :
