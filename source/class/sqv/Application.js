@@ -153,6 +153,14 @@ qx.Class.define("sqv.Application",
       datefield.setPlaceholder("Date of Birth");
       datefield.setWidth(270);
       
+      // Upload
+      var upload = new sqv.ui.control.Upload("Drag n drop, or", "Browse", null);
+      upload.set({
+      	height: 150,
+      	spacing: 20,
+      	center: true
+      });
+      
       // ComboBox
       var combobox1 = new qx.ui.form.ComboBox();
       combobox1.setPlaceholder("Select");
@@ -412,6 +420,17 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label('<b>"datefield"</b> <em>(default)</em>').set({rich: true}));
       centerbox.add(datefield);
       
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> Upload
+      var lblHeaderUpload = new qx.ui.basic.Label("Upload").set({font: "control-header"});
+      centerbox.add(lblHeaderUpload);
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Upload</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"upload"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(upload);
+      
       // Add centerbox to scroll area
       scroll.add(centerbox);
       
@@ -433,6 +452,30 @@ qx.Class.define("sqv.Application",
       	scroll.scrollChildIntoViewY(lblHeaderDateField, "top");
       });
       westbox.add(lblDateField);
+      var lblUpload  = new qx.ui.basic.Label("Upload"); 
+      lblUpload.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderUpload, "top");
+      });
+      westbox.add(lblUpload);
+      var lblComboBox  = new qx.ui.basic.Label("ComboBox"); 
+      //lblButton.addListener("click", function() {
+      //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
+      //});
+      westbox.add(lblComboBox);
+
+      var lblOptionButton  = new qx.ui.basic.Label("RadioButton"); 
+      //lblButton.addListener("click", function() {
+      //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
+      //});
+      westbox.add(lblOptionButton);
+      var lblCheckBox  = new qx.ui.basic.Label("CheckBox"); 
+      //lblButton.addListener("click", function() {
+      //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
+      //});
+      westbox.add(lblCheckBox);
+      
+      
+      
 
 
       // Add button to document at fixed coordinates
