@@ -219,6 +219,17 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         };
       }
    },
+   
+   "upload/progressbar" : "progressbar-trans",
+   
+   "upload/progressbar/progress":
+    {
+      style: function(states) {
+        return {
+          backgroundColor: "progressbar-gray"
+        };
+      }
+    },
 
 
     /*
@@ -2895,10 +2906,21 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style: function(states) {
         return {
           decorator: "progressbar",
-          padding: 1,
+          padding: 0,
           backgroundColor: "white",
           width : 200,
           height : 20
+        };
+      }
+    },
+    
+    "progressbar-trans":
+    {
+      include: "progressbar",
+      style: function(states) {
+        return {
+          decorator: "progressbar-trans",
+          backgroundColor: "transparent"
         };
       }
     },
@@ -2907,9 +2929,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     {
       style: function(states) {
         return {
-          backgroundColor: states.disabled ?
-            "background-disabled-checked" :
-            "background-selected"
+          backgroundColor: "primary"
         };
       }
     },

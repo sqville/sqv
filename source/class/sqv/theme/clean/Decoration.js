@@ -1167,6 +1167,17 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         color : "gray"
       }
     },
+    
+    "upload-area-dragover" :
+    {
+     include: "upload-area",
+      
+      style :
+      {
+        style : "solid",
+        color : "orange"
+      }
+    },
 
 
     /*
@@ -1822,9 +1833,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style:
       {
         backgroundColor: "#FFF",
+        radius : 3,
         width: 1,
         color: "border-separator"
       }
+    },
+    
+    "progressbar-trans" :
+    {
+        radius : 3,
+        width: 0
     },
 
 

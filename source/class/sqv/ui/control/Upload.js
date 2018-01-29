@@ -18,10 +18,9 @@
  * A multi-file upload widget with Drag and Drop feature
  *
  *
- * @childControl input {qx.ui.embed.Html} input part of the widget
  * @childControl message {qx.ui.basic.Label} label part of the widget
  * @childControl button {qx.ui.form.Button} button part of the widget
- * @childControl progress {qx.ui.indicator.ProgressBar} progress bar part of the widget
+ * @childControl progressbar {qx.ui.indicator.ProgressBar} progress bar part of the widget
  */
 qx.Class.define("sqv.ui.control.Upload",
 {
@@ -49,10 +48,16 @@ qx.Class.define("sqv.ui.control.Upload",
 
     this._setLayout(new qx.ui.layout.VBox());
     
-    //this._createChildControl("input");
+    // Add dragndrop listeners during appear event, if enabled
+    if (this.getDragndropenabled()){
+    	this.__initiateAppearListner();
+	    this.__addCssdragenterClass(this.getDragovermessage());
+    }
+		
+    
     this._createChildControl("message");
     this._createChildControl("button");
-    this._createChildControl("progress");
+    this._createChildControl("progressbar");
 
     if (message != null) {
       this.setMessage(message);
@@ -104,6 +109,20 @@ qx.Class.define("sqv.ui.control.Upload",
       check : "String",
       event : "changeLabel"
     },
+    
+    /**
+     * Enables Drag and Drop feature
+     */
+    dragndropenabled :
+    {
+      check : "Boolean",
+      init : true
+    },
+    
+    dragovermessage: {
+  		check : "String",
+  		init : "Drop files here"
+  	},
 
 
     /**
@@ -213,20 +232,51 @@ qx.Class.define("sqv.ui.control.Upload",
           control.setAnonymous(true);
           control.setRich(this.getRich());
           this._add(control);
-          //if (this.getMessage() == null || this.getShow() === "icon") {
-           // control.exclude();
-          //}
           break;
 
         case "button":
-          //control = new qx.ui.form.Button(this.getLabel(), this.getIcon());
           control = new qx.ui.form.Button("blank", "sqv/test.png").set({allowGrowX: false});
-          var inputctrl = new qx.html.Input("file", {display: "none"} , {id: "sqvinputupload", name:"uploadfiles", multiple: true});
-          //{position: "absolute", cursor: "pointer", hideFocus: true, top: 0, right:0}
+          var inputctrl = new qx.html.Input("file", {display: "none"} , {id: "sqvinputupload1727", name:"uploadfiles", multiple: true});
+          inputctrl.addListener("change", function(e) {
+           	var filesizemax = 10;
+			var filesizetotalmax = 10;
+            var value = "";
+            var filesize = 0;
+			var filesizerunningsum = 0;
+			var triggerupload = true;
+            var targetobj = e.getTarget();
+            var files = targetobj.files;
+            for (var k = 0; k < files.length; k++) {
+            	//value = value + files[k].name + ";;;";
+				filesize = ((files[k].size/1024)/1024).toFixed(4); // MB
+				if (filesize >= filesizemax){
+				    //end loop and send error message to user
+				    triggerupload = false;			    
+				    break;
+				}
+				else {
+				    filesizerunningsum += filesize; 
+				    // add file to json string
+				    value += qx.lang.Json.stringify([files[k]]);
+				}
+				if (filesizerunningsum >= filesizetotalmax) {
+				    //end loop and send error message to user
+				    triggerupload = false;
+				    break;
+				}
+			}
+			if (triggerupload){                
+			    //value = qx.lang.Json.stringify([files]);
+			    //this.setFileName(value);
+			    //this.fireDataEvent('changeFileName', value);
+			    var progressbar = this.getChildControl("progressbar", true);
+			    progressbar.setBackgroundColor("progressbar-base");
+			    progressbar.setValue(10);
+			}
+          }, this);
           control.getContentElement().add(inputctrl);
           control.addListener("click", function(e) {
-	        this.getChildControl("progress", true).setVisibility("visible");
-	        var browse = document.getElementById("sqvinputupload");
+	        var browse = document.getElementById("sqvinputupload1727");
 	        browse.click();
 	      }, this);
           this._add(control);
@@ -236,23 +286,10 @@ qx.Class.define("sqv.ui.control.Upload",
           }*/
           break;
           
-        case "input":
-          var inputctrl = new qx.html.Input("file", {display: "none"}, {name:"uploadfiles", multiple: true});
-          control = new qx.ui.embed.Html(inputctrl.toString()); 
-          //control.setAnonymous(true);
-          //this._addAt(control, 0);
-          this._add(control);
-          /*if (this.getIcon() == null || this.getShow() === "label") {
-            //control.exclude();
-            control.setShow("label");
-          }*/
-          break;
-          
-        case "progress":
+        case "progressbar":
           control = new qx.ui.indicator.ProgressBar();
-          //control.setAnonymous(true);
+          control.getContentElement().setAttribute("id","sqvuploadpb1727");
           this._add(control);
-          control.setVisibility("hidden");
           
           break;
       }
@@ -283,6 +320,113 @@ qx.Class.define("sqv.ui.control.Upload",
         this._showChildControl("label");
       }
     },*/
+   
+   /**
+     * Add the onappear listner
+     */
+    __initiateAppearListner: function () {
+	     //*** Can only attach the needed drag and drop events to Dom Elements. Dom Element is only available to grab
+	     //**  after it has "appeared" on the page
+	     this.addListenerOnce("appear", function(e) {
+	     	//*** Required - grab the object's Dom Element and attach drag and drop event listeners
+	     	var domtable = this.getContentElement().getDomElement();
+	
+	     	//*** ADD DRAG AND DROP EVENTS TO THE DOM ELEMENT:
+	    	//**  Adding events using qx.bom.Event object is the same as adding an "on" event directly to the Dom Element,
+	     	//**  for example, the "addNativeListener()" function is the same as: domtable.ondrop = function() {};
+	     	//*** DRAGENTER
+	    	qx.bom.Event.addNativeListener(domtable, "dragenter", function(e){
+	    		if (e.target.nodeType == 1) {
+	    			e.dataTransfer.dropEffect = 'copy';
+	    			qx.bom.Event.preventDefault(e);
+	    			qx.bom.Event.stopPropagation(e);
+	    			//qx.bom.element.Class.add(this,"plaiddocumentdndenter");
+	    			//console.log("dragenter");
+	    		}
+	    	}, this);
+	    	
+	    	//*** DRAGLEAVE
+	    	qx.bom.Event.addNativeListener(domtable, "dragleave", function(e){    		
+	    		if (e.target.nodeType == 1) {
+	    			qx.bom.element.Class.remove(this,"sqvdocumentdndenter1727");
+	    			//console.log("dragleave");
+	    		}	
+	    	}, this);
+	    	
+	    	//*** DRAGEXIT
+	    	qx.bom.Event.addNativeListener(domtable, "dragexit", function(e){
+	    		qx.bom.Event.stopPropagation(e);
+	    		qx.bom.Event.preventDefault(e);
+	    		//console.log("dragexit");
+	    		qx.bom.element.Class.remove(this,"sqvdocumentdndenter1727");
+	    		e.dataTransfer.dropEffect = 'none';	
+	    	}, this);
+	    	
+	    	//*** DRAGEND
+	    	qx.bom.Event.addNativeListener(domtable, "dragend", function(e){
+	    		qx.bom.Event.stopPropagation(e);
+	    		qx.bom.Event.preventDefault(e);
+	    		qx.bom.element.Class.remove(this,"sqvdocumentdndenter1727");
+	    		e.dataTransfer.dropEffect = 'none';	
+	    	}, this);
+	
+	     	//*** DRAGOVER
+	     	qx.bom.Event.addNativeListener(domtable, "dragover", function(e){		
+		    	if (e.target.nodeType == 1) {
+	    			e.dataTransfer.dropEffect = 'copy';
+	    			qx.bom.Event.preventDefault(e);
+	    			qx.bom.Event.stopPropagation(e);
+	    			qx.bom.element.Class.add(this,"sqvdocumentdndenter1727");
+	    		}
+	     	});
+	
+	     	//*** DROP
+	     	qx.bom.Event.addNativeListener(domtable, "drop", function(e){		
+	    		qx.bom.Event.preventDefault(e);
+	    		qx.bom.Event.stopPropagation(e);
+	    		qx.bom.element.Class.remove(this,"sqvdocumentdndenter1727");
+	    		var progressbar = document.getElementById("sqvuploadpb1727");
+	        	progressbar.style.backgroundcolor = "#888888";
+	    		var droppedFiles = e.dataTransfer.files;
+	     	}, this);
+	     	
+	    }, this);
+    },
+    
+     /**
+     * Add CSS to support dragenter event change
+     */
+    __addCssdragenterClass: function (dragovermsg) {
+    	var dsktopstylsheet = qx.ui.style.Stylesheet.getInstance();
+    	if (!dsktopstylsheet.hasRule()) {
+    		//add the rule to qx.desktop's stylesheet
+    		var rulename = ".sqvdocumentdndenter1727";
+    		//var css = "opacity: .7;" +
+    			//"background-color: #F0F8FF;";
+    		var css = "opacity: .7; border: 1px solid orange !important;";
+    		
+    		dsktopstylsheet.addRule(rulename, css);
+    		
+    		/*var rulenameafter = rulename + ":after";
+    		var cssafter = "color: white;" +
+    			"font-size: 14px;" +
+    			"font-style: bold;" +
+    			"z-index: 3000;" +
+    			"width: 100%" +
+    			"height: 100%;" +
+    			"padding: 2px;" +
+    			"top: 0;" +
+    			"left: 5;" +
+    			"position: absolute;" +
+    			"opacity: 1;" +
+    			"background-color: blue;" +
+    			"text-align: center;" +
+    			"content: '" + dragovermsg +"';";*/
+    		
+    		//dsktopstylsheet.addRule(rulenameafter, cssafter);
+    		//dsktopstylsheet.addRule(rulenamebefore, cssbefore);
+    	}
+    },
 
 
     /**
