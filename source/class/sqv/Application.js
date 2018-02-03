@@ -161,6 +161,9 @@ qx.Class.define("sqv.Application",
       	center: true
       });
       
+      // Diagram
+      var diagram = new sqv.ui.control.Diagram();
+      
       // ComboBox
       var combobox1 = new qx.ui.form.ComboBox();
       combobox1.setPlaceholder("Select");
@@ -457,6 +460,11 @@ qx.Class.define("sqv.Application",
       	scroll.scrollChildIntoViewY(lblHeaderUpload, "top");
       });
       westbox.add(lblUpload);
+      var lblDiagram  = new qx.ui.basic.Label("Diagram"); 
+      //lblDiagram.addListener("click", function() {
+      //	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
+      //});
+      westbox.add(lblDiagram);
       var lblComboBox  = new qx.ui.basic.Label("ComboBox"); 
       //lblButton.addListener("click", function() {
       //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");

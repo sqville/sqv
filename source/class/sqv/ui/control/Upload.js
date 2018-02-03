@@ -220,6 +220,13 @@ qx.Class.define("sqv.ui.control.Upload",
 
   members :
   {
+    __progressanimation : {timing: "ease", repeat: "infinite", 
+      keyFrames : {
+        0 : {"opacity": .3, "width": "0"},
+        100 : {"opacity": 0, "width": "100%"}
+      }
+    },
+    
     // overridden
     _createChildControlImpl : function(id, hash)
     {
@@ -271,7 +278,8 @@ qx.Class.define("sqv.ui.control.Upload",
 			    //this.fireDataEvent('changeFileName', value);
 			    var progressbar = this.getChildControl("progressbar", true);
 			    progressbar.setBackgroundColor("progressbar-base");
-			    progressbar.setValue(10);
+			    progressbar.setValue(50);
+			    
 			}
           }, this);
           control.getContentElement().add(inputctrl);
@@ -289,6 +297,19 @@ qx.Class.define("sqv.ui.control.Upload",
         case "progressbar":
           control = new qx.ui.indicator.ProgressBar();
           control.getContentElement().setAttribute("id","sqvuploadpb1727");
+          var animalayer = new qx.ui.container.Composite(new qx.ui.layout.Canvas()).set({backgroundColor: "white", opacity: 0});
+          var percent = new qx.ui.basic.Label("0%").set({textColor:"white", alignX: "right", allowGrowX: true});
+          var progress = control.getChildControl("progress");
+          control.addListener("change", function(e) {
+	     	percent.setValue(control.getValue() + "%");
+	      }, this);
+          progress._add(percent, {right: 2});
+          progress._add(animalayer, {height: "100%", width: "100%"});
+          animalayer.addListener("appear", function(e) {
+	     	var domtable = animalayer.getContentElement().getDomElement();
+	     	qx.bom.element.Animation.animate(domtable, this.__progressanimation, 2000);
+	      }, this);
+          
           this._add(control);
           
           break;
