@@ -434,6 +434,17 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label('<b>"upload"</b> <em>(default)</em>').set({rich: true}));
       centerbox.add(upload);
       
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> Upload
+      var lblHeaderDiagram = new qx.ui.basic.Label("Diagram").set({font: "control-header"});
+      centerbox.add(lblHeaderDiagram);
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Diagram</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"diagram"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(diagram);
+      
       // Add centerbox to scroll area
       scroll.add(centerbox);
       
@@ -461,9 +472,9 @@ qx.Class.define("sqv.Application",
       });
       westbox.add(lblUpload);
       var lblDiagram  = new qx.ui.basic.Label("Diagram"); 
-      //lblDiagram.addListener("click", function() {
-      //	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
-      //});
+      lblDiagram.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
+      });
       westbox.add(lblDiagram);
       var lblComboBox  = new qx.ui.basic.Label("ComboBox"); 
       //lblButton.addListener("click", function() {
