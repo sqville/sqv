@@ -2552,6 +2552,27 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         };
       }
     },
+    
+    /*
+    ---------------------------------------------------------------------------
+      DIAGRAM
+    ---------------------------------------------------------------------------
+    */
+
+    "connector" :
+    {
+      include : "window",
+      alias : "window",
+      
+      style : function(states)
+      {
+        return {
+          contentPadding : 0,
+          backgroundColor : "transparent",
+          decorator : states.maximized ? undefined : states.active ? "window-active" : undefined
+        };
+      }
+    },
 
 
 

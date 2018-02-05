@@ -39,6 +39,18 @@ qx.Class.define("sqv.ui.control.Diagram",
     // Configure layout
     var layout = new qx.ui.layout.VBox;
     this.setLayout(layout);
+    
+    // Diagram header area - includes diagram name and properties button 
+    var headerlayout = new qx.ui.layout.HBox().set({spacing: 10});
+    var header = new qx.ui.container.Composite(headerlayout);
+    //header.setAppearance("app-header");
+    var title = new qx.ui.basic.Label(this.getName());
+    var btndiagramprops = new qx.ui.form.Button("Settings", "icon/18/action/settings-black.png").set({show: "icon", padding: [2,4]});
+    
+    header.add(title);
+    header.add(btndiagramprops);
+    
+    this.add(header);
 
     // Data
     //this.shapes = {};
@@ -64,13 +76,9 @@ qx.Class.define("sqv.ui.control.Diagram",
 	win1.setShowMaximize(false);
 	
 	var conn1 = new qx.ui.window.Window("Connector 1");
-	conn1.setLayout(new qx.ui.layout.VBox(10));
-	conn1.setWidth(200);
-	conn1.setHeight(300);
-	conn1.setShowMinimize(false);
-	conn1.setShowMaximize(false);
 	conn1.setLayout(new qx.ui.layout.Canvas());
-	conn1.setContentPadding(0);
+	conn1.set({appearance: "connector", width: 200, height: 300, movable: false, resizable: false});
+	conn1.getChildControl("captionbar").setVisibility("hidden");
 	
 	var canvas1 = new qx.ui.embed.Canvas().set({
 	  canvasWidth: conn1.getWidth(),
@@ -168,6 +176,38 @@ qx.Class.define("sqv.ui.control.Diagram",
 
     //this.initWidgets();
   },
+  
+  
+  /*
+  *****************************************************************************
+     PROPERTIES
+  *****************************************************************************
+  */
+
+  properties :
+  {
+  	/** The name of the diagram */
+    name :
+    {
+      nullable : true,
+      check : "String",
+      init : "Diagram01"
+    },
+    
+    model :
+    {
+      nullable : true,
+      check : "String",
+      init : "{name : diagram01}"
+    }
+  },
+  
+  
+  /*
+  *****************************************************************************
+     MEMBERS
+  *****************************************************************************
+  */
 
   members :
   {

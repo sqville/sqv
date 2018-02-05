@@ -165,9 +165,7 @@ qx.Class.define("sqv.Application",
       var diagram = new sqv.ui.control.Diagram();
       
       // ComboBox
-      var combobox1 = new qx.ui.form.ComboBox();
-      combobox1.setPlaceholder("Select");
-      combobox1.setWidth(270);
+      var combobox1 = new qx.ui.form.ComboBox().set({placeholder: "Select", width: 270, allowGrowX: false});
       // fill the combo box with some stuff
       for (var i=1; i<24; i++)
       {
@@ -437,13 +435,24 @@ qx.Class.define("sqv.Application",
       //seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
-      // centerBox -> Upload
+      // centerBox -> Diagram
       var lblHeaderDiagram = new qx.ui.basic.Label("Diagram").set({font: "control-header"});
       centerbox.add(lblHeaderDiagram);
       centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Diagram</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"diagram"</b> <em>(default)</em>').set({rich: true}));
       centerbox.add(diagram);
+      
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> Diagram
+      var lblHeaderCombobox = new qx.ui.basic.Label("ComboBox").set({font: "control-header"});
+      centerbox.add(lblHeaderCombobox);
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.Combobox</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"combobox"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(combobox1);
       
       // Add centerbox to scroll area
       scroll.add(centerbox);
@@ -477,9 +486,9 @@ qx.Class.define("sqv.Application",
       });
       westbox.add(lblDiagram);
       var lblComboBox  = new qx.ui.basic.Label("ComboBox"); 
-      //lblButton.addListener("click", function() {
-      //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
-      //});
+      lblComboBox.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderCombobox, "top");
+      });
       westbox.add(lblComboBox);
 
       var lblOptionButton  = new qx.ui.basic.Label("RadioButton"); 
@@ -525,8 +534,8 @@ qx.Class.define("sqv.Application",
       //doc.add(textbox, {left: 320, top: 120});
       //doc.add(textboxform, {left: 320, top: 170});
       //doc.add(datefield, {left: 320, top: 220});
-      doc.add(combobox1, {left: 320, top: 270});
-      doc.add(virtcomboBox, {left: 320, top: 320});
+      //doc.add(combobox1, {left: 320, top: 270});
+      //doc.add(virtcomboBox, {left: 320, top: 320});
       
       // Add Groupbox
       doc.add(groupbox, {left: 640, top: 130});

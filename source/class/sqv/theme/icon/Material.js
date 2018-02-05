@@ -49,6 +49,8 @@
  * @asset(sqv/icon/Material/18/devices/devices-black.png)
  * @asset(sqv/icon/Material/18/devices/devices.png)
  * 
+ * @asset(sqv/icon/Material/18/action/settings-black.png)
+ * @asset(sqv/icon/Material/18/action/settings-black2x.png)
  */
 
 
