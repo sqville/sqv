@@ -146,10 +146,14 @@ qx.Class.define("sqv.ui.control.Diagram",
 	//diagramdesktop.add(label, {left:0, bottom:0});
 	
 	win1.addListener("move", function(e) {
-	  conn1.moveTo(e.getData().left + e.getData().width, e.getData().top);
+	  var edata = e.getData();
+	  conn1.moveTo(edata.left + edata.width, edata.top);
 	  if (win2.getBounds()) {
-	    conn1.set({width: win2.getBounds().left - e.getData().left - e.getData().width, height: win2.getBounds().top + win2.getBounds().height - e.getData().top});
-	    //canvas1.fireDataEvent("redraw",e);
+	    var winbounds = win2.getBounds();	     
+	    conn1.set({
+	    	width: winbounds.left - edata.left - edata.width, 
+	    	height: winbounds.top + winbounds.height - edata.top
+	    });
 	  }
 	});
 	

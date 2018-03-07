@@ -2569,7 +2569,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           contentPadding : 0,
           backgroundColor : "transparent",
-          decorator : states.maximized ? undefined : states.active ? "window-active" : undefined
+          decorator : states.maximized ? undefined : states.active ? "connector-active" : undefined
         };
       }
     },

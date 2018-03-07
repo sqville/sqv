@@ -1178,6 +1178,22 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         color : "orange"
       }
     },
+    
+    /*
+    ---------------------------------------------------------------------------
+      DIAGRAM
+    ---------------------------------------------------------------------------
+    */
+   
+   "connector-active" :
+   {
+   	style :
+   	{
+   		width : 1,
+        color : "textfield-selected",
+        radius : 0
+   	}
+   },
 
 
     /*
