@@ -346,7 +346,7 @@ qx.Class.define("sqv.Application",
       // App's Dock 
       var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "yellow"});
       // Dock north's HBox
-      var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({spacing: 10})).set({backgroundColor: "silver"});
+      var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({spacing: 10})).set({backgroundColor: "orange"});
       // Dock east's VBox
       var westbox = this._westBox = new qx.ui.container.Composite(new qx.ui.layout.VBox().set({spacing: 10})).set({backgroundColor: "white", padding: [10,10]});
       // Dock center's VBox
@@ -357,11 +357,11 @@ qx.Class.define("sqv.Application",
       }, this);*/
       
       // Add stand alone fa icons
-      northhbox.add(new qx.ui.basic.Label("FontAwesome Icons:"));
-      northhbox.add(faiconfolderopen);
-      northhbox.add(faiconhtml5);
-      northhbox.add(faiconcal);
-      northhbox.add(faiconsearch);
+      northhbox.add(new qx.ui.basic.Label("sqv Theme and Widget Browser - Theme currently in use: <b>Clean</b> (<span style='color:blue;'><u>change</u></span>)").set({rich: true}));
+      //northhbox.add(faiconfolderopen);
+      //northhbox.add(faiconhtml5);
+      //northhbox.add(faiconcal);
+      //northhbox.add(faiconsearch);
            
       appcompdock.add(northhbox, {edge:"north"});
             
@@ -458,8 +458,7 @@ qx.Class.define("sqv.Application",
       scroll.add(centerbox);
       
       // Populate westBox with content
-      westbox.add(new qx.ui.basic.Label("Theme Browser"));
-      westbox.add(new qx.ui.basic.Label("Widgets").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "primary-button-box", textColor: "white"}));
+      westbox.add(new qx.ui.basic.Label("<b>Widgets</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "primary-button-box", textColor: "white"}));
       var lblButton = new qx.ui.basic.Label("Button"); 
       lblButton.addListener("click", function() {
       	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
@@ -475,16 +474,7 @@ qx.Class.define("sqv.Application",
       	scroll.scrollChildIntoViewY(lblHeaderDateField, "top");
       });
       westbox.add(lblDateField);
-      var lblUpload  = new qx.ui.basic.Label("Upload"); 
-      lblUpload.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderUpload, "top");
-      });
-      westbox.add(lblUpload);
-      var lblDiagram  = new qx.ui.basic.Label("Diagram"); 
-      lblDiagram.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
-      });
-      westbox.add(lblDiagram);
+      
       var lblComboBox  = new qx.ui.basic.Label("ComboBox"); 
       lblComboBox.addListener("click", function() {
       	scroll.scrollChildIntoViewY(lblHeaderCombobox, "top");
@@ -501,7 +491,17 @@ qx.Class.define("sqv.Application",
       //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
       //});
       westbox.add(lblCheckBox);
-      
+      westbox.add(new qx.ui.basic.Label("<b>New</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "#F7DC6F", textColor: "black"}));
+      var lblUpload  = new qx.ui.basic.Label("Upload"); 
+      lblUpload.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderUpload, "top");
+      });
+      westbox.add(lblUpload);
+      var lblDiagram  = new qx.ui.basic.Label("Diagram"); 
+      lblDiagram.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
+      });
+      westbox.add(lblDiagram);
       
       
 
