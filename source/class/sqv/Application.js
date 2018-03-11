@@ -503,7 +503,11 @@ qx.Class.define("sqv.Application",
       });
       westbox.add(lblDiagram);
       westbox.add(new qx.ui.basic.Label("<b>Embedded</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "#F7DC6F", textColor: "black"}));
-      
+      var lblSvg  = new qx.ui.basic.Label("SVG"); 
+      lblSvg.addListener("click", function() {
+      	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
+      });
+      westbox.add(lblSvg);
 
 
       // Add button to document at fixed coordinates
