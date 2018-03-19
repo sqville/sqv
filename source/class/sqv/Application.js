@@ -72,7 +72,7 @@ qx.Class.define("sqv.Application",
 	  
 	  // Add the beforeContent property to the Decorator class
 	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MBeforeContent);
-	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MCssIcon);
+	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MFreestyleCss);
 	  
 	  // Add FontAwesome specific Appearance, Decoration and Font entries to the current theme 
 	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.fonticon.FontAwesome.Appearance);
@@ -86,7 +86,7 @@ qx.Class.define("sqv.Application",
       var iconbutton1 = new qx.ui.form.Button("Icon only Button", "sqv/test.png").set({show: "icon", allowGrowX: false, padding: [10,10]});
        
      
-      var button2 = new qx.ui.form.Button("Icon Button", "");
+      var button2 = new qx.ui.form.Button("FontIcon Button", "").set({allowGrowX: false});
       button2.setAppearance("search-button");
       
       // data for virtual widgets
@@ -112,32 +112,30 @@ qx.Class.define("sqv.Application",
       var qximage = new qx.ui.basic.Image();
       //qximage.setScale(true);
       
-      var selectBox = new qx.ui.form.SelectBox();
+      var selectBox = new qx.ui.form.SelectBox().set({allowGrowX: false});
       selectBox.setWidth(270);
       for (var i=0; i<24; i++)
       {
         var tempItem = new qx.ui.form.ListItem("Item " + (i+1));
         tempItem.setAppearance("combobox-listitem");
         selectBox.add(tempItem);
-        // select sixth item
-        //if (i == 5) {
-        //  selectBox.setSelection([tempItem]);
-        //}
       }
       
       // Virtual SelectBox
-      var virtselectBox = new qx.ui.form.VirtualSelectBox(model);
+      var virtselectBox = new qx.ui.form.VirtualSelectBox(model).set({allowGrowX: false});
       virtselectBox.setWidth(270);
+     
       
-
-      
-      //stand alone icon
+      //stand alone Fonticons
       var faiconsearch = new qx.ui.basic.Image().set({appearance:"fa-search"});
       var faiconcal = new qx.ui.basic.Image().set({appearance:"fa-calendar"});
       var faiconhtml5 = new qx.ui.basic.Image().set({appearance:"fa-html5"});
       var faiconfolderopen = new qx.ui.basic.Image().set({appearance:"fa-folder-open"});
-      
-      
+      var fonticonbox = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({spacing: 10}));
+      fonticonbox.add(faiconsearch);
+      fonticonbox.add(faiconcal);
+      fonticonbox.add(faiconhtml5);
+      fonticonbox.add(faiconfolderopen);
       
       // TextField
       var textbox = new qx.ui.form.TextField();
@@ -153,6 +151,14 @@ qx.Class.define("sqv.Application",
       datefield.setPlaceholder("Date of Birth");
       datefield.setWidth(270);
       
+      // List
+      var list = new qx.ui.form.List().set({allowGrowX: false, width: 200});
+      // fill the list with some stuff
+      for (var i=0; i<24; i++)
+      {
+        list.add(new qx.ui.form.ListItem("Item " + (i+1)));
+      }
+      
       // Upload
       var upload = new sqv.ui.control.Upload("Drag n drop, or", "Browse", null);
       upload.set({
@@ -162,7 +168,7 @@ qx.Class.define("sqv.Application",
       });
       
       // Diagram
-      var diagram = new sqv.ui.control.Diagram();
+      var diagram = new sqv.ui.control.Diagram().set({height: 450});
       
       // ComboBox
       var combobox1 = new qx.ui.form.ComboBox().set({placeholder: "Select", width: 270, allowGrowX: false});
@@ -175,7 +181,7 @@ qx.Class.define("sqv.Application",
       }
       
       // Virtual Combobox
-      var virtcomboBox = new qx.ui.form.VirtualComboBox();
+      var virtcomboBox = new qx.ui.form.VirtualComboBox().set({allowGrowX: false});
       virtcomboBox.setWidth(270);
       virtcomboBox.setModel(model);
       
@@ -195,6 +201,9 @@ qx.Class.define("sqv.Application",
       var rbGreen = new qx.ui.form.RadioButton("Green");
       var rbBlue = new qx.ui.form.RadioButton("Blue");
       
+      // Add all radio buttons to the manager
+      var opbuttsmanager = new qx.ui.form.RadioGroup(rbRed, rbGreen, rbBlue);
+      
       // Check boxes
       var cbOil = new qx.ui.form.CheckBox("Sun Oil");
       var cbTowel = new qx.ui.form.CheckBox("Towel");
@@ -206,8 +215,7 @@ qx.Class.define("sqv.Application",
       cbBT.setValue(true);
       cbBT.setEnabled(false);
 
-      // Add all radio buttons to the manager
-      var opbuttsmanager = new qx.ui.form.RadioGroup(rbRed, rbGreen, rbBlue);
+
       
       // Tab
       var tabView = new qx.ui.tabview.TabView();
@@ -268,21 +276,21 @@ qx.Class.define("sqv.Application",
       var tree = this.getTree();
       
       // Spinner
-      var spinner = new qx.ui.form.Spinner(0, 50, 100);
+      var spinner = new qx.ui.form.Spinner(0, 50, 100).set({allowGrowX: false});
       spinner.setWidth(100);
       
       // Slidder
-      var slider = new qx.ui.form.Slider();
+      var slider = new qx.ui.form.Slider().set({allowGrowX: false});
       slider.setWidth(130);
       
       slider.bind("value", spinner, "value");
       spinner.bind("value", slider, "value");
       
       // MenuButton
-      var menuButton = new qx.ui.form.MenuButton("MenuButton", null, this.__createMenuForMenuButton());
+      var menuButton = new qx.ui.form.MenuButton("MenuButton", null, this.__createMenuForMenuButton()).set({allowGrowX: false});
       
       // Split Button
-      var splitButton = new qx.ui.form.SplitButton("SplitButton", null, this.__createMenuForSplitButton());
+      var splitButton = new qx.ui.form.SplitButton("SplitButton", null, this.__createMenuForSplitButton()).set({allowGrowX: false});
       splitButton.setWidth(140);
       
  
@@ -292,7 +300,7 @@ qx.Class.define("sqv.Application",
       
       
       // Window
-      var openwindowbutton = new qx.ui.form.Button("Open Window", "icon/18/apps/open-window-white.png");
+      var openwindowbutton = new qx.ui.form.Button("Open Window", "icon/18/apps/open-window-white.png").set({allowGrowX: false});
       openwindowbutton.setAppearance("primary-button");
       openwindowbutton.setGap(10);
       
@@ -310,7 +318,7 @@ qx.Class.define("sqv.Application",
       openwindowbutton.addListener("execute", win1.open, win1);
       
       // TABLE
-      var showtablebutton = new qx.ui.form.Button("Show Table", "icon/18/image/grid-white.png");
+      var showtablebutton = new qx.ui.form.Button("Show Table", "icon/18/image/grid-white.png").set({allowGrowX: false});
       showtablebutton.setAppearance("tertiary-button");
       showtablebutton.setGap(10);
       
@@ -333,9 +341,13 @@ qx.Class.define("sqv.Application",
        ******************** SCAFFOLDING ************************************
        *********************************************************************/
       
-      //Scroll area to fit all controls
+      // Center Scroll area to fit all controls
       var scroll = new qx.ui.container.Scroll();
       scroll.set({padding: 0, margin: 0, contentPadding: [0,0,0,0]});
+      
+      // West Scroll area to fit all lables
+      var scrollwest = new qx.ui.container.Scroll();
+      scrollwest.set({width: 150, padding: 0, margin: 0, contentPadding: [0,0,0,0]});
       
       // new canvas to hold controls
       var doc = new qx.ui.container.Composite(new qx.ui.layout.Canvas());
@@ -348,7 +360,7 @@ qx.Class.define("sqv.Application",
       // Dock north's HBox
       var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({spacing: 10})).set({backgroundColor: "orange"});
       // Dock east's VBox
-      var westbox = this._westBox = new qx.ui.container.Composite(new qx.ui.layout.VBox().set({spacing: 10})).set({backgroundColor: "white", padding: [10,10]});
+      var westbox = this._westBox = new qx.ui.container.Composite(new qx.ui.layout.VBox().set({spacing: 6})).set({backgroundColor: "white", padding: [10,10,10,10]});
       // Dock center's VBox
       var centerbox = new qx.ui.container.Composite(new qx.ui.layout.VBox().set({spacing: 10})).set({backgroundColor: "white", padding: [10,26]});
       
@@ -364,26 +376,12 @@ qx.Class.define("sqv.Application",
       //northhbox.add(faiconsearch);
            
       appcompdock.add(northhbox, {edge:"north"});
-            
-      // List    
-      /*list.add(new qx.ui.form.ListItem("ComboBox"));
-      list.add(new qx.ui.form.ListItem("GroupBox"));
-      list.add(new qx.ui.form.ListItem("RadioButton"));
-      list.add(new qx.ui.form.ListItem("CheckBox"));
-      list.add(new qx.ui.form.ListItem("TabView"));
-      list.add(new qx.ui.form.ListItem("Tree"));
-      list.add(new qx.ui.form.ListItem("Spinner"));
-      list.add(new qx.ui.form.ListItem("MenuButton"));
-      list.add(new qx.ui.form.ListItem("SplitButton"));
-      list.add(new qx.ui.form.ListItem("Window"));
-      list.add(new qx.ui.form.ListItem("Table"));*/
       
-      
+ 
       // Populate centerBox with content
       
       // centerBox -> BUTTON
-      var lblHeaderButton = new qx.ui.basic.Label("Button").set({font: "control-header"});
-      centerbox.add(lblHeaderButton);
+      centerbox.add(this.__createHeaderLabel("Button"));
       centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.Button</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"button"</b> <em>(default)</em>').set({rich: true, paddingTop: 20}));
@@ -395,199 +393,295 @@ qx.Class.define("sqv.Application",
       centerbox.add(primbutton1);
       centerbox.add(new qx.ui.basic.Label('<b>"secondary-button"</b> <em>(backgroundColor property is set to a color named "secondary", and defined in the themes Color class)</em>').set(
       	{rich: true, wrap: true, paddingTop: 20}));
-      centerbox.add(secbutton1);
-      
+      centerbox.add(secbutton1);      
       //seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
       // centerBox -> TEXTFIELD
-      var lblHeaderTextField = new qx.ui.basic.Label("TextField").set({font: "control-header"});
-      centerbox.add(lblHeaderTextField);
+      centerbox.add(this.__createHeaderLabel("TextField"));
       centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.TextField</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"textfield"</b> <em>(default)</em>').set({rich: true, paddingTop: 20}));
       centerbox.add(textbox);
       centerbox.add(new qx.ui.basic.Label('<b>"textfield-form"</b>').set({rich: true, paddingTop: 20}));
-      centerbox.add(textboxform);
-      
+      centerbox.add(textboxform);  
       //seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
       // centerBox -> DATEFIELD
-      var lblHeaderDateField = new qx.ui.basic.Label("DateField").set({font: "control-header"});
-      centerbox.add(lblHeaderDateField);
+      centerbox.add(this.__createHeaderLabel("DateField"));
       centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.DateField</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"datefield"</b> <em>(default)</em>').set({rich: true}));
-      centerbox.add(datefield);
-      
+      centerbox.add(datefield);      
       //seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
-      // centerBox -> Upload
-      var lblHeaderUpload = new qx.ui.basic.Label("Upload").set({font: "control-header"});
-      centerbox.add(lblHeaderUpload);
-      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Upload</em>").set({rich: true, paddingTop: 0}));
-      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
-      centerbox.add(new qx.ui.basic.Label('<b>"upload"</b> <em>(default)</em>').set({rich: true}));
-      centerbox.add(upload);
-      
-      //seperator
-      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
-      
-      // centerBox -> Diagram
-      var lblHeaderDiagram = new qx.ui.basic.Label("Diagram").set({font: "control-header"});
-      centerbox.add(lblHeaderDiagram);
-      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Diagram</em>").set({rich: true, paddingTop: 0}));
-      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
-      centerbox.add(new qx.ui.basic.Label('<b>"diagram"</b> <em>(default)</em>').set({rich: true}));
-      centerbox.add(diagram);
-      
-      //seperator
-      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
-      
-      // centerBox -> Diagram
-      var lblHeaderCombobox = new qx.ui.basic.Label("ComboBox").set({font: "control-header"});
-      centerbox.add(lblHeaderCombobox);
+      // centerBox -> COMBOBOX
+      centerbox.add(this.__createHeaderLabel("ComboBox"));
       centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.Combobox</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"combobox"</b> <em>(default)</em>').set({rich: true}));
       centerbox.add(combobox1);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
-      // Add centerbox to scroll area
+      // centerBox -> VIRTUALCOMBOBOX
+      centerbox.add(this.__createHeaderLabel("VirtualComboBox"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.VirtualCombobox</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"virtualcombobox"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(virtcomboBox);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> LIST
+      centerbox.add(this.__createHeaderLabel("List"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.List</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"list"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(list);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> SELECTBOX
+      centerbox.add(this.__createHeaderLabel("SelectBox"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.SelectBox</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"selectbox"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(selectBox);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> VIRTURALSELECTBOX
+      centerbox.add(this.__createHeaderLabel("VirtualSelectBox"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.VirtualSelectBox</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"virtual-selectbox"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(virtselectBox);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> GROUPBOX
+      centerbox.add(this.__createHeaderLabel("GroupBox"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.groupbox.GroupBox</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"groupbox"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(groupbox);
+      centerbox.add(new qx.ui.basic.Label('<b>"groupbox-connected"</b>').set({rich: true}));
+      centerbox.add(groupboxcon);
+      centerbox.add(new qx.ui.basic.Label('<b>"groupbox-blue-top"</b>').set({rich: true}));
+      centerbox.add(groupboxbluetop);
+      centerbox.add(new qx.ui.basic.Label('<b>"groupbox-orange-top"</b>').set({rich: true}));
+      centerbox.add(groupboxorangetop);
+      centerbox.add(new qx.ui.basic.Label('<b>"groupbox-green-top"</b>').set({rich: true}));
+      centerbox.add(groupboxgreentop);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> RADIOBUTTON
+      centerbox.add(this.__createHeaderLabel("RadioButton"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.RadioButton</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"radiobutton"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(rbRed);
+      centerbox.add(rbGreen);
+      centerbox.add(rbBlue);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> CHECKBOX
+      centerbox.add(this.__createHeaderLabel("CheckBox"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.CheckBox</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"checkbox"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(cbOil);
+      centerbox.add(cbTowel);
+      centerbox.add(cbBeer);
+      centerbox.add(cbBT);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> TABVIEW
+      centerbox.add(this.__createHeaderLabel("TabView"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.tabview.TabView</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"tabview"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(tabView);
+      centerbox.add(new qx.ui.basic.Label('<b>"tabviewspacebar"').set({rich: true}));
+      centerbox.add(tabViewspacebar);
+      centerbox.add(new qx.ui.basic.Label('<b>"tabviewspot"</b>').set({rich: true}));
+      centerbox.add(tabViewspot);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> TREE
+      centerbox.add(this.__createHeaderLabel("Tree"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.tree.Tree</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"tree"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(tree);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> SPINNER
+      centerbox.add(this.__createHeaderLabel("Spinner"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.Spinner</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"spinner"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(spinner);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> SLIDER
+      centerbox.add(this.__createHeaderLabel("Slider"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.Slider</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"slider"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(slider);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> MENUBUTTON
+      centerbox.add(this.__createHeaderLabel("MenuButton"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.MenuButton</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"menubutton"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(menuButton);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> SPLITBUTTON
+      centerbox.add(this.__createHeaderLabel("SplitButton"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.SplitButton</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"splitbutton"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(splitButton);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> WINDOW
+      centerbox.add(this.__createHeaderLabel("Window"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.window.Window</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"window"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(openwindowbutton);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> TABLE
+      centerbox.add(this.__createHeaderLabel("Table"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.table.Table</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"table"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(showtablebutton);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+     
+      // centerBox -> UPLOAD
+      centerbox.add(this.__createHeaderLabel("Upload"));
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Upload</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"upload"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(upload);   
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> DIAGRAM
+      centerbox.add(this.__createHeaderLabel("Diagram"));
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Diagram</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"diagram"</b> <em>(default)</em>').set({rich: true}));
+      centerbox.add(diagram);
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> SVG
+      centerbox.add(this.__createHeaderLabel("Svg"));
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.embed.Svg</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('Comming Soon').set({rich: true}));
+      
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> FONTICON
+      centerbox.add(this.__createHeaderLabel("FontIcon"));
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.fonticon.FontAwesome.Appearance</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('Usage example: <b><span style="color:blue;">var</span></b> faiconsearch = new qx.ui.basic.Image().set({ appearance: <b><span style="color:green;">"fa-search"</span></b> }) <br><br>In order: <b>"fa-search", "fa-calendar", "fa-html5", "fa-folder-open"</b>').set({rich: true}));
+      centerbox.add(fonticonbox);
+      centerbox.add(new qx.ui.basic.Label("Button with a Fonticon image"));
+      centerbox.add(button2);
+      
+      //seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+
+
+
+
+      // Add centerbox to center scroll area
       scroll.add(centerbox);
       
-      // Populate westBox with content
-      westbox.add(new qx.ui.basic.Label("<b>Widgets</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "primary-button-box", textColor: "white"}));
-      var lblButton = new qx.ui.basic.Label("Button"); 
-      lblButton.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
-      });
-      westbox.add(lblButton);
-      var lblTextField = new qx.ui.basic.Label("TextField"); 
-      lblTextField.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderTextField, "top");
-      });
-      westbox.add(lblTextField);
-      var lblDateField = new qx.ui.basic.Label("DateField"); 
-      lblDateField.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderDateField, "top");
-      });
-      westbox.add(lblDateField);
+      // Left hand Widget list
+      var datawl = [
+      	{type: "header", label:"<b>Widgets</b>", bgcolor:"primary-button-box", txtcolor:"white"},
+      	{type: "link", label:"Button"},
+      	{type: "link", label:"TextField"},
+      	{type: "link", label:"DateField"},
+      	{type: "link", label:"ComboBox"},
+      	{type: "link", label:"VirtualComboBox"},
+      	{type: "link", label:"List"},
+      	{type: "link", label:"SelectBox"},
+      	{type: "link", label:"VirtualSelectBox"},
+      	{type: "link", label:"GroupBox"},
+      	{type: "link", label:"RadioButton"},
+      	{type: "link", label:"CheckBox"},
+      	{type: "link", label:"TabView"},
+      	{type: "link", label:"Tree"},
+      	{type: "link", label:"Spinner"},
+      	{type: "link", label:"Slider"},
+      	{type: "link", label:"MenuButton"},
+      	{type: "link", label:"SplitButton"},
+      	{type: "link", label:"Window"},
+      	{type: "link", label:"Table"},
+      	{type: "header", label:"<b>New Widgets</b>", bgcolor:"#F7DC6F", txtcolor:"black"},
+      	{type: "link", label:"Upload"},
+      	{type: "link", label:"Diagram"},
+		{type: "header", label:"<b>Embedded</b>", bgcolor:"#F7DC6F", txtcolor:"black"},
+		{type: "link", label:"Svg"},
+		{type: "link", label:"FontIcon"}
+      ];
       
-      var lblComboBox  = new qx.ui.basic.Label("ComboBox"); 
+      // Populate westBox with content
+      var wllen = datawl.length;
+      for (var wl = 0; wl < wllen; wl++) {
+        var lbldatawl = new qx.ui.basic.Label(datawl[wl].label); 
+      	if (datawl[wl].type == "header")
+      		lbldatawl.set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: datawl[wl].bgcolor, textColor: datawl[wl].txtcolor});
+      	else
+      		lbldatawl.getContentElement().setAttribute("onclick", "location='#" + datawl[wl].label + "'");
+      	westbox.add(lbldatawl);
+      }
+      
+      // Old way of doing it
+      /*var lblComboBox  = new qx.ui.basic.Label("<a href='#combobox'>ComboBox</a>").set({rich: true});
+      var lblComboBox = new qx.ui.basic.Label("ComboBox");
+      lblComboBox.getContentElement().setAttribute("onclick", "location='#combobox'");
+      lblComboBox.getContentElement().setAttribute("href", "#combobox"); 
       lblComboBox.addListener("click", function() {
       	scroll.scrollChildIntoViewY(lblHeaderCombobox, "top");
       });
       westbox.add(lblComboBox);
-
-      var lblOptionButton  = new qx.ui.basic.Label("RadioButton"); 
-      //lblButton.addListener("click", function() {
-      //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
-      //});
-      westbox.add(lblOptionButton);
-      var lblCheckBox  = new qx.ui.basic.Label("CheckBox"); 
-      //lblButton.addListener("click", function() {
-      //	scroll.scrollChildIntoViewY(lblHeaderButton, "top");
-      //});
-      westbox.add(lblCheckBox);
+      
       westbox.add(new qx.ui.basic.Label("<b>New</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "#F7DC6F", textColor: "black"}));
-      var lblUpload  = new qx.ui.basic.Label("Upload"); 
-      lblUpload.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderUpload, "top");
-      });
-      westbox.add(lblUpload);
-      var lblDiagram  = new qx.ui.basic.Label("Diagram"); 
-      lblDiagram.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
-      });
-      westbox.add(lblDiagram);
-      westbox.add(new qx.ui.basic.Label("<b>Embedded</b>").set({anonymous: true, focusable: false, selectable: false, rich: true, backgroundColor: "#F7DC6F", textColor: "black"}));
-      var lblSvg  = new qx.ui.basic.Label("SVG"); 
-      lblSvg.addListener("click", function() {
-      	scroll.scrollChildIntoViewY(lblHeaderDiagram, "top");
-      });
-      westbox.add(lblSvg);
-
-
-      // Add button to document at fixed coordinates
-      //doc.add(button1, {left: 100, top: 50});
-      //doc.add(button2, {left: 100, top: 120});
-      
-      // Add primary button example
-      //doc.add(primbutton1, {left: 320, top: 50});
-      //doc.add(button3, {left: 400, top: 50});
-      
-      // Add secondary button example
-      //doc.add(secbutton1, {left: 560, top: 50});
-      //doc.add(button4, {left: 641, top: 50});
-      
-      // Add Qx Image
-      //doc.add(qximage, {left: 880, top: 50});
-      
-      // Add Selectbox
-      doc.add(selectBox, {left: 780, top: 50});
-      
-      // Add Virtual Selectbox
-      doc.add(virtselectBox, {left: 1100, top: 50});
-            
-      // Add an Icon button example
-      //doc.add(iconbutton1, {left: 210, top: 50});
-      
-      // Add Textfield
-      //doc.add(textbox, {left: 320, top: 120});
-      //doc.add(textboxform, {left: 320, top: 170});
-      //doc.add(datefield, {left: 320, top: 220});
-      //doc.add(combobox1, {left: 320, top: 270});
-      //doc.add(virtcomboBox, {left: 320, top: 320});
-      
-      // Add Groupbox
-      doc.add(groupbox, {left: 640, top: 130});
-      doc.add(groupboxcon, {left: 640, top: 250});
-      doc.add(groupboxbluetop, {left: 820, top: 130});
-      doc.add(groupboxorangetop, {left: 860, top: 250});
-      doc.add(groupboxgreentop, {left: 1010, top: 130});
-      
-      // Add Options Button Group
-      doc.add(rbRed, {left: 1230, top: 130});
-      doc.add(rbGreen, {left: 1230, top: 160});
-      doc.add(rbBlue, {left: 1230, top: 190});
-      
-      // Add Check boxes
-      doc.add(cbOil, {left: 1350, top: 130});
-      doc.add(cbTowel, {left: 1350, top: 160});
-      doc.add(cbBeer, {left: 1350, top: 190});
-      doc.add(cbBT, {left: 1350, top: 220});
-      
-      // Add TabView
-      doc.add(tabView, {left: 100, top: 400});
-      doc.add(tabViewspacebar, {left: 450, top: 400});
-      doc.add(tabViewspot, {left: 800, top: 400});
-      
-      // Add Tree
-      doc.add(tree, {left: 1080, top: 280});
-      
-      // Add Spinner and Slidder
-      doc.add(spinner, {left: 1320, top: 280});
-      doc.add(slider, {left: 1320, top: 330});
-      
-      // Add MenuButton
-      doc.add(menuButton, {left: 1320, top: 380});
-      
-      // Add SplitButton
-      doc.add(splitButton, {left: 1320, top: 440});
-      
-      // Add Open Window Button
-      doc.add(openwindowbutton, {left: 1320, top: 500});
-      
-      // Add Show Table Button
-      doc.add(showtablebutton, {left: 1320, top: 560});
-
-      // Add scroll to the application widget
-      //scroll.add(doc);
+      */
+     
+     scrollwest.add(westbox);
 
           
-      appcompdock.add(westbox, {edge:"west"});
+      //appcompdock.add(westbox, {edge:"west"});
+      appcompdock.add(scrollwest, {edge:"west"});
       
       appcompdock.add(scroll, {edge:"center"});
       
@@ -595,6 +689,10 @@ qx.Class.define("sqv.Application",
           
     },
     
+    
+    /*********************************************************************
+     ******************** SUPPORTING FUNCTIONS ***************************
+     *********************************************************************/
     getTree : function()
     {
       var tree = new qx.ui.tree.Tree().set({
@@ -736,6 +834,14 @@ qx.Class.define("sqv.Application",
         rowData.push([ row, Math.random() * 10000, date, (Math.random() > 0.5) ]);
       }
       return rowData;
-     }
+    },
+    
+    __createHeaderLabel : function(cname)
+    {
+      var label = new qx.ui.basic.Label(cname).set({font: "control-header"});
+      label.getContentElement().setAttribute("id", cname);
+
+      return label;
+    }
   }
 });

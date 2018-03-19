@@ -20,7 +20,7 @@
 /**
  * The simple qooxdoo decoration theme.
  * 
- * @require(sqv.ui.decoration.MCssIcon)
+ * @require(sqv.ui.decoration.MFreestyleCss)
  */
 qx.Theme.define("sqv.theme.clean.Decoration",
 {
@@ -1942,7 +1942,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     	
     	style :
     	{
-    		cssiconName : "checkbox-checked",
+    		freestyleCss : "checkbox-checked",
     		innerWidth : [0,0,4,0]
     	}
     },

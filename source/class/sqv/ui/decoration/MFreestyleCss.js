@@ -8,20 +8,17 @@
      None
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
-     See the LICENSE file in the project's top-level directory for details.
+     MIT: http://
 
    Authors:
      * Chris Eskew (chris.eskew@sqville.com)
 
 ************************************************************************ */
 /**
- * Border implementation with two CSS borders. Both borders can be styled
- * independent of each other.
- * This mixin is usually used by {@link qx.ui.decoration.Decorator}.
+ * Custom (Freestyle) CSS/CSS3 implementation
+ * This mixin is used by {@link qx.ui.decoration.Decorator}.
  */
-qx.Mixin.define("sqv.ui.decoration.MCssIcon",
+qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 {
 
   /*
@@ -39,14 +36,21 @@ qx.Mixin.define("sqv.ui.decoration.MCssIcon",
     */
 
     /** name of icon */
-    cssiconName :
+    freestyleCssClass :
+    {
+      nullable : true,
+      check : "Class",
+      init : "sqv.theme.clean.Image"
+    },
+    
+    /** name of freesytle css block*/
+    freestyleCss :
     {
       nullable : true,
       check : "String",
       init : "",
-      apply : "_applyCssiconName"
-    }
-    
+      apply : "_applyFreestyleCss"
+    }    
     
   },
 
@@ -55,18 +59,19 @@ qx.Mixin.define("sqv.ui.decoration.MCssIcon",
   {
 
     /**
-     * Takes a styles map and adds the outer border styles in place
+     * Takes a styles map and adds CSS/CSS3 entries in place
      * to the given map. This is the needed behavior for
      * {@link qx.ui.decoration.Decorator}.
      *
      * @param styles {Map} A map to add the styles.
      */
-    _styleCssiconName : function(styles)
+    _styleFreestyleCss : function(styles)
     {
-	  var iconname = this.getCssiconName();
+	  var iconname = this.getFreestyleCss();
 	  if (iconname.length > 0) {
 	  	
 	  	var sudostylemap = sqv.theme.clean.Image.CSSICONS[iconname]; 
+	  	//var sudostylemap = this.getFreestyleCssClass().CSSICONS[iconname];
 	  	
 	  	//establish env specific property names
 	  	// Border Radius
@@ -86,9 +91,6 @@ qx.Mixin.define("sqv.ui.decoration.MCssIcon",
 	  	
 	  	//variables for looping
 	  	var entryval;
-	  	
-	  	//styles[":after"] = {};
-	  	//styles[":before"] = {};
 	  	
 	  	//general loop to add content based on map
 	  	for (var sudo in sudostylemap) {
@@ -140,7 +142,7 @@ qx.Mixin.define("sqv.ui.decoration.MCssIcon",
     },
 
 
-    _applyCssiconName : function()
+    _applyFreestyleCss : function()
     {
       if (qx.core.Environment.get("qx.debug"))
       {
