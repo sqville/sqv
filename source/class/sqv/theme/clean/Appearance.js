@@ -2479,6 +2479,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           padding : [3, 8, 3, 5],
           icon : states.opened ? "icon/folder-open.svg" : "icon/folder.svg",
+          //icon : states.opened ? "icon/folder-open.svg" : sqv.ui.embed.Svg.,
           backgroundColor : backgroundColor,
           iconOpened : "icon/folder-open.svg",
           opacity : states.drag ? 0.5 : undefined

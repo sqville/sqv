@@ -584,7 +584,7 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"upload"</b> <em>(default)</em>').set({rich: true}));
       centerbox.add(upload);   
-      //seperator
+      // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
       // centerBox -> DIAGRAM
@@ -593,16 +593,27 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"diagram"</b> <em>(default)</em>').set({rich: true}));
       centerbox.add(diagram);
-      //seperator
+      // seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> SIGNATURE
+      centerbox.add(this.__createHeaderLabel("Signature"));
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.control.Signature</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"signature"</b> <em>(default)</em>').set({rich: true}));
+      //centerbox.add(signature);
+      centerbox.add(new qx.ui.basic.Label("Status:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('Design in progress: <a href="SignatureDesign.pdf" target="_blank">link to design PDF</a>').set({rich: true}));
+      // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
       // centerBox -> SVG
       centerbox.add(this.__createHeaderLabel("Svg"));
       centerbox.add(new qx.ui.basic.Label("<em>sqv.embed.Svg</em>").set({rich: true, paddingTop: 0}));
-      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label("Example:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('Comming Soon').set({rich: true}));
-      
-      //seperator
+      centerbox.add(new qx.ui.basic.Label("Usage:").set({font: "control-header2", paddingTop: 20}));
+      // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
       // centerBox -> FONTICON
@@ -613,8 +624,16 @@ qx.Class.define("sqv.Application",
       centerbox.add(fonticonbox);
       centerbox.add(new qx.ui.basic.Label("Button with a Fonticon image"));
       centerbox.add(button2);
+      // seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
-      //seperator
+      // centerBox -> FREESTYLECSS
+      centerbox.add(this.__createHeaderLabel("FreestyleCSS"));
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.decoration.MFreestyleCss</em>").set({rich: true, paddingTop: 0}));
+      //centerbox.add(signature);
+      centerbox.add(new qx.ui.basic.Label("Status:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('In use: Clean theme uses Freestyle CSS to replace decoration images with CSS').set({rich: true}));
+      // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
 
 
@@ -648,9 +667,11 @@ qx.Class.define("sqv.Application",
       	{type: "header", label:"<b>New Widgets</b>", bgcolor:"#F7DC6F", txtcolor:"black"},
       	{type: "link", label:"Upload"},
       	{type: "link", label:"Diagram"},
+      	{type: "link", label:"Signature"},
 		{type: "header", label:"<b>Embedded</b>", bgcolor:"#F7DC6F", txtcolor:"black"},
 		{type: "link", label:"Svg"},
-		{type: "link", label:"FontIcon"}
+		{type: "link", label:"FontIcon"},
+		{type: "link", label:"FreestyleCSS"}
       ];
       
       // Populate westBox with content
