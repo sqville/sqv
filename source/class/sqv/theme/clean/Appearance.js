@@ -275,7 +275,17 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    "table" : "widget",
+    "table" : 
+    {
+      include : "widget",
+    	
+      style : function(states)
+      {
+        return {
+          decorator : "table-standard"
+        };
+      }
+    },
 
     "table/statusbar" :
     {
@@ -283,7 +293,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           decorator : "statusbar",
-          padding : [2, 5]
+          padding : [14, 10],
+          backgroundColor : "#F9FAFB"
         };
       }
     },
@@ -296,7 +307,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           decorator : "table-header-column-button",
-          padding : 3,
+          padding : [14, 10],
+          backgroundColor : "#F9FAFB",
           icon : sqv.theme.clean.Image.URLS["select-column-order"]
         };
       }
@@ -323,7 +335,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     "table-scroller/header": {
       style : function() {
         return {
-          decorator : "table-header"
+          decorator : "table-header",
+          backgroundColor : "#F9FAFB"
         };
       }
     },
@@ -361,13 +374,15 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           decorator : states.first ? "table-header-cell-first" : "table-header-cell",
           minWidth: 13,
           font : "bold",
-          paddingTop: 3,
-          paddingLeft: 5,
+          alignY : "middle",
+          padding : [14, 10],
           cursor : states.disabled ? undefined : "pointer",
-          sortIcon : states.sorted ?
+          sortIcon : sqv.theme.clean.Image.URLS["blank"], // Blank image must be present in order for the HeaderCell class to include the image object
+          sortIconProps : states.sorted ? (states.sortedAscending ? {decorator : "sqv-css-icon-arrow-up-med-gray"} : {decorator : "sqv-css-icon-arrow-down-med-gray"}) : {decorator : null}
+          /*sortIcon : states.sorted ?
               (sqv.theme.clean.Image.URLS["table-" +
                  (states.sortedAscending ? "ascending" : "descending")
-              ]) : undefined
+              ]) : undefined*/
         };
       }
     },
@@ -387,10 +402,12 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     {
       style : function(states)
       {
-        return {
+       return {
           alignY : "middle",
           alignX : "right",
-          paddingRight : 5
+          source : "",
+          width : 0,
+          height : 0
         };
       }
     },

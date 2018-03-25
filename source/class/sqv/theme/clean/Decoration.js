@@ -239,6 +239,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
    },
    
+   "sqv-css-icon-arrow-up-med-gray" :
+   {
+   	  include : "sqv-css-icon-arrow-up",
+   	  
+   	  style :
+      {
+        color : [null,"transparent","sqv-arrow-med-gray","transparent"],
+      }
+   },
+   
    "sqv-css-icon-arrow-up-invert" :
    {
    	  include : "sqv-css-icon-arrow-up",
@@ -266,6 +276,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         color : ["sqv-black","transparent",null,"transparent"],
         style : ["solid", "solid",null,"solid"],
         width : [4,4.5,0,4.5]
+      }
+   },
+   
+   "sqv-css-icon-arrow-down-med-gray" :
+   {
+   	  include : "sqv-css-icon-arrow-down",
+   	  
+   	  style :
+      {
+        color : ["sqv-arrow-med-gray","transparent",null,"transparent"],
       }
    },
    
@@ -1750,7 +1770,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         radius : 3,
-        width : [1, 1, 1, 1],
+        width : 1,
         color : "table-border",
         style : "solid"
       }
@@ -1761,8 +1781,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         widthTop : 1,
-        //colorTop : "background-selected",
-        colorTop : "textfield-selected",
+        colorTop : "table-border",
         styleTop : "solid"
       }
     },
@@ -1783,9 +1802,9 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3,0,0,3],
-        width : [1, 1, 1, 1],
-        color : "#DEDEDE"
+        //radius : [3,0,0,3],
+        width : [0,0,1,0],
+        color : "table-border"
         
       }
     },
@@ -1794,8 +1813,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       include : "table-header",
       style : {
-        width : 1,
-        color : "button-border"
+        width : [0,0,1,0],
+        color : "table-border"
       }
     },
 
@@ -1804,7 +1823,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         widthRight : 1,
-        color : "button-border"
+        widthBottom : 0,
+        color : "table-border"
       }
     },
 
@@ -1812,7 +1832,6 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       include : "table-header-cell",
       style : {
-        widthLeft : 1,
         radius : [0,0,0,0]
       }
     },

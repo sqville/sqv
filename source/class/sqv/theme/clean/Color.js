@@ -122,6 +122,7 @@ qx.Theme.define("sqv.theme.clean.Color",
 	
 	"sqv-black" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 1)" : "#000000",
 	"sqv-arrow-gray" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.6)" : "#444444",
+	"sqv-arrow-med-gray" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.4)" : "#444444",
 
 
     // window

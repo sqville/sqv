@@ -64,6 +64,9 @@ qx.Class.define("sqv.Application",
 	  // Prep the Image widget to have font handling abilities
 	  qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
 	  
+	  // Prep tables Header Cell to have image property handling abilities
+	  qx.Class.include(qx.ui.table.headerrenderer.HeaderCell, sqv.ui.table.MHeaderCell);
+	  
 	  // Prep the Image widget to handle SVG data
 	  //qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.svg.MImage); 
 	  
@@ -318,7 +321,7 @@ qx.Class.define("sqv.Application",
       openwindowbutton.addListener("execute", win1.open, win1);
       
       // TABLE
-      var showtablebutton = new qx.ui.form.Button("Show Table", "icon/18/image/grid-white.png").set({allowGrowX: false});
+      var showtablebutton = new qx.ui.form.Button("Show Default Table", "icon/18/image/grid-white.png").set({allowGrowX: false});
       showtablebutton.setAppearance("tertiary-button");
       showtablebutton.setGap(10);
       
@@ -347,7 +350,7 @@ qx.Class.define("sqv.Application",
       
       // West Scroll area to fit all lables
       var scrollwest = new qx.ui.container.Scroll();
-      scrollwest.set({width: 150, padding: 0, margin: 0, contentPadding: [0,0,0,0]});
+      scrollwest.set({width: 160, padding: 0, margin: 0, contentPadding: [0,0,0,0]});
       
       // new canvas to hold controls
       var doc = new qx.ui.container.Composite(new qx.ui.layout.Canvas());
@@ -831,8 +834,7 @@ qx.Class.define("sqv.Application",
 
       table.set({
         width: 600,
-        height: 400,
-        decorator : null
+        height: 400
       });
 
       table.getSelectionModel().setSelectionMode(qx.ui.table.selection.Model.MULTIPLE_INTERVAL_SELECTION);

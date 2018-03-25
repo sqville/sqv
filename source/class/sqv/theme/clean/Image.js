@@ -24,6 +24,7 @@
  * Mapping class for all images used in the clean theme.
  *
  * @asset(sqv/decoration/Clean/*)
+ * @asset(qx/static/blank.png)
  */
 qx.Class.define("sqv.theme.clean.Image",
 {
@@ -104,8 +105,8 @@ qx.Class.define("sqv.theme.clean.Image",
 
       // table
       "select-column-order" : "decoration/table/select-column-order.png",
-      "table-ascending" : "decoration/table/ascending.png",
-      "table-descending" : "decoration/table/descending.png",
+      "table-ascending" : "decoration/table/ascending.png",  //Replaced by Decoration:: sqv-css-icon-arrow-up-dark-gray
+      "table-descending" : "decoration/table/descending.png", //Replaced by Decoration:: sqv-css-icon-arrow-down-dark-gray
 
       // tree virtual
       "treevirtual-line" : "decoration/treevirtual/line.gif",
