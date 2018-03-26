@@ -167,8 +167,19 @@ qx.Class.define("sqv.Application",
       upload.set({
       	height: 150,
       	spacing: 20,
-      	center: true
+      	center: true,
+      	demo: true
       });
+      var uploaddemorestore = new qx.ui.form.Button("Restore").set({allowGrowX: false, appearance: "primary-button"});
+      uploaddemorestore.addListener("execute", function(){	
+      	var progressbar = upload.getChildControl("progressbar", true);
+      	progressbar.setValue(0);
+      }, this);
+      var uploadprogress = new qx.ui.form.Button("+ 10 percent").set({appearance: "tertiary-button", allowGrowX: false});
+      uploadprogress.addListener("execute", function(){	
+      	var progressbar = upload.getChildControl("progressbar", true);
+      	progressbar.setValue(progressbar.getValue()+10);
+      }, this);
       
       // Diagram
       var diagram = new sqv.ui.control.Diagram().set({height: 450});
@@ -587,6 +598,8 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"upload"</b> <em>(default)</em>').set({rich: true}));
       centerbox.add(upload);   
+      centerbox.add(uploaddemorestore);
+      centerbox.add(uploadprogress);
       // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
