@@ -285,7 +285,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
    	  
    	  style :
       {
-        color : ["sqv-arrow-med-gray","transparent",null,"transparent"],
+        color : ["sqv-arrow-med-gray","transparent",null,"transparent"]
       }
    },
    
