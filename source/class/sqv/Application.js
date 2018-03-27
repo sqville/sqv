@@ -349,7 +349,8 @@ qx.Class.define("sqv.Application",
       
       showtablebutton.addListener("execute", win2.open, win2);
       
-      
+      // Svg
+      var svgbutton = new qx.ui.form.Button().set({appearance: "svgbutton", allowGrowX: false});
       
       /*********************************************************************
        ******************** SCAFFOLDING ************************************
@@ -625,9 +626,10 @@ qx.Class.define("sqv.Application",
       
       // centerBox -> SVG
       centerbox.add(this.__createHeaderLabel("Svg"));
-      centerbox.add(new qx.ui.basic.Label("<em>sqv.embed.Svg</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.embed.Svg</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Example:").set({font: "control-header2", paddingTop: 20}));
-      centerbox.add(new qx.ui.basic.Label('Comming Soon').set({rich: true}));
+      centerbox.add(new qx.ui.basic.Label('Button with SVG images for both default and hover').set({rich: true}));
+      centerbox.add(svgbutton);
       centerbox.add(new qx.ui.basic.Label("Usage:").set({font: "control-header2", paddingTop: 20}));
       // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));

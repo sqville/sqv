@@ -925,10 +925,16 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : !states.checked ? undefined : sqv.theme.clean.Image.URLS["menu-checkbox"]
+          //icon : !states.checked ? undefined : sqv.theme.clean.Image.URLS["menu-checkbox"]
+          icon : sqv.theme.clean.Image.URLS["blank"]        
         };
       }
     },
+    
+    "menu-checkbox/icon" : {
+      include : "checkbox/icon"
+    },
+    
 
     "menu-radiobutton" :
     {
@@ -2079,6 +2085,37 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     },
     
     "tertiary-button/icon" : "primary-button/icon",
+    
+    
+    "svgbutton" :
+    {
+      include : "button",
+
+      style : function(states)
+      {
+        return {
+          icon : states.hovered ? sqv.ui.embed.Svg.mapsvg( 
+          	{
+          		id:"sqlogo",
+		  		width:"130",
+		  		height:"130",
+		  		viewbox_width:"130",
+		  		viewbox_height:"130",
+		  		path1fill:"red",
+		  		ellipsestroke:"yellow"
+          	}) : sqv.ui.embed.Svg.mapsvg( 
+          	{
+				id:"sqlogo",
+		  		width:"130",
+		  		height:"130",
+		  		viewbox_width:"130",
+		  		viewbox_height:"130",
+		  		path1fill:"blue",
+		  		ellipsestroke:"green"
+          	})
+        };
+      }
+    },
 
     
     /*
