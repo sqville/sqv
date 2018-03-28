@@ -92,6 +92,8 @@ qx.Class.define("sqv.Application",
       var button2 = new qx.ui.form.Button("FontIcon Button", "").set({allowGrowX: false});
       button2.setAppearance("search-button");
       
+      var togglebutton = new qx.ui.form.ToggleButton("Toggle Button", "sqv/test.png").set({allowGrowX: false});
+      
       // data for virtual widgets
       var rawData = [];
       for (var i=1; i<24; i++)
@@ -383,7 +385,17 @@ qx.Class.define("sqv.Application",
         this.debug("Checked: " + e.getData());
       }, this);*/
       
-      // Add stand alone fa icons
+      var menutogglebutton = new qx.ui.form.ToggleButton("Menu", "sqv/test.png").set({padding: [2,4], allowGrowX: false, focusable: false, value: true});
+      if (qx.core.Environment.get("device.type")== "mobile")
+      	menutogglebutton.setValue(false);
+      menutogglebutton.addListener("changeValue", function(e) {
+        //this.debug("Checked: " + e.getData());
+        if (e.getData())
+        	scrollwest.setVisibility("visible");     	
+        else
+        	scrollwest.setVisibility("excluded");
+      }, this);
+      northhbox.add(menutogglebutton);
       northhbox.add(new qx.ui.basic.Label("sqv Theme and Widget Browser - Theme currently in use: <b>Clean</b> (<span style='color:blue;'><u>change</u></span>)").set({rich: true}));
       //northhbox.add(faiconfolderopen);
       //northhbox.add(faiconhtml5);
@@ -409,7 +421,16 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label('<b>"secondary-button"</b> <em>(backgroundColor property is set to a color named "secondary", and defined in the themes Color class)</em>').set(
       	{rich: true, wrap: true, paddingTop: 20}));
       centerbox.add(secbutton1);      
-      //seperator
+      // seperator
+      centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
+      
+      // centerBox -> TOGGLEBUTTON
+      centerbox.add(this.__createHeaderLabel("ToggleButton"));
+      centerbox.add(new qx.ui.basic.Label("<em>qx.ui.form.ToggleButton</em>").set({rich: true, paddingTop: 0}));
+      centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('<b>"togglebutton"</b> <em>(default)</em>').set({rich: true, paddingTop: 20}));
+      centerbox.add(togglebutton);   
+      // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
       // centerBox -> TEXTFIELD
@@ -420,7 +441,7 @@ qx.Class.define("sqv.Application",
       centerbox.add(textbox);
       centerbox.add(new qx.ui.basic.Label('<b>"textfield-form"</b>').set({rich: true, paddingTop: 20}));
       centerbox.add(textboxform);  
-      //seperator
+      // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
       // centerBox -> DATEFIELD
@@ -664,6 +685,7 @@ qx.Class.define("sqv.Application",
       var datawl = [
       	{type: "header", label:"<b>Widgets</b>", bgcolor:"primary-button-box", txtcolor:"white"},
       	{type: "link", label:"Button"},
+      	{type: "link", label:"ToggleButton"},
       	{type: "link", label:"TextField"},
       	{type: "link", label:"DateField"},
       	{type: "link", label:"ComboBox"},
