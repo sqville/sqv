@@ -372,6 +372,7 @@ qx.Class.define("sqv.Application",
       
       // Document is the application root
       var appdoc = this.getRoot();
+      appdoc.getContentElement().setStyle("touch-action", "none");
       // App's Dock 
       var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "yellow"});
       // Dock north's HBox
@@ -386,8 +387,12 @@ qx.Class.define("sqv.Application",
       }, this);*/
       
       var menutogglebutton = new qx.ui.form.ToggleButton("Menu", "sqv/test.png").set({padding: [2,4], allowGrowX: false, focusable: false, value: true});
-      if (qx.core.Environment.get("device.type")== "mobile")
+      
+      if (qx.core.Environment.get("device.type") == "mobile"){
       	menutogglebutton.setValue(false);
+      	scrollwest.setVisibility("excluded");
+      }
+      	
       menutogglebutton.addListener("changeValue", function(e) {
         //this.debug("Checked: " + e.getData());
         if (e.getData())
@@ -397,10 +402,6 @@ qx.Class.define("sqv.Application",
       }, this);
       northhbox.add(menutogglebutton);
       northhbox.add(new qx.ui.basic.Label("sqv Theme and Widget Browser - Theme currently in use: <b>Clean</b> (<span style='color:blue;'><u>change</u></span>)").set({rich: true}));
-      //northhbox.add(faiconfolderopen);
-      //northhbox.add(faiconhtml5);
-      //northhbox.add(faiconcal);
-      //northhbox.add(faiconsearch);
            
       appcompdock.add(northhbox, {edge:"north"});
       
