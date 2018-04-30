@@ -34,14 +34,6 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
       PROPERTY: CSS ICON NAME
     ---------------------------------------------------------------------------
     */
-
-    /** name of icon */
-    freestyleCssClass :
-    {
-      nullable : true,
-      check : "Class",
-      init : "sqv.theme.clean.Image"
-    },
     
     /** name of freesytle css block*/
     freestyleCss :
@@ -91,11 +83,13 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 	  	
 	  	//variables for looping
 	  	var entryval;
+	  	var includestyleflag = false;
 	  	
 	  	//general loop to add content based on map
 	  	for (var sudo in sudostylemap) {
 		  	if (sudo == "before" || sudo == "after"){
-			  	//styles[":" + sudo] = {};
+			  	if (!styles.hasOwnProperty(":" + sudo))
+			  		styles[":" + sudo] = {};			  		
 			  	for (var entry in sudostylemap[sudo]) {
 		  			entryval = sudostylemap[sudo][entry];
 		  			switch(entry) {

@@ -41,9 +41,30 @@ qx.Mixin.define("sqv.ui.basic.MImage",
       themeable : true,
       apply : "_applyTextAlign",
       event : "changeTextAlign"
+    },
+    
+    /** Any text string which can contain HTML, too */
+    html :
+    {
+      check : "String",
+      apply : "_applyHtml",
+      event : "changeHtml",
+      nullable : true,
+      themeable : true
+    },
+    
+    /** Color of the svg fill property */
+    fill :
+    {
+      check : "Color",
+      nullable : true,
+      themeable : true,
+      apply : "_applyFill"
     }
   	
   },
+  
+  
 
   /*
   *****************************************************************************
@@ -59,6 +80,33 @@ qx.Mixin.define("sqv.ui.basic.MImage",
     __tapListenerId : null,
     __webfontListenerId : null,
   	
+  	
+  	// overridden
+    _applyFill : function(value, old)
+    {
+      if (value) {
+        var svgelem = this.getContentElement();
+        var attval = svgelem.getAttribute("html");
+        if (svgelem != null){
+        	svgelem.setStyle("fill", qx.theme.manager.Color.getInstance().resolve(value));
+        }
+      }
+    },
+  	
+  	// property apply
+    _applyHtml : function(value, old)
+    {
+      var elem = this.getContentElement();
+      // Workaround for http://bugzilla.qooxdoo.org/show_bug.cgi?id=7679
+      if (qx.core.Environment.get("engine.name") == "mshtml" &&
+        qx.core.Environment.get("browser.documentmode") == 9)
+      {
+        elem.setStyle("position", "relative");
+      }
+
+      // Insert HTML content
+      elem.setAttribute("html", value||"");
+    },
   	
   	// property apply
     _applyTextAlign : function(value, old) {

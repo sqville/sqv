@@ -57,21 +57,20 @@ qx.Class.define("sqv.Application",
       -------------------------------------------------------------------------
       */
      
-      //patch Atom with MAtom
-      //qx.Class.patch(qx.ui.basic.Atom, sqv.ui.basic.MAtom);
-	  //qx.Class.include(qx.ui.decoration.Decorator, sqv.theme.icon.MLittlebox);
-	  
+     
+     
+      /****************************************
+       *  Mixin new sqv features 
+       ****************************************/
+    
 	  // Prep the Image widget to have font handling abilities
 	  qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
 	  
+	  // Prep Atoms to have image property handling abilities
+	  qx.Class.include(qx.ui.basic.Atom, sqv.ui.basic.MAtom);
+	  
 	  // Prep tables Header Cell to have image property handling abilities
 	  qx.Class.include(qx.ui.table.headerrenderer.HeaderCell, sqv.ui.table.MHeaderCell);
-	  
-	  // Prep the Image widget to handle SVG data
-	  //qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.svg.MImage); 
-	  
-	  //qx.Class.include(qx.ui.basic.Label, sqv.ui.basic.MLabel);
-	  //qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.basic.MLabel);
 	  
 	  // Add the beforeContent property to the Decorator class
 	  qx.Class.include(qx.ui.decoration.Decorator, sqv.ui.decoration.MBeforeContent);
@@ -81,6 +80,9 @@ qx.Class.define("sqv.Application",
 	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.fonticon.FontAwesome.Appearance);
 	  qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
 	  qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
+	  
+	  
+	  
 	  
       // Create a button
       var button1 = new qx.ui.form.Button("Follow").set({allowGrowX: false});
@@ -347,12 +349,14 @@ qx.Class.define("sqv.Application",
       // create the Table and add it to the window widget
       var table = this.__createTable();
       //table.setFocusedCell(2,5);
-      win2.add(table);
+      // win2.add(table);
       
-      showtablebutton.addListener("execute", win2.open, win2);
+      // showtablebutton.addListener("execute", win2.open, win2);
       
       // Svg
       var svgbutton = new qx.ui.form.Button().set({appearance: "svgbutton", allowGrowX: false});
+      
+      var svgrawbutton = new qx.ui.form.Button().set({appearance: "svgrawbutton", allowGrowX: false});
       
       /*********************************************************************
        ******************** SCAFFOLDING ************************************
@@ -372,7 +376,8 @@ qx.Class.define("sqv.Application",
       
       // Document is the application root
       var appdoc = this.getRoot();
-      appdoc.getContentElement().setStyle("touch-action", "none");
+      //appdoc.getContentElement().setStyle("touch-action", "none");
+      //document.body.style.TouchAction = "none";
       // App's Dock 
       var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "yellow"});
       // Dock north's HBox
@@ -611,7 +616,8 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label("<em>qx.ui.table.Table</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('<b>"table"</b> <em>(default)</em>').set({rich: true}));
-      centerbox.add(showtablebutton);
+      //centerbox.add(showtablebutton);
+      centerbox.add(table);
       //seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
      
@@ -650,9 +656,11 @@ qx.Class.define("sqv.Application",
       centerbox.add(this.__createHeaderLabel("Svg"));
       centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.embed.Svg</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Example:").set({font: "control-header2", paddingTop: 20}));
-      centerbox.add(new qx.ui.basic.Label('Button with SVG images for both default and hover').set({rich: true}));
+      centerbox.add(new qx.ui.basic.Label('Button with SVG images for both default and hover. This example encodes the svg into a url string for including in an images background-image attribute').set({rich: true}));
       centerbox.add(svgbutton);
-      centerbox.add(new qx.ui.basic.Label("Usage:").set({font: "control-header2", paddingTop: 20}));
+      //centerbox.add(new qx.ui.basic.Label("Usage:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('Button with SVG images for both default and hover. This example embeds raw svg into the html attribute of the images div tag').set({rich: true}));
+      centerbox.add(svgrawbutton);
       // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
@@ -859,10 +867,10 @@ qx.Class.define("sqv.Application",
     
     __createTable : function()
     {
-      var rowData = this.__createRandomRows(25);
+      var rowData = this.__createRandomRows(15);
 
       var tableModel = new qx.ui.table.model.Simple();
-      tableModel.setColumns([ "ID", "A number", "A date", "Boolean" ]);
+      tableModel.setColumns([ "ID", "A number", "A date", "Boolean", "HTML Content" ]);
       tableModel.setData(rowData);
       tableModel.setColumnEditable(1, true);
       tableModel.setColumnEditable(2, true);
@@ -871,8 +879,11 @@ qx.Class.define("sqv.Application",
       var table = new qx.ui.table.Table(tableModel);
 
       table.set({
-        width: 600,
-        height: 400
+        height: 400,
+        rowHeight: 66,
+        showCellFocusIndicator: false,
+        focusCellOnPointerMove : true,
+        forceLineHeight: true
       });
 
       table.getSelectionModel().setSelectionMode(qx.ui.table.selection.Model.MULTIPLE_INTERVAL_SELECTION);
@@ -880,6 +891,8 @@ qx.Class.define("sqv.Application",
       var tcm = table.getTableColumnModel();
 
       tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
+      tcm.setDataCellRenderer(4, new qx.ui.table.cellrenderer.Html());
+      tcm.setColumnWidth(4,350);
       //tcm.setHeaderCellRenderer(2, new qx.ui.table.headerrenderer.Icon("icon/18/image/filter-frames.png", "A date"));
 
       return table;
@@ -892,7 +905,7 @@ qx.Class.define("sqv.Application",
       var dateRange = 400 * 24 * 60 * 60 * 1000; // 400 days
       for (var row = 0; row < rowCount; row++) {
         var date = new Date(now + Math.random() * dateRange - dateRange / 2);
-        rowData.push([ row, Math.random() * 10000, date, (Math.random() > 0.5) ]);
+        rowData.push([ row, Math.random() * 10000, date, (Math.random() > 0.5), "<p><b>Content worth reading I hope</b><br>This is the beginning of the end. Hope you liked it.</p>" ]);
       }
       return rowData;
     },

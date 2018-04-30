@@ -31,6 +31,7 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Decoration",
   {
   	"fa-search" :
     {
+       
    	   style :
        {
          beforeContent : '"\\f002"'
@@ -39,6 +40,7 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Decoration",
     
     "fa-calendar" :
     {
+   	   
    	   style :
        {
          beforeContent : '"\\f073"'
@@ -47,6 +49,7 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Decoration",
     
     "fa-html5" :
     {
+   	   
    	   style :
        {
          beforeContent : '"\\f13b"'
@@ -55,6 +58,7 @@ qx.Theme.define("sqv.fonticon.FontAwesome.Decoration",
     
     "fa-folder-open" :
     {
+   	   
    	   style :
        {
          beforeContent : '"\\f07c"'

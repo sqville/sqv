@@ -20,7 +20,7 @@
 /**
  * A mixin to support the use of SqvIcons in qx.ui.basic.Atom widgets
  */
-qx.Mixin.define("sqv.ui.basic.MAtom",
+qx.Mixin.define("sqv.ui.basic.MAtomtest",
 {
   
 

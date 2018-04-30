@@ -33,6 +33,66 @@ qx.Class.define("sqv.theme.clean.Image",
   statics :
   {
     
+    // Guide - [width, height, left, top, red, green, blue, alpha] 
+    DRAWINGS :
+    {
+      "insert-invitation" : [
+      	[2,2,3,0,0,0,0,1],
+	    [2,2,13,0,0,0,0,1],
+	    [1,1,1,2,0,0,0,.3],
+	    [1,1,16,2,0,0,0,.3],
+	    [1,1,1,16,0,0,0,.3],
+	    [1,1,16,16,0,0,0,.3],
+	    [14,1,2,2,0,0,0,1],
+	    [16,3,1,3,0,0,0,1],
+	    [2,10,1,6,0,0,0,1],
+	    [2,10,15,6,0,0,0,1],
+	    [16,1,1,15,0,0,0,1],
+	    [14,1,2,16,0,0,0,1],
+	    [4,4,9,9,0,0,0,1]
+      ],
+      
+      "insert-invitation-hover" : [
+      	[2,2,3,0,117,117,117,1],
+	    [2,2,13,0,117,117,117,1],
+	    [1,1,1,2,117,117,117,.3],
+	    [1,1,16,2,117,117,117,.3],
+	    [1,1,1,16,117,117,117,.3],
+	    [1,1,16,16,117,117,117,.3],
+	    [14,1,2,2,117,117,117,1],
+	    [16,3,1,3,117,117,117,1],
+	    [2,10,1,6,117,117,117,1],
+	    [2,10,15,6,117,117,117,1],
+	    [16,1,1,15,117,117,117,1],
+	    [14,1,2,16,117,117,117,1],
+	    [4,4,9,9,117,117,117,1]
+      ],
+      
+      "select-column-order" : [
+	      [9,1,0,0,0,0,0,1],
+	      [1,8,0,0,0,0,0,1],
+	      [1,5,4,0,0,0,0,1],
+	      [1,5,8,0,0,0,0,1],
+	      [9,1,0,2,0,0,0,1],
+	      [4,1,0,7,0,0,0,1],
+	      [5,1,5,6,0,0,0,1],
+	      [3,1,6,7,0,0,0,1],
+	      [1,1,7,8,0,0,0,1]
+      ],
+      
+      "select-column-order-hover" : [
+	      [9,1,0,0,0,0,0,1],
+	      [1,8,0,0,0,0,0,1],
+	      [1,5,4,0,0,0,0,1],
+	      [1,5,8,0,0,0,0,1],
+	      [9,1,0,2,0,0,0,1],
+	      [4,1,0,7,0,0,0,1],
+	      [5,1,5,6,255,0,0,1],
+	      [3,1,6,7,255,0,0,1],
+	      [1,1,7,8,255,0,0,1]
+      ]
+    },
+    
     CSSICONS :
     {
     	"checkbox-checked" :
@@ -51,9 +111,74 @@ qx.Class.define("sqv.theme.clean.Image",
 				"border-right" : "2px solid",
 				"border-bottom" : "2px solid",
 				"border-left" : "0px solid",
-    			"color" : "black" //color of the check mark
+    			"color" : "black",
+    			"content" : "''"
+    		}
+    	},
+    	
+    	"select-column-order" :
+    	{
+    		"html" : {
+    			"box-shadow" : "10px 1px red," +
+    			"1px 10px black",
+    			"transform" : "rotate(-45deg)"
+    		}
+    	},
+    	
+    	"window-button-close-icon" :
+    	{ 		
+    		"before" : 
+    		{
+    			"width" : "3px",
+    			"height" : "13px",
+    			"left" : "5px",
+    			"transform" : "rotate(45deg)",
+    			"transition" : "background-color .8s ease, width .3s ease",
+    			"position" : "absolute",
+    			"top" : "0px",
+    			"background-color" : "gray",
+    			"content" : "''"
     		},
-    		"after" : {}
+    		"after" :
+    		{
+    			"width" : "3px",
+    			"height" : "13px",
+    			"left" : "5px",
+    			"transform" : "rotate(-45deg)",
+    			"transition" : "background-color .8s ease, width .3s ease",
+    			"position" : "absolute",
+    			"top" : "0px",
+    			"background-color" : "gray",
+    			"content" : "''"
+    		}
+    	},
+    	
+    	"window-button-close-icon-hover" :
+    	{ 		
+    		"before" : 
+    		{
+    			"width" : "6px",
+    			"height" : "13px",
+    			"left" : "5px",
+    			"transform" : "rotate(45deg)",
+    			"transition" : "background-color .3s ease, width .3s ease",
+    			"position" : "absolute",
+    			"top" : "0px",
+    			"background-color" : "red",
+    			"content" : "''"
+    		},
+    		"after" :
+    		{
+    			"width" : "6px",
+    			"height" : "13px",
+    			"left" : "5px",
+    			"transform" : "rotate(-45deg)",
+    			"transition" : "background-color .3s ease, width .3s ease",
+    			"position" : "absolute",
+    			"top" : "0px",
+    			"background-color" : "red",
+    			"content" : "''"
+    		}
     	}
     },
     
@@ -129,6 +254,19 @@ qx.Class.define("sqv.theme.clean.Image",
 
       // tabview
       "tabview-close" : "decoration/tabview/close.gif"
+    },
+    
+    paint : function(drawing)
+    {
+  		return sqv.theme.clean.Image.DRAWINGS[drawing].map(this._convertstroke).join("");
+    },
+    
+    /*
+     * vA = [width, height, left, top, red, green, blue, alpha]
+     */
+    _convertstroke : function(vA)
+    {
+  		return "<div style='width:" + vA[0] + "px;height:" + vA[1] + "px;position:absolute;overflow:hidden;left:" + vA[2] + "px;top:" + vA[3] + "px;background-color:" + "rgba(" + vA[4] + "," + vA[5] + "," + vA[6] + "," + vA[7] + ")'></div>";
     }
   }
 });

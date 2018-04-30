@@ -95,6 +95,29 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         };
       }
     },
+    
+    "svg-icon" : 
+    {
+      include : "image",
+
+      style : function(states)
+      {
+        
+        var appss = qx.ui.style.Stylesheet.getInstance();
+        var cssstr = "fill: gray;";
+        
+        var classname = ".qx-svg-icon svg";
+        
+        //appss.addRule(classname,cssstr);
+        
+        // Prep the Image widget to have font handling abilities
+	    //qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
+        
+        return {
+          decorator : "svg-icon"
+        };
+      }
+    },
 
     "atom" : {},
     "atom/label" : "label",
@@ -309,7 +332,23 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           decorator : "table-header-column-button",
           padding : [14, 10],
           backgroundColor : "#F9FAFB",
-          icon : sqv.theme.clean.Image.URLS["select-column-order"]
+          icon : ""
+          //iconProps : states.hovered ? {html : sqv.theme.clean.Image.paint("select-column-order-hover")} : {html : sqv.theme.clean.Image.paint("select-column-order")}
+        };
+      }
+    },
+    
+    "table/column-button/icon" :
+    {
+      alias : "image",
+
+      style : function(states)
+      {
+        return {
+          width: 10,
+          height : 10,
+          decorator : "select-column-order"
+          //html: sqv.theme.clean.Image.paint("select-column-order")
         };
       }
     },
@@ -1613,31 +1652,44 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 
     "datefield/button" :
     {
-      alias : "combobox/button",
-      include : "combobox/button",
+      //alias : "combobox/button",
+      //include : "combobox/button",
 
       style : function(states)
       {
+        
+        /*var appss = qx.ui.style.Stylesheet.getInstance();
+        var cssstr = "fill: black;";
+        
+        var classname = ".qx-datechooser-button:hover svg";
+        
+        appss.addRule(classname,cssstr); */
+        
         return {
-          icon : states.hovered ? "icon/18/editor/insert-invitation-black.png" : "icon/18/editor/insert-invitation-gray.png",
-          //icon : "",
-          padding : [0, 0, 0, 6],
-          backgroundColor : undefined,
-          decorator : undefined
+          //icon : states.hovered ? "icon/18/editor/insert-invitation-black.png" : "icon/18/editor/insert-invitation-gray.png",
+          //iconProps : states.hovered ? {html : sqv.theme.clean.Image.paint("insert-invitation-hover")} : {html : sqv.theme.clean.Image.paint("insert-invitation")},
+          iconProps : states.hovered ? {fill : "black"} : {fill : "gray"},
+          icon : "",
+          //padding : [2, 6, 3, 4],
+          padding : 0,
+          backgroundColor : undefined
+          //decorator : "datechooser-button"
         };
       }
     },
     
     "datefield/button/icon" :
     {
-      include : "image",
+      include : "svg-icon",
 
       style : function(states)
       {
         return {
-          scale : true,
-          width: 18,
-          height : 18
+          width: 22,
+          height: 24,
+          padding : 2,	
+          //html : sqv.ui.embed.Svg.mapsvg({id:"calendar-alt", viewbox_width:"448", viewbox_height:"512"}, false),
+          html : sqv.ui.embed.Svg.mapfasvg("calendar-alt-1")
         };
       }
     },
@@ -2113,6 +2165,30 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 		  		path1fill:"blue",
 		  		ellipsestroke:"green"
           	})
+        };
+      }
+    },
+    
+    "svgrawbutton" :
+    {
+      include : "button",
+
+      style : function(states)
+      {
+        return {
+          icon : "",
+          width : 160,
+          height : 150,
+          iconProps : {width: 130, height: 130, html : sqv.ui.embed.Svg.mapsvg( 
+          	{
+          		id:"sqlogo",
+		  		width:"130",
+		  		height:"130",
+		  		viewbox_width:"130",
+		  		viewbox_height:"130",
+		  		path1fill:"red",
+		  		ellipsestroke:"yellow"
+          	}, false)}
         };
       }
     },
@@ -2701,7 +2777,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           icon : "",
           //padding : [ 1, 2 ],
           padding : [7,3,0,0],
-          marginRight : 4,
+          marginRight : 6,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
@@ -2714,13 +2790,12 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          decorator : "window-button-minimize-icon"
+          decorator : states.hovered ? "window-button-minimize-icon-hover" : "window-button-minimize-icon",
         };
       }
     },
     
     
-
     "window/restore-button" :
     {
       alias : "button",
@@ -2728,11 +2803,26 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : sqv.theme.clean.Image.URLS["window-restore"],
+          //icon : sqv.theme.clean.Image.URLS["window-restore"],
+          icon : "",
           padding : [ 1, 2 ],
           marginRight : 4,
           marginLeft : 4,
           cursor : states.disabled ? undefined : "pointer"
+        };
+      }
+    },
+    
+    "window/restore-button/icon" :
+    {
+      include : "image",
+
+      style : function(states)
+      {
+        return {
+          width : 12,
+          height : 12,
+          decorator : states.hovered ? "window-button-restore-icon-hover" : "window-button-restore-icon"
         };
       }
     },
@@ -2747,8 +2837,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           //icon : sqv.theme.clean.Image.URLS["window-maximize"],
           icon : "",
           padding : [ 1, 2 ],
-          marginRight : 4,
-          marginLeft : 4,
+          marginRight : 6,
+          marginLeft : 6,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
@@ -2761,9 +2851,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          decorator : "window-button-maximize-icon",
-          width : 9,
-          height : 9
+          decorator : states.hovered ? "window-button-maximize-icon-hover" : "window-button-maximize-icon",
+          width : 12,
+          height : 12
         };
       }
     },
@@ -2775,10 +2865,26 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : sqv.theme.clean.Image.URLS["window-close"],
+          //icon : sqv.theme.clean.Image.URLS["window-close"],
+          icon : "",
           padding : [ 1, 2 ],
-          marginLeft: 4,
+          marginLeft: 6,
           cursor : states.disabled ? undefined : "pointer"
+        };
+      }
+    },
+    
+    "window/close-button/icon" :
+    {
+      include : "image",
+
+      style : function(states)
+      {
+        return {
+          //decorator : states.hovered ? "window-button-close-icon-hover" : "window-button-close-icon",
+          width : 14,
+          height : 14,
+          decorator : states.hovered ? "window-button-close-icon-hover" : "window-button-close-icon"
         };
       }
     },

@@ -123,6 +123,17 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
     
+    /*
+    ---------------------------------------------------------------------------
+      SQv
+      
+      SVG ICON
+    ---------------------------------------------------------------------------
+    */
+   
+   "svg-icon" :
+    {},
+    
     
     /*
     ---------------------------------------------------------------------------
@@ -1269,7 +1280,17 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       style :
       {
-        width : [0,6,2,0],
+        width : [0,10,4,0],
+        color : "gray"
+      }
+    },
+    
+    "window-button-minimize-icon-hover" :
+    {
+      include : "window-button-minimize-icon",
+      
+      style :
+      {
         color : "black"
       }
     },
@@ -1278,7 +1299,54 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       style :
       {
-        width : [2,1,1,1],
+        width : [4,2,2,2],
+        color : "gray"
+      }
+    },
+    
+    "window-button-maximize-icon-hover" :
+    {
+      include : "window-button-maximize-icon",
+      
+      style :
+      {
+        color : "black"
+      }
+    },
+    
+    "window-button-close-icon" :
+    {
+      style :
+      {
+        freestyleCss : "window-button-close-icon",
+        color : "gray"
+      }
+    },
+    
+    "window-button-close-icon-hover" :
+    {     
+      style :
+      {
+        freestyleCss : "window-button-close-icon-hover",
+        color : "black"
+      }
+    },
+   
+   "window-button-restore-icon" :
+    {
+      style :
+      {
+        width : [0,10,4,0],
+        color : "gray"
+      }
+    },
+    
+    "window-button-restore-icon-hover" :
+    {
+      include : "window-button-restore-icon",
+      
+      style :
+      {
         color : "black"
       }
     },
@@ -1578,6 +1646,9 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       DATE CHOOSER
     ---------------------------------------------------------------------------
     */
+   
+    "datechooser-button" :
+    {},
 
     "datechooser-date-pane" :
     {
@@ -1822,6 +1893,13 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         width : [0,0,1,0],
         color : "table-border"
       }
+    },
+    
+    "select-column-order" :
+    {
+    	style : {
+    		freestyleCss : "select-column-order"
+    	}
     },
 
     "table-header-cell" :
