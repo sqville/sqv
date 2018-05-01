@@ -83,7 +83,7 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 	  	
 	  	//variables for looping
 	  	var entryval;
-	  	var includestyleflag = false;
+	  	sudostylemap = this._includeFreestyleStyles(sudostylemap);
 	  	
 	  	//general loop to add content based on map
 	  	for (var sudo in sudostylemap) {
@@ -133,6 +133,21 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 		  	}	
 	  	}	
 	  }
+    },
+    
+    _includeFreestyleStyles : function(sudostylemap)
+    {
+    	//work down include chain before updating styles
+    	if (sudostylemap.hasOwnProperty("include")){
+		  	var includestylemap = sqv.theme.clean.Image.CSSICONS[sudostylemap["include"]];
+		  	if (includestylemap.hasOwnProperty("include"))
+		  		sudostylemap["include"] = includestylemap["include"];
+		  	else
+		  		delete sudostylemap["include"];
+		  	this._includeFreestyleStyles(Object.assign({}, includestylemap, sudostylemap));
+		} else {
+			return sudostylemap;
+		}
     },
 
 

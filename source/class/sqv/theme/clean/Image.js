@@ -133,7 +133,7 @@ qx.Class.define("sqv.theme.clean.Image",
     			"height" : "13px",
     			"left" : "5px",
     			"transform" : "rotate(45deg)",
-    			"transition" : "background-color .8s ease, width .3s ease",
+    			"transition" : "background-color .8s ease",
     			"position" : "absolute",
     			"top" : "0px",
     			"background-color" : "gray",
@@ -145,7 +145,7 @@ qx.Class.define("sqv.theme.clean.Image",
     			"height" : "13px",
     			"left" : "5px",
     			"transform" : "rotate(-45deg)",
-    			"transition" : "background-color .8s ease, width .3s ease",
+    			"transition" : "background-color .8s ease",
     			"position" : "absolute",
     			"top" : "0px",
     			"background-color" : "gray",
@@ -155,29 +155,14 @@ qx.Class.define("sqv.theme.clean.Image",
     	
     	"window-button-close-icon-hover" :
     	{ 		
+    		"include" : "window-button-close-icon",
     		"before" : 
     		{
-    			"width" : "6px",
-    			"height" : "13px",
-    			"left" : "5px",
-    			"transform" : "rotate(45deg)",
-    			"transition" : "background-color .3s ease, width .3s ease",
-    			"position" : "absolute",
-    			"top" : "0px",
-    			"background-color" : "red",
-    			"content" : "''"
+    			"background-color" : "red"
     		},
     		"after" :
     		{
-    			"width" : "6px",
-    			"height" : "13px",
-    			"left" : "5px",
-    			"transform" : "rotate(-45deg)",
-    			"transition" : "background-color .3s ease, width .3s ease",
-    			"position" : "absolute",
-    			"top" : "0px",
-    			"background-color" : "red",
-    			"content" : "''"
+    			"background-color" : "red"
     		}
     	}
     },
