@@ -118,10 +118,30 @@ qx.Class.define("sqv.theme.clean.Image",
     	
     	"select-column-order" :
     	{
-    		"html" : {
-    			"box-shadow" : "10px 1px red," +
-    			"1px 10px black",
-    			"transform" : "rotate(-45deg)"
+    		"html" : {},
+    		"before" : {
+    			"left" : "4px",
+    			"width" : "6px",
+    			"position" : "absolute",
+    			"content" : "''"
+    		},
+    		"after" : {
+    			"border-top" : "4px solid darkgray",
+				"border-right" : "4.5px solid transparent",
+				"border-left" : "4.5px solid transparent",
+				"right" : "0px",
+				"bottom" : "1px",
+    			"position" : "absolute",
+    			"content" : "''"
+    			
+    		}
+    	},
+    	
+    	"select-column-order-hover" :
+    	{
+    		"include" : "select-column-order",
+    		"after" : {
+    			"border-top" : "4px solid black"
     		}
     	},
     	

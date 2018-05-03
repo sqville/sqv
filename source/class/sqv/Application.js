@@ -65,9 +65,11 @@ qx.Class.define("sqv.Application",
     
 	  // Prep the Image widget to have font handling abilities
 	  qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
+	  //qx.Class.include(qx.ui.basic.Image, qx.ui.core.MNativeOverflow);
 	  
 	  // Prep Atoms to have image property handling abilities
 	  qx.Class.include(qx.ui.basic.Atom, sqv.ui.basic.MAtom);
+	  //qx.Class.include(qx.ui.basic.Atom, qx.ui.core.MNativeOverflow);
 	  
 	  // Prep tables Header Cell to have image property handling abilities
 	  qx.Class.include(qx.ui.table.headerrenderer.HeaderCell, sqv.ui.table.MHeaderCell);

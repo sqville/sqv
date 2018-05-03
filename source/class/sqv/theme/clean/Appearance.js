@@ -330,10 +330,10 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           decorator : "table-header-column-button",
-          padding : [14, 10],
+          padding : [14, 8],
           backgroundColor : "#F9FAFB",
-          icon : ""
-          //iconProps : states.hovered ? {html : sqv.theme.clean.Image.paint("select-column-order-hover")} : {html : sqv.theme.clean.Image.paint("select-column-order")}
+          icon : "",
+          iconProps : states.hovered ? {decorator : "select-column-order-hover"} : {decorator : "select-column-order"}
         };
       }
     },
@@ -345,8 +345,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          width: 10,
-          height : 10,
+          width: 16,
+          height : 18,
           decorator : "select-column-order"
           //html: sqv.theme.clean.Image.paint("select-column-order")
         };
@@ -2790,7 +2790,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          decorator : states.hovered ? "window-button-minimize-icon-hover" : "window-button-minimize-icon",
+          decorator : states.hovered ? "window-button-minimize-icon-hover" : "window-button-minimize-icon"
         };
       }
     },

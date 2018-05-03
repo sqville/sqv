@@ -1897,8 +1897,28 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     
     "select-column-order" :
     {
+    	//include: "sqv-css-icon-arrow-down",
     	style : {
-    		freestyleCss : "select-column-order"
+    		freestyleCss : "select-column-order",
+    		radius : 1,
+	        width : 1,
+	        widthTop : 2,
+	        innerWidthTop: 1,
+	        innerWidthLeft: 1,
+	        innerWidthRight: 1,
+	        innerWidthBottom: 1,
+	        color : "gray",
+	        innerColor: "gray"
+    	}
+    },
+    
+    "select-column-order-hover" :
+    {
+    	include: "select-column-order",
+    	style : {
+	        freestyleCss : "select-column-order-hover",
+	        color : "black",
+	        innerColor: "black"
     	}
     },
 

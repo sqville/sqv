@@ -83,7 +83,15 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 	  	
 	  	//variables for looping
 	  	var entryval;
-	  	sudostylemap = this._includeFreestyleStyles(sudostylemap);
+	  	
+	  	/*if (sudostylemap.hasOwnProperty("include")){
+	  		var clonedmap = qx.module.util.Object.clone(sudostylemap, true);
+	  		var incclonemap = qx.module.util.Object.clone(sqv.theme.clean.Image.CSSICONS[sudostylemap["include"]], true);
+	  		qx.module.util.Object.merge(clonedmap, incclonemap);
+	  	}*/
+	  	
+	  	this._includeFreestyleStyles(sudostylemap);
+
 	  	
 	  	//general loop to add content based on map
 	  	for (var sudo in sudostylemap) {
@@ -135,20 +143,62 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 	  }
     },
     
-    _includeFreestyleStyles : function(sudostylemap)
+    
+    _buildIncludeChain : function(sudostylemap, arrmaps)
     {
     	//work down include chain before updating styles
     	if (sudostylemap.hasOwnProperty("include")){
-		  	var includestylemap = sqv.theme.clean.Image.CSSICONS[sudostylemap["include"]];
-		  	if (includestylemap.hasOwnProperty("include"))
-		  		sudostylemap["include"] = includestylemap["include"];
+		  	var nextstylemap = sqv.theme.clean.Image.CSSICONS[sudostylemap["include"]];
+		  	delete sudostylemap["include"];
+		  	arrmaps.unshift(sudostylemap);
+		  	if (nextstylemap.hasOwnProperty("include"))
+		  	{
+		  		return this._buildincludeChain(nextstylemap, arrmaps);		  			
+		  	}
 		  	else
-		  		delete sudostylemap["include"];
-		  	this._includeFreestyleStyles(Object.assign({}, includestylemap, sudostylemap));
+		  	{
+		  		arrmaps.unshift(nextstylemap);
+		  		return arrmaps;
+		  	}
 		} else {
-			return sudostylemap;
+			return arrmaps;
 		}
     },
+    
+    
+    _includeFreestyleStyles : function(sudostylemap)
+    {
+      //work down include chain before updating styles
+      if (sudostylemap.hasOwnProperty("include")){
+                  var nextstylemap = sqv.theme.clean.Image.CSSICONS[sudostylemap["include"]];
+                  if (nextstylemap.hasOwnProperty("include")) {
+                        sudostylemap["include"] = nextstylemap["include"];
+                        this._mergeRecursive(sudostylemap, nextstylemap);
+                        this._includeFreestyleStyles(sudostylemap);
+                  }
+                  else {
+                        delete sudostylemap["include"];
+                        this._mergeRecursive(sudostylemap, nextstylemap);
+                  }
+            }
+    },
+    
+    
+    _mergeRecursive : function(obj1, obj2) {
+            //iterate over all the properties in the object which is being consumed
+            for (var p in obj2) {
+                // Property in destination object set; update its value.
+                if ( obj2.hasOwnProperty(p) && typeof obj1[p] !== "undefined" && qx.lang.Type.isObject(obj2[p]) ) {
+                  this._mergeRecursive(obj1[p], obj2[p]);
+      
+                } else {
+                  //if obj1 does not have that level or prop in the heirarchy add it
+                  if (!obj1.hasOwnProperty(p))
+                        obj1[p] = obj2[p];
+                }
+           }
+      },
+
 
 
     _applyFreestyleCss : function()
