@@ -68,6 +68,46 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	}
     },
     
+    "icss-image-file" :
+    {
+    	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "icss-image-file",
+    			width : 36,
+    			height : 36
+    		};
+    	}
+    },
+    
+    "icss-test" :
+    {
+    	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "icss-test",
+    			width : 36,
+    			height : 36
+    		};
+    	}
+    },
+    
+    "icss-folder-o" :
+    {
+    	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "icss-folder-o"
+    		};
+    	}
+    },
+    
     /*
     ---------------------------------------------------------------------------
       CORE
@@ -224,6 +264,25 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           source : sqv.theme.clean.Image.URLS["cursor-" + icon],
           position : "right-top",
           offset : [ 2, 16, 2, 6 ]
+        };
+      }
+    },
+    
+    /*
+    ---------------------------------------------------------------------------
+      SVG ICONS
+    ---------------------------------------------------------------------------
+    */
+    
+    "fa-bath" :
+    {
+      include : "svg-icon",
+
+      style : function(states)
+      {
+        return {
+          padding : 2,	
+          html : sqv.ui.embed.Svg.mapfasvg("bath")
         };
       }
     },

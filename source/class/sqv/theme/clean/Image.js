@@ -32,7 +32,7 @@ qx.Class.define("sqv.theme.clean.Image",
 
   statics :
   {
-    
+    // EXPERIMENTAL - div tag per array entry - EXPERIMENTAL
     // Guide - [width, height, left, top, red, green, blue, alpha] 
     DRAWINGS :
     {
@@ -184,7 +184,112 @@ qx.Class.define("sqv.theme.clean.Image",
     		{
     			"background-color" : "red"
     		}
-    	}
+    	},
+    	
+    	"icss-image-file" :
+    	{
+    		"html" : {
+    			"width": ".8em",
+			    "height": "1em",
+			    "background-color": "transparent",
+			    "border-width": ".065em",
+			    "border-style": "solid",
+			    "border-radius": ".05em .34em .05em .05em",
+			    "overflow": "hidden",
+			    "margin": "0 .1em"
+    		},
+    		"before" : 
+    		{
+    			"border-style": "solid",
+    			"border-width": ".2em",
+    			"left": ".275em",
+    			"border-radius": ".3em",
+    			"border-color": "transparent",
+    			"border-right-color": "inherit",
+    			"box-shadow": "-.21em -.21em 0 -.1em",
+    			"transform": "rotate(-45deg)",
+    			"top": ".01em",
+    			"left": ".28em",
+    			"content" : "''"
+    		},
+    		"after" :
+    		{
+    			"border": ".25em solid black",
+    			"transform": "rotate(45deg)",
+    			"box-shadow": ".18em -.32em",
+    			"top": ".6em",
+    			"left": "-.08em",
+    			"content" : "''"
+    		}
+    	},
+    	
+    	"icss-test" :
+    	{
+    		"html" :
+    		{
+    			"width": ".22em",
+    			"height": ".1em",
+    			"margin": ".75em .63em .1em .15em",
+    			"box-shadow": ".49em 0"
+    		},
+    		"before" : 
+    		{
+			    "width": ".35em",
+			    "height": ".35em",
+			    "border-radius": "50%",
+			    "clip": "rect(-1em 1em .28em 0)",
+			    "transform": "rotate(-48deg)",
+			    "top": "-.25em",
+			    "left": "-.15em",
+			    "box-shadow": "inset 0 0 0 1em, .253em .03em 0 .06em",
+			    "content" : "''"
+			},
+			"after" : 
+			{
+				"width": ".3em",
+    			"height": ".3em",
+    			"border-radius": "50%",
+    			"clip": "rect(-1em 1em .26em -1em)",
+    			"transform": "rotate(48deg)",
+    			"top": "-.2em",
+    			"left": ".55em",
+    			"box-shadow": "inset 0 0 0 1em, -.32em .02em 0 .12em",
+    			"content" : "''"
+			}
+    	},
+    	
+    	"icss-folder-o" :
+    	{
+    	
+	    	"html" : {
+			  "width": "1em",
+			  "height": ".75em",
+			  "border-radius": ".05em",
+			  "border": ".065em solid black",
+			  "background": "transparent",
+			  "border-top": "0 solid transparent",
+			  "margin": ".2em 0 0"
+			},
+			"before" : {
+			  "width": ".9em",
+			  "height": ".065em",
+			  "border": "0 solid black",
+			  "border-right-width": ".5em",
+			  "top": 0,
+			  "left": 0,
+			  "content": "''"
+			},
+			"after" : {
+			  "width": ".5em",
+			  "height": ".2em",
+			  "border-radius": ".05em .05em 0 0",
+			  "border": ".065em solid currentColor",
+			  "border-bottom": "0 solid transparent",
+			  "top": "-.135em",
+			  "left": "-.06em",
+			  "content": "''"
+			}
+		}
     },
     
     /**

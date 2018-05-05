@@ -123,6 +123,30 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
     
+    "icss-image-file" :
+    {
+      style :
+      {
+        freestyleCss : "icss-image-file"
+      }
+    },
+    
+    "icss-test" :
+    {
+      style :
+      {
+        freestyleCss : "icss-test"
+      }
+    },
+    
+    "icss-folder-o" :
+    {
+      style :
+      {
+        freestyleCss : "icss-folder-o"
+      }
+    },
+    
     /*
     ---------------------------------------------------------------------------
       SQv
@@ -133,6 +157,21 @@ qx.Theme.define("sqv.theme.clean.Decoration",
    
    "svg-icon" :
     {},
+    
+    
+    /*
+    ---------------------------------------------------------------------------
+      SQv
+      
+      DIAGRAM
+    ---------------------------------------------------------------------------
+    */
+   
+   "diagram" :
+   {
+   		width : 1,
+   		color : "black"
+   },
     
     
     /*

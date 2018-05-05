@@ -188,7 +188,7 @@ qx.Class.define("sqv.Application",
       }, this);
       
       // Diagram
-      var diagram = new sqv.ui.control.Diagram().set({height: 450});
+      var diagram = new sqv.ui.control.Diagram().set({minHeight: 450, decorator: "diagram"});
       
       // ComboBox
       var combobox1 = new qx.ui.form.ComboBox().set({placeholder: "Select", width: 270, allowGrowX: false});
@@ -360,6 +360,29 @@ qx.Class.define("sqv.Application",
       
       var svgrawbutton = new qx.ui.form.Button().set({appearance: "svgrawbutton", allowGrowX: false});
       
+      var scalesvgiconbox = new qx.ui.container.Composite(new qx.ui.layout.HBox(16));
+      var svgbathimg300 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 300, height: 300});
+      var svgbathimg100 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 100, height: 100});
+      var svgbathimg50 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 50, height: 50});
+      var svgbathimg24 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 24, height: 24});
+      scalesvgiconbox.add(svgbathimg300);
+      scalesvgiconbox.add(svgbathimg100);
+      scalesvgiconbox.add(svgbathimg50);
+      scalesvgiconbox.add(svgbathimg24);
+      
+      // FreeStyleCSS
+      var icssimagebox = new qx.ui.container.Composite(new qx.ui.layout.HBox(16));
+      var icssimagefile = new qx.ui.basic.Image().set({appearance: "icss-image-file", width: 36, height: 36});
+      var icsstest = new qx.ui.basic.Image().set({appearance: "icss-test", width: 36, height: 36});
+      var icssfoldero = new qx.ui.basic.Image().set({appearance: "icss-folder-o", width: 36, height: 36});
+      //var svgbathimg50 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 50, height: 50});
+      //var svgbathimg24 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 24, height: 24});
+      icssimagebox.add(icssimagefile);
+      icssimagebox.add(icsstest);
+      icssimagebox.add(icssfoldero);
+      //scalesvgiconbox.add(svgbathimg50);
+      //scalesvgiconbox.add(svgbathimg24);
+      
       /*********************************************************************
        ******************** SCAFFOLDING ************************************
        *********************************************************************/
@@ -408,7 +431,7 @@ qx.Class.define("sqv.Application",
         	scrollwest.setVisibility("excluded");
       }, this);
       northhbox.add(menutogglebutton);
-      northhbox.add(new qx.ui.basic.Label("sqv Theme and Widget Browser - Theme currently in use: <b>Clean</b> (<span style='color:blue;'><u>change</u></span>)").set({rich: true}));
+      northhbox.add(new qx.ui.basic.Label("sqv Clean Theme and Widget Browser"));
            
       appcompdock.add(northhbox, {edge:"north"});
       
@@ -663,6 +686,8 @@ qx.Class.define("sqv.Application",
       //centerbox.add(new qx.ui.basic.Label("Usage:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('Button with SVG images for both default and hover. This example embeds raw svg into the html attribute of the images div tag').set({rich: true}));
       centerbox.add(svgrawbutton);
+      centerbox.add(new qx.ui.basic.Label("Scale SVG based on width and heigh of the Image").set({paddingTop: 10}));
+      centerbox.add(scalesvgiconbox);
       // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
       
@@ -682,7 +707,9 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label("<em>sqv.ui.decoration.MFreestyleCss</em>").set({rich: true, paddingTop: 0}));
       //centerbox.add(signature);
       centerbox.add(new qx.ui.basic.Label("Status:").set({font: "control-header2", paddingTop: 20}));
-      centerbox.add(new qx.ui.basic.Label('In use: Clean theme uses Freestyle CSS to replace decoration images with CSS').set({rich: true}));
+      centerbox.add(new qx.ui.basic.Label('In use: Clean theme uses Freestyle CSS to replace decoration images with Qx + CSS').set({rich: true}));
+      centerbox.add(new qx.ui.basic.Label("Pure CSS Icons:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(icssimagebox);
       // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
 
