@@ -202,7 +202,6 @@ qx.Class.define("sqv.theme.clean.Image",
     		{
     			"border-style": "solid",
     			"border-width": ".2em",
-    			"left": ".275em",
     			"border-radius": ".3em",
     			"border-color": "transparent",
     			"border-right-color": "inherit",
@@ -262,6 +261,7 @@ qx.Class.define("sqv.theme.clean.Image",
     	{
     	
 	    	"html" : {
+			  "display": "inline-block",
 			  "width": "1em",
 			  "height": ".75em",
 			  "border-radius": ".05em",
