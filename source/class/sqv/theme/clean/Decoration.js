@@ -143,7 +143,46 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       style :
       {
-        freestyleCss : "icss-folder-o"
+        freestyleCss : "icss-folder-o",
+        radius : 2,
+        backgroundColor : "transparent",
+        color : "yellow",
+        width : 2,
+        style : "solid",
+        colorTop: "transparent",
+        widthTop: 0
+      }
+    },
+    
+    "icss-file" :
+    {
+      style :
+      {
+        freestyleCss : "icss-file",
+        radius : [2,8,2,2],
+        backgroundColor : "transparent",
+        color : "black",
+        width : 3
+      }
+    },
+    
+    "fileicon-lg" :
+    {
+      
+      style :
+      {
+        freestyleCss : "fileicon-lg",
+        radius : 3
+      }
+    },
+    
+    "fileicon-sm" :
+    {
+      
+      style :
+      {
+        freestyleCss : "fileicon-sm",
+        radius : 2
       }
     },
     

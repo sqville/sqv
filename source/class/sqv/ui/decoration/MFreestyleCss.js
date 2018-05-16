@@ -20,7 +20,7 @@
  */
 qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 {
-
+  
   /*
   *****************************************************************************
      PROPERTIES
@@ -50,6 +50,17 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
   members :
   {
 
+    /** The used keys for transforms. */
+    __transitionKeys : {
+      "scale": true,
+      "rotate" : true,
+      "skew" : true,
+      "translate" : true
+    },
+    
+    /** Static map of rules */
+    __rules : {},
+    
     /**
      * Takes a styles map and adds CSS/CSS3 entries in place
      * to the given map. This is the needed behavior for
@@ -83,6 +94,7 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 	  	
 	  	//variables for looping
 	  	var entryval;
+	  	var frentval;
 	  	
 	  	/*if (sudostylemap.hasOwnProperty("include")){
 	  		var clonedmap = qx.module.util.Object.clone(sudostylemap, true);
@@ -100,7 +112,7 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 			  		styles[":" + sudo] = {};			  		
 			  	for (var entry in sudostylemap[sudo]) {
 		  			entryval = sudostylemap[sudo][entry];
-		  			switch(entry) {
+		  			/*switch(entry) {
 			  			case "transform":
 			  				styles[":" + sudo][transformpropName] = entryval;
 			  				break;
@@ -115,13 +127,52 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 			  				break;
 			  			default:
 			  				styles[":" + sudo][entry] = entryval;	
+		  			}*/
+		  			entry = qx.bom.Style.getPropertyName(entry);
+		  			styles[":" + sudo][entry] = entryval;
+			  	}
+			}
+			else if (sudo == "datatype" && (sudostylemap[sudo].hasOwnProperty("equals") || sudostylemap[sudo].hasOwnProperty("startswith"))) {
+				var appss = qx.ui.style.Stylesheet.getInstance();
+		        var cssstr = "";
+		        var classname = ".qx-" + iconname;
+		        if (sudostylemap[sudo].hasOwnProperty("startswith")) {
+		        	classname += "[" + "data-type^=" + sudostylemap[sudo]["startswith"] + "]";
+		        	delete sudostylemap[sudo]["startswith"];
+		        }
+		        else {
+		        	classname += "[" + "data-type=" + sudostylemap[sudo]["equals"] + "]";
+		        	delete sudostylemap[sudo]["equals"];
+		        }
+		        if (sudostylemap[sudo].hasOwnProperty("equals"))
+		        	delete sudostylemap[sudo]["equals"];
+		        	
+				for (var entry in sudostylemap[sudo]) {
+		  			entryval = sudostylemap[sudo][entry];
+		  			switch(entry) {
+			  			case "transform":
+			  				cssstr += [transformpropName] + " : " + entryval + ";";
+			  				break;
+			  			case "border-radius":
+			  				cssstr += [borderradiuspropName] + " : " + entryval + ";";
+			  				break;
+			  			case "animation":
+			  				cssstr += [animationpropName] + " : " + entryval + ";";
+			  				break;
+			  			case "boxshadow":
+			  				cssstr += [boxshadowpropName] + " : " + entryval + ";";
+			  				break;
+			  			default:
+			  				cssstr += [entry] + " : " + entryval + ";";	
 		  			}
 			  	}
+
+		        appss.addRule(classname,cssstr); 
 			}
 		  	else {
 		  		for (var entry in sudostylemap[sudo]) {
 		  			entryval = sudostylemap[sudo][entry];
-		  			switch(entry) {
+		  			/*switch(entry) {
 			  			case "transform":
 			  				styles[transformpropName] = entryval;
 			  				break;
@@ -136,7 +187,16 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 			  				break;
 			  			default:
 			  				styles[entry] = entryval;
+		  			}*/
+		  			if (entry == "animation-name") {
+		  				if (sqv.theme.clean.Image.KEYFRAMES.hasOwnProperty(entryval)) {
+		  					var keyframemap = sqv.theme.clean.Image.KEYFRAMES[entryval];
+		  					var keyframename = keyframepropName + " " + entryval;
+		  					this._addKeyFrames(keyframename, entryval, keyframemap, false);
+		  				}	
 		  			}
+		  			entry = qx.bom.Style.getPropertyName(entry);
+		  			styles[entry] = entryval;
 		  		}
 		  	}	
 	  	}	
@@ -198,6 +258,60 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
                 }
            }
       },
+      
+      /**
+     * Helper to add the given frames to an internal CSS stylesheet. It parses
+     * the description and adds the key frames to the sheet.
+     * @param frames {Map} A map of key frames that describe the animation.
+     * @param reverse {Boolean} <code>true</code>, if the key frames should
+     *   be added in reverse order.
+     * @return {String} The generated name of the keyframes rule.
+     */
+    _addKeyFrames : function(framename, rulename, frames, reverse) {
+      var rule = "";
+
+      // for each key frame
+      for (var position in frames) {
+        rule += (reverse ? -(position - 100) : position) + "% {";
+
+        var frame = frames[position];
+        var transforms;
+        // each style
+        for (var style in frame) {
+          if (style in this.__transitionKeys) {
+            if (!transforms) {
+              transforms = {};
+            }
+            transforms[style] = frame[style];
+          } else {
+            var propName = qx.bom.Style.getPropertyName(style);
+            var prefixed = (propName !== null) ?
+              qx.bom.Style.getCssName(propName) : "";
+            rule += (prefixed || style) + ":" + frame[style] + ";";
+          }
+        }
+
+        // transform handling
+        if (transforms) {
+          rule += qx.bom.element.Transform.getCss(transforms);
+        }
+
+        rule += "} ";
+      }
+
+      // cached shorthand
+      if (this.__rules[rule]) {
+        return this.__rules[rule];
+      }
+
+      var selector = framename;
+      //var selector = this.__cssAnimationKeys["keyframes"] + " " + name;
+      qx.bom.Stylesheet.addRule(qx.bom.Stylesheet.createElement(), selector, rule);
+
+      this.__rules[rule] = rulename;
+
+      return rulename;
+    },
 
 
 

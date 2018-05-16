@@ -103,7 +103,66 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	style : function(states)
     	{
     		return {
-    			decorator : "icss-folder-o"
+    			decorator : "icss-folder-o",
+    			width : 46,
+    			height : 36,
+    			margin : [4,0,0,0]
+    		};
+    	}
+    },
+    
+    "icss-file" :
+    {
+    	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "icss-file",
+    			width : 28,
+    			height : 36
+    		};
+    	}
+    },
+    
+    "fileicon" :
+    {
+    	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			textColor : "white",
+    			backgroundColor: "#a9a9a9"
+    		};
+    	}
+    },
+    
+    "fileicon-lg" :
+    {
+    	include : "fileicon",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "fileicon-lg",
+    			width : 48,
+    			height : 64
+    		};
+    	}
+    },
+    
+    "fileicon-sm" :
+    {
+    	include : "fileicon",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "fileicon-sm",
+    			width : 18,
+    			height : 24,
+    			backgroundColor: "#307cf1"
     		};
     	}
     },

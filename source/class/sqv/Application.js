@@ -372,14 +372,20 @@ qx.Class.define("sqv.Application",
       
       // FreeStyleCSS
       var icssimagebox = new qx.ui.container.Composite(new qx.ui.layout.HBox(16));
-      var icssimagefile = new qx.ui.basic.Image().set({appearance: "icss-image-file", width: 36, height: 36});
-      var icsstest = new qx.ui.basic.Image().set({appearance: "icss-test", width: 36, height: 36});
-      var icssfoldero = new qx.ui.basic.Image().set({appearance: "icss-folder-o", width: 36, height: 36});
+     // var icssimagefile = new qx.ui.basic.Image().set({appearance: "icss-image-file", width: 36, height: 36});
+     // var icsstest = new qx.ui.basic.Image().set({appearance: "icss-test", width: 36, height: 36});
+     // var icssfoldero = new qx.ui.basic.Image().set({appearance: "icss-folder-o"});
+     // var icssfile = new qx.ui.basic.Image().set({appearance: "icss-file"});
+      var fileiconlg = new qx.ui.basic.Image().set({appearance: "fileicon-lg", datatype: "pdf"});
+      var fileiconsm = new qx.ui.basic.Image().set({appearance: "fileicon-sm", datatype: "doc"});
       //var svgbathimg50 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 50, height: 50});
       //var svgbathimg24 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 24, height: 24});
-      icssimagebox.add(icssimagefile);
-      icssimagebox.add(icsstest);
-      icssimagebox.add(icssfoldero);
+     // icssimagebox.add(icssimagefile);
+     // icssimagebox.add(icsstest);
+     // icssimagebox.add(icssfoldero);
+     // icssimagebox.add(icssfile);
+      icssimagebox.add(fileiconlg);
+      icssimagebox.add(fileiconsm);
       //scalesvgiconbox.add(svgbathimg50);
       //scalesvgiconbox.add(svgbathimg24);
       
@@ -695,7 +701,7 @@ qx.Class.define("sqv.Application",
       centerbox.add(this.__createHeaderLabel("FontIcon"));
       centerbox.add(new qx.ui.basic.Label("<em>sqv.fonticon.FontAwesome.Appearance</em>").set({rich: true, paddingTop: 0}));
       centerbox.add(new qx.ui.basic.Label("Appearances:").set({font: "control-header2", paddingTop: 20}));
-      centerbox.add(new qx.ui.basic.Label('Usage example: <b><span style="color:blue;">var</span></b> faiconsearch = new qx.ui.basic.Image().set({ appearance: <b><span style="color:green;">"fa-search"</span></b> }) <br><br>In order: <b>"fa-search", "fa-calendar", "fa-html5", "fa-folder-open"</b>').set({rich: true}));
+      centerbox.add(new qx.ui.basic.Label('Usage example: <br><br><span style="padding:10px; background-color:#4f4f4f; color:white;"><b><span style="color:aqua;">var</span></b> faiconsearch = new qx.ui.basic.Image().set({ appearance: <b><span style="color:lime;">"fa-search"</span></b> })</span> <br><br>In order: <b>"fa-search", "fa-calendar", "fa-html5", "fa-folder-open"</b>').set({rich: true}));
       centerbox.add(fonticonbox);
       centerbox.add(new qx.ui.basic.Label("Button with a Fonticon image"));
       centerbox.add(button2);
@@ -708,7 +714,8 @@ qx.Class.define("sqv.Application",
       //centerbox.add(signature);
       centerbox.add(new qx.ui.basic.Label("Status:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('In use: Clean theme uses Freestyle CSS to replace decoration images with Qx + CSS').set({rich: true}));
-      centerbox.add(new qx.ui.basic.Label("Pure CSS Icons:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label("Qx + CSS Icons:").set({font: "control-header2", paddingTop: 20}));
+      centerbox.add(new qx.ui.basic.Label('CSS icon code from Fileicon.css: <a href="https://picturepan2.github.io/fileicon.css/" target="_blank">Fileicon.css</a>').set({rich: true}));
       centerbox.add(icssimagebox);
       // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));

@@ -60,6 +60,15 @@ qx.Mixin.define("sqv.ui.basic.MImage",
       nullable : true,
       themeable : true,
       apply : "_applyFill"
+    },
+    
+    /** Any text string to populate the image tag's data-type attribute */
+    datatype :
+    {
+      check : "String",
+      apply : "_applyDataType",
+      nullable : true,
+      themeable : true
     }
   	
   },
@@ -111,6 +120,15 @@ qx.Mixin.define("sqv.ui.basic.MImage",
   	// property apply
     _applyTextAlign : function(value, old) {
       this.getContentElement().setStyle("textAlign", value);
+    },
+    
+    // property apply
+    _applyDataType : function(value, old)
+    {
+      var elem = this.getContentElement();
+
+      // Insert data-type content
+      elem.setAttribute("data-type", value||"");
     },
 
 
