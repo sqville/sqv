@@ -321,6 +321,38 @@ qx.Class.define("sqv.theme.clean.Image",
 			}
 		},
 		
+		"icss-credit-card" :
+		{
+			"html" :
+			{
+			    "border-radius": ".1em",
+			    "border": "solid .065em currentColor",
+			    "background-color": "transparent"
+			},
+			"before" : 
+			{
+  				"position" : "absolute",
+  				"box-sizing": "border-box",
+  				"width": ".95em",
+  				"height": ".17em",
+  				"left": "-.05em",
+  				"top": ".1em",
+  				"background-color": "currentColor",
+  				"content" : "''"
+  			},
+  			"after" : 
+  			{
+  				"position" : "absolute",
+  				"box-sizing": "border-box",
+  				"right": ".1em",
+  				"bottom": ".1em",
+  				"width": ".35em",
+  				"height": ".063em",
+  				"background-color": "currentColor",
+  				"content" : "''"
+  			}
+		},
+		
 		"fileicon" :
     	{   	
 	    	"html" : {

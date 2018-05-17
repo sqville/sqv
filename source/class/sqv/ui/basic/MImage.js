@@ -43,6 +43,16 @@ qx.Mixin.define("sqv.ui.basic.MImage",
       event : "changeTextAlign"
     },
     
+    /** Font size of the widget */
+    textSize :
+    {
+      check : "Integer",
+      init : null,
+      apply : "_applyTextSize",
+      themeable : true,
+      nullable : true
+    },
+    
     /** Any text string which can contain HTML, too */
     html :
     {
@@ -100,6 +110,12 @@ qx.Mixin.define("sqv.ui.basic.MImage",
         	svgelem.setStyle("fill", qx.theme.manager.Color.getInstance().resolve(value));
         }
       }
+    },
+    
+    _applyTextSize : function(value, old)
+    {
+      if (value)
+        this.getContentElement().setStyle("font-size", value + "px");
     },
   	
   	// property apply
@@ -169,6 +185,11 @@ qx.Mixin.define("sqv.ui.basic.MImage",
       // check if text color already set - if so this local value has higher priority
       if (this.getTextColor() != null) {
         delete styles["color"];
+      }
+      
+      // check if text size already set - if so this local value has higher priority
+      if (this.getTextSize() != null) {
+        delete styles["fontSize"];
       }
 
       this.getContentElement().setStyles(styles);

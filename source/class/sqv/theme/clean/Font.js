@@ -118,6 +118,12 @@ qx.Theme.define("sqv.theme.clean.Font",
       family : [ "DejaVu Sans Mono", "Courier New", "monospace" ]
     },
     
+    "icssicon" :
+    {
+      size : 100,
+      family : ["Lato", "Helvetica Neue", "arial", "Helvetica", "sans-serif"]
+    },
+    
     // Theme Browser Content Formatting
     "control-header" :
     {

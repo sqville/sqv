@@ -68,9 +68,21 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	}
     },
     
-    "icss-image-file" :
+    "icss-common" :
     {
     	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			font : "icssicon"
+    		};
+    	}
+    },
+    
+    "icss-image-file" :
+    {
+    	include : "icss-common",
     	
     	style : function(states)
     	{
@@ -84,7 +96,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     
     "icss-test" :
     {
-    	include : "image",
+    	include : "icss-common",
     	
     	style : function(states)
     	{
@@ -98,7 +110,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     
     "icss-folder-o" :
     {
-    	include : "image",
+    	include : "icss-common",
     	
     	style : function(states)
     	{
@@ -113,7 +125,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     
     "icss-file" :
     {
-    	include : "image",
+    	include : "icss-common",
     	
     	style : function(states)
     	{
@@ -121,6 +133,18 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     			decorator : "icss-file",
     			width : 28,
     			height : 36
+    		};
+    	}
+    },
+    
+    "icss-credit-card" :
+    {
+    	include : "icss-common",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "icss-credit-card"
     		};
     	}
     },

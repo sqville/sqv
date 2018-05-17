@@ -166,6 +166,14 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
     
+    "icss-credit-card" :
+    {
+      style :
+      {
+        freestyleCss : "icss-credit-card"
+      }
+    },
+     
     "fileicon-lg" :
     {
       
