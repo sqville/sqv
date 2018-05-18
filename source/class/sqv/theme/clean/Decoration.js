@@ -123,11 +123,11 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
     
-    "icss-image-file" :
+    "icss-file-image" :
     {
       style :
       {
-        freestyleCss : "icss-image-file"
+        freestyleCss : "icss-file-image"
       }
     },
     
@@ -173,7 +173,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         freestyleCss : "icss-credit-card"
       }
     },
-     
+    
+    "fileicon-dy" :
+    {
+      
+      style :
+      {
+        freestyleCss : "fileicon-dy"
+      }
+    }, 
+    
     "fileicon-lg" :
     {
       

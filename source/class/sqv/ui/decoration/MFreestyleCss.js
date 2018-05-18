@@ -132,7 +132,7 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 		  			styles[":" + sudo][entry] = entryval;
 			  	}
 			}
-			else if (sudo == "datatype" && (sudostylemap[sudo].hasOwnProperty("equals") || sudostylemap[sudo].hasOwnProperty("startswith"))) {
+			/*else if (sudo == "datatype" && (sudostylemap[sudo].hasOwnProperty("equals") || sudostylemap[sudo].hasOwnProperty("startswith"))) {
 				var appss = qx.ui.style.Stylesheet.getInstance();
 		        var cssstr = "";
 		        var classname = ".qx-" + iconname;
@@ -168,7 +168,7 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 			  	}
 
 		        appss.addRule(classname,cssstr); 
-			}
+			}*/
 		  	else {
 		  		for (var entry in sudostylemap[sudo]) {
 		  			entryval = sudostylemap[sudo][entry];
@@ -188,13 +188,14 @@ qx.Mixin.define("sqv.ui.decoration.MFreestyleCss",
 			  			default:
 			  				styles[entry] = entryval;
 		  			}*/
-		  			if (entry == "animation-name") {
+		  			
+		  			/*if (entry == "animation-name") {
 		  				if (sqv.theme.clean.Image.KEYFRAMES.hasOwnProperty(entryval)) {
 		  					var keyframemap = sqv.theme.clean.Image.KEYFRAMES[entryval];
 		  					var keyframename = keyframepropName + " " + entryval;
 		  					this._addKeyFrames(keyframename, entryval, keyframemap, false);
 		  				}	
-		  			}
+		  			}*/
 		  			entry = qx.bom.Style.getPropertyName(entry);
 		  			styles[entry] = entryval;
 		  		}

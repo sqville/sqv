@@ -53,6 +53,20 @@ qx.Mixin.define("sqv.ui.basic.MImage",
       nullable : true
     },
     
+    /** Font size, width and calculated height all in one property - 
+     * Array values in order:
+     *  0 = size
+     *  1 = adjustment
+     *   */
+    dynamicSize :
+    {
+      check : "Array",
+      init : null,
+      apply : "_applyDynamicSize",
+      themeable : true,
+      nullable : true
+    },
+    
     /** Any text string which can contain HTML, too */
     html :
     {
@@ -116,6 +130,14 @@ qx.Mixin.define("sqv.ui.basic.MImage",
     {
       if (value)
         this.getContentElement().setStyle("font-size", value + "px");
+    },
+    
+    _applyDynamicSize : function(value, old)
+    {
+      if (value)
+        this.setTextSize(value[0]);
+        this.setWidth(value[0]);     
+        this.setHeight(Math.round(value[0]*value[1]));
     },
   	
   	// property apply

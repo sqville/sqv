@@ -1,0 +1,66 @@
+/* ==============================================
+    SOURCE CODE
+============================================== */
+
+.content code,
+.content pre{
+  font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", monospace;
+  background: white;
+  color: black;
+  border: 1px solid #ECECEC;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.keyword {
+	font-weight: bold;
+}
+
+.atom {
+	color: orange;
+	font-weight: bold;
+}
+
+.qxkey {
+	font-weight: bold;
+}
+
+.ident {
+
+}
+
+.comment {
+	color: #3f5fc0;
+}
+
+.string {
+	color: green;
+}
+
+
+.content code{
+  padding: 1px 3px;
+}
+
+.content pre{
+  overflow: auto;
+  padding: 4px 8px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.content b,
+.content strong,
+.content th{
+  font-weight: bold;
+  color: #535256;
+}
+
+.content p{
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.content ul{
+  list-style: square;
+}

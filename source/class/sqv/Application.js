@@ -360,7 +360,7 @@ qx.Class.define("sqv.Application",
       
       var svgrawbutton = new qx.ui.form.Button().set({appearance: "svgrawbutton", allowGrowX: false});
       
-      var scalesvgiconbox = new qx.ui.container.Composite(new qx.ui.layout.HBox(16));
+      var scalesvgiconbox = new qx.ui.container.Composite(new qx.ui.layout.Flow(10, 10));
       var svgbathimg300 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 300, height: 300});
       var svgbathimg100 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 100, height: 100});
       var svgbathimg50 = new qx.ui.basic.Image().set({appearance: "fa-bath", width: 50, height: 50});
@@ -371,26 +371,37 @@ qx.Class.define("sqv.Application",
       scalesvgiconbox.add(svgbathimg24);
       
       // FreeStyleCSS
-      var fileiconimagebox = new qx.ui.container.Composite(new qx.ui.layout.HBox(16)).set({padding:6});
-      var fileiconlg = new qx.ui.basic.Image().set({appearance: "fileicon-lg", datatype: "pdf"});
-      var fileiconsm = new qx.ui.basic.Image().set({appearance: "fileicon-sm", datatype: "doc"});
-      fileiconimagebox.add(fileiconlg);
-      fileiconimagebox.add(fileiconsm);
+      var fileiconimagebox = new qx.ui.container.Composite(new qx.ui.layout.Flow(10, 10)).set({padding:6});
+      var fileiconlgdoc = new qx.ui.basic.Image().set({appearance: "fileicon-lg", datatype: "doc", backgroundColor: "#307cf1"});
+      var fileiconlgppt = new qx.ui.basic.Image().set({appearance: "fileicon-dy", datatype: "ppt", dynamicSize: [48,1.333], backgroundColor: "#d24726"});
+      var fileiconlgxls = new qx.ui.basic.Image().set({appearance: "fileicon-lg", datatype: "xls", backgroundColor: "#0f9d58"});
+      var fileiconlgpng = new qx.ui.basic.Image().set({appearance: "fileicon-lg", datatype: "png", backgroundColor: "#f4b400"});
+      var fileiconlgmp3 = new qx.ui.basic.Image().set({appearance: "fileicon-lg", datatype: "mp3", backgroundColor: "#8e44ad"});
+      //var fileiconsm = new qx.ui.basic.Image().set({appearance: "fileicon-sm", datatype: "doc"});
       
-      var icssimagebox = new qx.ui.container.Composite(new qx.ui.layout.HBox(16)).set({padding:[1,6,1,6]});
+      fileiconimagebox.add(fileiconlgdoc);
+      fileiconimagebox.add(fileiconlgppt);
+      fileiconimagebox.add(fileiconlgxls);
+      fileiconimagebox.add(fileiconlgpng);
+      fileiconimagebox.add(fileiconlgmp3);
+      //fileiconimagebox.add(fileiconsm);
+      
+      var icssimagebox = new qx.ui.container.Composite(new qx.ui.layout.Flow(10, 10)).set({padding:[1,6,1,6]});
       var icsscreditcardxlg = new qx.ui.basic.Image().set({appearance: "icss-credit-card", textSize: 320, width: 320, height: Math.round(.8*320)});
-      var icsscreditcardlg = new qx.ui.basic.Image().set({appearance: "icss-credit-card", textSize: 192, width: 192, height: Math.round(.8*192)});
+      var icsscreditcardlg = new qx.ui.basic.Image().set({appearance: "icss-credit-card", dynamicSize: [192,.8]});
       var icsscreditcardmd = new qx.ui.basic.Image().set({appearance: "icss-credit-card", textSize: 64, width: 64, height: Math.round(.8*64)});
       var icsscreditcardsm = new qx.ui.basic.Image().set({appearance: "icss-credit-card", textSize: 32, width: 32, height: Math.round(.8*32)});
       icssimagebox.add(icsscreditcardxlg);
       icssimagebox.add(icsscreditcardlg);
       icssimagebox.add(icsscreditcardmd);
       icssimagebox.add(icsscreditcardsm);
-     // var icssimagefile = new qx.ui.basic.Image().set({appearance: "icss-image-file", width: 36, height: 36});
+      
+      var icssimagebox2 = new qx.ui.container.Composite(new qx.ui.layout.Flow(10, 10)).set({padding:[1,6,1,6]});
+      var icssfileimage = new qx.ui.basic.Image().set({appearance: "icss-file-image", dynamicSize: [192,1.2]});
      // var icsstest = new qx.ui.basic.Image().set({appearance: "icss-test", width: 36, height: 36});
      // var icssfoldero = new qx.ui.basic.Image().set({appearance: "icss-folder-o"});
      // var icssfile = new qx.ui.basic.Image().set({appearance: "icss-file"});
-     // icssimagebox.add(icssimagefile);
+      icssimagebox2.add(icssfileimage);
      // icssimagebox.add(icsstest);
      // icssimagebox.add(icssfoldero);
      // icssimagebox.add(icssfile);
@@ -724,10 +735,12 @@ qx.Class.define("sqv.Application",
       centerbox.add(new qx.ui.basic.Label("Status:").set({font: "control-header2", paddingTop: 20}));
       centerbox.add(new qx.ui.basic.Label('In use: Clean theme uses Freestyle CSS to replace decoration images with Qx + CSS').set({rich: true}));
       centerbox.add(new qx.ui.basic.Label("Qx + CSS Icons:").set({font: "control-header2", paddingTop: 20}));
-      centerbox.add(new qx.ui.basic.Label('CSS icon code from Fileicon.css: <a href="https://picturepan2.github.io/fileicon.css/" target="_blank">Fileicon.css</a>').set({rich: true}));
+      centerbox.add(new qx.ui.basic.Label('<b>CSS icons from <a href="https://picturepan2.github.io/fileicon.css/" target="_blank">Fileicon.css</a></b>').set({rich: true}));
       centerbox.add(fileiconimagebox);
-      centerbox.add(new qx.ui.basic.Label('CSS icons from <a href="http://viglino.github.io/iconicss/" target="_blank">iConicss</a>').set({rich: true}));
+      centerbox.add(new qx.ui.basic.Label('<b>CSS icons from <a href="http://viglino.github.io/iconicss/" target="_blank">iConicss</a></b>').set({rich: true}));
       centerbox.add(icssimagebox);
+      centerbox.add(new qx.ui.basic.Label('All standard icons'));
+      centerbox.add(icssimagebox2);
       // seperator
       centerbox.add(new qx.ui.basic.Label("<hr width='100%' color='silver'>").set({rich: true, allowGrowX: true, padding: [20,0]}));
 

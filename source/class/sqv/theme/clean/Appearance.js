@@ -80,16 +80,15 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	}
     },
     
-    "icss-image-file" :
+    "icss-file-image" :
     {
     	include : "icss-common",
     	
     	style : function(states)
     	{
     		return {
-    			decorator : "icss-image-file",
-    			width : 36,
-    			height : 36
+    			decorator : "icss-file-image",
+    			backgroundColor: "transparent"
     		};
     	}
     },
@@ -158,6 +157,18 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     		return {
     			textColor : "white",
     			backgroundColor: "#a9a9a9"
+    		};
+    	}
+    },
+    
+    "fileicon-dy" :
+    {
+    	include : "fileicon",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "fileicon-dy"
     		};
     	}
     },

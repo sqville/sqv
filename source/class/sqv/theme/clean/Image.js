@@ -114,6 +114,7 @@ qx.Class.define("sqv.theme.clean.Image",
     
     CSSICONS :
     {
+    	// ACTIVE
     	"checkbox-checked" :
     	{
     		"html" : {},
@@ -135,6 +136,7 @@ qx.Class.define("sqv.theme.clean.Image",
     		}
     	},
     	
+    	// ACTIVE
     	"select-column-order" :
     	{
     		"html" : {},
@@ -156,6 +158,7 @@ qx.Class.define("sqv.theme.clean.Image",
     		}
     	},
     	
+    	// ACTIVE
     	"select-column-order-hover" :
     	{
     		"include" : "select-column-order",
@@ -164,6 +167,7 @@ qx.Class.define("sqv.theme.clean.Image",
     		}
     	},
     	
+    	// ACTIVE
     	"window-button-close-icon" :
     	{ 		
     		"before" : 
@@ -192,6 +196,7 @@ qx.Class.define("sqv.theme.clean.Image",
     		}
     	},
     	
+    	// ACTIVE
     	"window-button-close-icon-hover" :
     	{ 		
     		"include" : "window-button-close-icon",
@@ -205,20 +210,18 @@ qx.Class.define("sqv.theme.clean.Image",
     		}
     	},
     	
-    	"icss-image-file" :
+    	"icss-file-image" :
     	{
     		"html" : {
-    			"width": ".8em",
-			    "height": "1em",
-			    "background-color": "transparent",
+			    "display": "inline-block",
 			    "border-width": ".065em",
 			    "border-style": "solid",
-			    "border-radius": ".05em .34em .05em .05em",
-			    "overflow": "hidden",
-			    "margin": "0 .1em"
+			    "border-radius": ".05em .34em .05em .05em"
     		},
     		"before" : 
     		{
+    			"position" : "absolute",
+  				"box-sizing": "border-box",
     			"border-style": "solid",
     			"border-width": ".2em",
     			"border-radius": ".3em",
@@ -232,6 +235,8 @@ qx.Class.define("sqv.theme.clean.Image",
     		},
     		"after" :
     		{
+    			"position" : "absolute",
+  				"box-sizing": "border-box",
     			"border": ".25em solid black",
     			"transform": "rotate(45deg)",
     			"box-shadow": ".18em -.32em",
@@ -379,28 +384,41 @@ qx.Class.define("sqv.theme.clean.Image",
   			  "width": "100%",
   			  "white-space": "nowrap",
   			  "overflow": "hidden",
-			  "content": "attr(data-type)",
-  			  "padding": "4px 6px"
+			  "content": "attr(data-type)"
 			}
 		},
 		
-		"fileicon-lg" :
+		//"padding": "0 0 .1667em .2083em"
+		"fileicon-dy" :
     	{
     		"include" : "fileicon",
-    		"datatype" : {
+			"html" : {
+			  "border-radius": ".0625em",
+			},
+			"before" : {
+  			  "border-width": ".1667em"
+			},
+			"after" : {
+			  "font-size": ".375em",
+  			  "padding": "0 0 .25em .29em"
+			}
+		},
+		
+		/***
+		// Add the code below to add a global class based on data-type values 
+		"datatype" : {
     		  "equals" : "pdf",
     		  "background": "green"
     		},
-    		"html" : {
-    		  "animation-name" : "example",
-    		  "animation-duration" : "6s"
-    		},
+		**/
+		"fileicon-lg" :
+    	{
+    		"include" : "fileicon",
 			"before" : {
-			  "border-bottom-left-radius": "2px",
   			  "border-width": "8px"
 			},
 			"after" : {
-			  "font-size": "16px",
+			  "font-size": "18px",
   			  "padding": "4px 6px"
 			}
 		},
@@ -436,7 +454,7 @@ qx.Class.define("sqv.theme.clean.Image",
       "window-minimize" : "decoration/window/minimize.gif", //Replaced with Decoration entry:: window-button-minimize-icon
       "window-maximize" : "decoration/window/maximize.gif", //Replaced with Decoration entry:: window-button-maximize-icon
       "window-restore" : "decoration/window/restore.gif",
-      "window-close" : "decoration/window/close.gif",
+      "window-close" : "decoration/window/close.gif", //Replaced with window-button-close-icon and window-button-close-icon-hover
 
       // cursor
       "cursor-copy" : "decoration/cursors/copy.gif",
@@ -466,7 +484,7 @@ qx.Class.define("sqv.theme.clean.Image",
       "tree-plus" : "decoration/tree/plus.gif",
 
       // table
-      "select-column-order" : "decoration/table/select-column-order.png",
+      "select-column-order" : "decoration/table/select-column-order.png", //Replaced by Decorations select-column-order and select-column-order-hover
       "table-ascending" : "decoration/table/ascending.png",  //Replaced by Decoration:: sqv-css-icon-arrow-up-dark-gray
       "table-descending" : "decoration/table/descending.png", //Replaced by Decoration:: sqv-css-icon-arrow-down-dark-gray
 
