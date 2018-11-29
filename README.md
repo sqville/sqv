@@ -80,3 +80,7 @@ The fully integrated way of using Font Icons in your qx.Desktop application.
 Demos
 ===========
 Clean Theme (with FontAwesome icons) for qx.Desktop: http://sqville.com/examples/qxthemes/clean/index.html
+
+License
+===========
+All sqv code can be used under the terms of the MIT License

@@ -171,14 +171,14 @@ qx.Mixin.define("sqv.ui.basic.MImage",
 
 
     // overridden
-    /*_applyTextColor : function(value, old)
+    _applyTextColor : function(value, old)
     {
       if (value) {
         this.getContentElement().setStyle("color", qx.theme.manager.Color.getInstance().resolve(value));
       } else {
         this.getContentElement().removeStyle("color");
       }
-    },*/
+    },
     
     
     // property apply

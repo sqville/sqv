@@ -80,18 +80,6 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	}
     },
     
-    "icss-bars" :
-    {
-    	include : "icss-common",
-    	
-    	style : function(states)
-    	{
-    		return {
-    			decorator : "icss-bars"
-    		};
-    	}
-    },
-    
     "icss-file-image" :
     {
     	include : "icss-common",
@@ -388,8 +376,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           padding : 2,	
-          //html : sqv.ui.embed.Svg.mapfasvg("bath")
-          html : qx.bom.Template.render(sqv.theme.clean.Image.SVGTEMPLATES["fontawesome"], sqv.theme.clean.Image.SVGCONTENT["fa-bath"])
+          html : sqv.ui.embed.Svg.mapfasvg("bath")
         };
       }
     },
