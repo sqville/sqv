@@ -44,8 +44,8 @@ Temporary Items
 
 
 # Resources
-/build
-/node_modules
+/build/
+/node_modules/
 /source/script
 /source/resource/sqv/css/font-awesome.css
 /source/resource/sqv/fonts/fontawesome-webfont.eot
