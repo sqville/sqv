@@ -27,11 +27,18 @@
  * 		- Resulting SVGs are stored/cached in an internal store called "__data". 
  * Notes: 
  * 
+ * @require(sqv.ui.basic.MImage)
+ * 
  */
 qx.Class.define("sqv.ui.embed.Svg",
 {
 
   extend : qx.core.Object,
+  
+  construct : function()
+  {
+  	qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
+  },
   
   statics :
   {
@@ -46,6 +53,7 @@ qx.Class.define("sqv.ui.embed.Svg",
      * Holds a map containig svg xml
      * 
      */
+    
     SVG :
     {
       // SVG tag content in the raw

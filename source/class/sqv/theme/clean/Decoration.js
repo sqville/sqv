@@ -123,6 +123,14 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
     
+    "icss-bars" : 
+    {
+      style :
+      {
+        freestyleCss : "icss-bars"
+      }
+    },
+    
     "icss-file-image" :
     {
       style :

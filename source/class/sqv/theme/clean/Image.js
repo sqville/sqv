@@ -32,6 +32,17 @@ qx.Class.define("sqv.theme.clean.Image",
 
   statics :
   {
+    // Embeded SVG alternative implementation using qx.bom.Template only 
+    SVGTEMPLATES :
+    {
+    	"fontawesome" : '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {{vbw}} {{vbh}}"><path d="{{pathd}}"></path></svg>'
+    },
+    
+    SVGCONTENT :
+    {
+    	"fa-bath" : {vbw : "512", vbh : "512", pathd : "M488 256H80V112c0-17.645 14.355-32 32-32 11.351 0 21.332 5.945 27.015 14.88-16.492 25.207-14.687 59.576 6.838 83.035-4.176 4.713-4.021 11.916.491 16.428l11.314 11.314c4.686 4.686 12.284 4.686 16.971 0l95.03-95.029c4.686-4.686 4.686-12.284 0-16.971l-11.314-11.314c-4.512-4.512-11.715-4.666-16.428-.491-17.949-16.469-42.294-21.429-64.178-15.365C163.281 45.667 139.212 32 112 32c-44.112 0-80 35.888-80 80v144h-8c-13.255 0-24 10.745-24 24v16c0 13.255 10.745 24 24 24h8v32c0 28.43 12.362 53.969 32 71.547V456c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-8h256v8c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-32.453c19.638-17.578 32-43.117 32-71.547v-32h8c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"}
+    },
+    
     // EXPERIMENTAL - div tag per array entry - EXPERIMENTAL
     // Guide - [width, height, left, top, red, green, blue, alpha] 
     DRAWINGS :
@@ -209,6 +220,36 @@ qx.Class.define("sqv.theme.clean.Image",
     			"background-color" : "red"
     		}
     	},
+    	
+    	"icss-bars" : 
+    	{
+    		"html" : {
+    			"display": "inline-block",
+    			"margin": ".41em  0"
+    		},
+    		"before" : {
+    			"position" : "absolute",
+  				"box-sizing": "border-box",
+    			"width": "1em",
+    			"height": ".18em",
+    			"border-radius": ".06em",
+    			"background-color": "black",
+    			"top": "-0.36em",
+    			"left": 0,
+    			"content":"''"
+    		},
+			"after" : {
+    			"position" : "absolute",
+  				"box-sizing": "border-box",
+    			"width": "1em",
+    			"height": ".18em",
+    			"border-radius": ".06em",
+    			"background-color": "black",
+    			"top": "0.36em",
+    			"left": 0,
+    			"content":"''"
+			}
+		},
     	
     	"icss-file-image" :
     	{
@@ -393,7 +434,7 @@ qx.Class.define("sqv.theme.clean.Image",
     	{
     		"include" : "fileicon",
 			"html" : {
-			  "border-radius": ".0625em",
+			  "border-radius": ".0625em"
 			},
 			"before" : {
   			  "border-width": ".1667em"
@@ -451,10 +492,10 @@ qx.Class.define("sqv.theme.clean.Image",
       "checkbox-checked-disabled" : "decoration/checkbox/checked-disabled.svg", //Replaced with SVG file - needs to be replaced with CSS
 
       // window
-      "window-minimize" : "decoration/window/minimize.gif", //Replaced with Decoration entry:: window-button-minimize-icon
-      "window-maximize" : "decoration/window/maximize.gif", //Replaced with Decoration entry:: window-button-maximize-icon
+      "window-minimize" : "decoration/window/minimize.gif", //Replaced with Decoration entry:: window-button-minimize-icon - pure Qx
+      "window-maximize" : "decoration/window/maximize.gif", //Replaced with Decoration entry:: window-button-maximize-icon - pure Qx
       "window-restore" : "decoration/window/restore.gif",
-      "window-close" : "decoration/window/close.gif", //Replaced with window-button-close-icon and window-button-close-icon-hover
+      "window-close" : "decoration/window/close.gif", //Replaced with Decoration entries:: window-button-close-icon and window-button-close-icon-hover - Qx + CSS
 
       // cursor
       "cursor-copy" : "decoration/cursors/copy.gif",
@@ -463,17 +504,17 @@ qx.Class.define("sqv.theme.clean.Image",
       "cursor-nodrop" : "decoration/cursors/nodrop.gif",
 
       // arrows
-      "arrow-right" : "decoration/arrows/right.gif", //Replaced by Decoration:: sqv-css-icon-arrow-right
-      "arrow-left" : "decoration/arrows/left.gif", //Replaced by Decoration:: sqv-css-icon-arrow-left
-      "arrow-up" : "decoration/arrows/up.gif", //Replaced by Decoration:: sqv-css-icon-arrow-up
-      "arrow-down" : "decoration/arrows/down.gif",  //Replaced by Decoration:: sqv-css-icon-arrow-down
+      "arrow-right" : "decoration/arrows/right.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-right
+      "arrow-left" : "decoration/arrows/left.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-left
+      "arrow-up" : "decoration/arrows/up.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-up
+      "arrow-down" : "decoration/arrows/down.gif",  //Replaced by Decoration entry:: sqv-css-icon-arrow-down
       "arrow-forward" : "decoration/arrows/forward.gif",
       "arrow-rewind" : "decoration/arrows/rewind.gif",
-      "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by Decoration:: sqv-css-icon-arrow-down-small
-      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by Decoration:: sqv-css-icon-arrow-up-small
-      "arrow-up-invert" : "decoration/arrows/up-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-up-invert
-      "arrow-down-invert" : "decoration/arrows/down-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-down-invert
-      "arrow-right-invert" : "decoration/arrows/right-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-right-invert
+      "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-down-small
+      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by Decoration entry:: sqv-css-icon-arrow-up-small
+      "arrow-up-invert" : "decoration/arrows/up-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-up-invert
+      "arrow-down-invert" : "decoration/arrows/down-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-down-invert
+      "arrow-right-invert" : "decoration/arrows/right-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-right-invert
 
       // split pane
       "knob-horizontal" : "decoration/splitpane/knob-horizontal.png",
@@ -484,7 +525,7 @@ qx.Class.define("sqv.theme.clean.Image",
       "tree-plus" : "decoration/tree/plus.gif",
 
       // table
-      "select-column-order" : "decoration/table/select-column-order.png", //Replaced by Decorations select-column-order and select-column-order-hover
+      "select-column-order" : "decoration/table/select-column-order.png", //Replaced by Decoration entries:: select-column-order and select-column-order-hover - Qx + CSS
       "table-ascending" : "decoration/table/ascending.png",  //Replaced by Decoration:: sqv-css-icon-arrow-up-dark-gray
       "table-descending" : "decoration/table/descending.png", //Replaced by Decoration:: sqv-css-icon-arrow-down-dark-gray
 

@@ -63,6 +63,7 @@ qx.Class.define("sqv.Application",
        *  Mixin new sqv features 
        ****************************************/
     
+    /*
 	  // Prep the Image widget to have font handling abilities
 	  qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
 	  //qx.Class.include(qx.ui.basic.Image, qx.ui.core.MNativeOverflow);
@@ -83,6 +84,7 @@ qx.Class.define("sqv.Application",
 	  qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
 	  qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
 	  
+	  */
 	  
 	  
 	  
@@ -397,17 +399,26 @@ qx.Class.define("sqv.Application",
       icssimagebox.add(icsscreditcardsm);
       
       var icssimagebox2 = new qx.ui.container.Composite(new qx.ui.layout.Flow(10, 10)).set({padding:[1,6,1,6]});
-      var icssfileimage = new qx.ui.basic.Image().set({appearance: "icss-file-image", dynamicSize: [192,1.2]});
+     // var icssfileimage = new qx.ui.basic.Image().set({appearance: "icss-file-image", dynamicSize: [64,1.2]});
      // var icsstest = new qx.ui.basic.Image().set({appearance: "icss-test", width: 36, height: 36});
      // var icssfoldero = new qx.ui.basic.Image().set({appearance: "icss-folder-o"});
      // var icssfile = new qx.ui.basic.Image().set({appearance: "icss-file"});
-      icssimagebox2.add(icssfileimage);
-     // icssimagebox.add(icsstest);
-     // icssimagebox.add(icssfoldero);
-     // icssimagebox.add(icssfile);
       
-      //scalesvgiconbox.add(svgbathimg50);
-      //scalesvgiconbox.add(svgbathimg24);
+     
+      var icssicons = [
+      	{appearance: "icss-bars", dynamicSize: [64,1.2]},
+      	{appearance: "icss-file-image", dynamicSize: [64,1.2]},
+      	{appearance: "icss-folder-o", dynamicSize: [64,1.2]}
+      ];
+      
+      // Populate westBox with content
+      var wllen = icssicons.length;
+      for (var wl = 0; wl < wllen; wl++) {
+        var icssatom = new qx.ui.container.Composite(new qx.ui.layout.Atom().set({center: true, gap: 6, iconPosition: "top"}));
+      	icssatom.add(new qx.ui.basic.Image().set(icssicons[wl]));
+        icssatom.add(new qx.ui.basic.Label(icssicons[wl].appearance));
+        icssimagebox2.add(icssatom);
+      } 
       
       /*********************************************************************
        ******************** SCAFFOLDING ************************************
