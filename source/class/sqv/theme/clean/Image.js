@@ -1,19 +1,17 @@
 /* ************************************************************************
 
-   qooxdoo - the new era of web development
+   SQville Software
 
-   http://qooxdoo.org
+   http://sqville.com
 
    Copyright:
-     2004-2010 1&1 Internet AG, Germany, http://www.1und1.de
+     None
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
-     See the LICENSE file in the project's top-level directory for details.
+     MIT
 
    Authors:
-     * Martin Wittemann (martinwittemann)
+     * Chris Eskew (chris.eskew@sqville.com)
 
 ************************************************************************ */
 /* ************************************************************************
@@ -23,8 +21,9 @@
 /**
  * Mapping class for all images used in the clean theme.
  *
- * @asset(sqv/decoration/Clean/*)
+ * @asset(qx/decoration/Clean/*)
  * @asset(qx/static/blank.png)
+ * 
  */
 qx.Class.define("sqv.theme.clean.Image",
 {
@@ -32,7 +31,24 @@ qx.Class.define("sqv.theme.clean.Image",
 
   statics :
   {
-    // EXPERIMENTAL - div tag per array entry - EXPERIMENTAL
+    // Embeded SVG alternative implementation using qx.bom.Template only 
+    SVGTEMPLATES :
+    {
+		"fontawesome" : '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {{vbw}} {{vbh}}"><path d="{{pathd}}"></path></svg>',
+		"material-2paths" : '<svg viewBox="0 0 {{vbw}} {{vbh}}" xmlns="http://www.w3.org/2000/svg"><path fill="{{pathfill1}}" d="{{pathd1}}"></path><path fill="{{pathfill2}}" d="{{pathd2}}"></path></svg>'
+    },
+    
+    SVGCONTENT :
+    {
+    	"fa-bath" : {vbw : "512", vbh : "512", pathd : "M488 256H80V112c0-17.645 14.355-32 32-32 11.351 0 21.332 5.945 27.015 14.88-16.492 25.207-14.687 59.576 6.838 83.035-4.176 4.713-4.021 11.916.491 16.428l11.314 11.314c4.686 4.686 12.284 4.686 16.971 0l95.03-95.029c4.686-4.686 4.686-12.284 0-16.971l-11.314-11.314c-4.512-4.512-11.715-4.666-16.428-.491-17.949-16.469-42.294-21.429-64.178-15.365C163.281 45.667 139.212 32 112 32c-44.112 0-80 35.888-80 80v144h-8c-13.255 0-24 10.745-24 24v16c0 13.255 10.745 24 24 24h8v32c0 28.43 12.362 53.969 32 71.547V456c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-8h256v8c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-32.453c19.638-17.578 32-43.117 32-71.547v-32h8c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"},
+    	"calendar-alt" : {vbw : "448", vbh : "512", pathd : "M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"},
+		"calendar-alt-1" : {vbw : "448", vbh : "512", pathd : "M 352 276 L 352 236 C 352 229.4 346.6 224 340 224 L 300 224 C 293.4 224 288 229.4 288 236 L 288 276 C 288 282.6 293.4 288 300 288 L 340 288 C 346.6 288 352 282.6 352 276 Z  M 448 112 L 448 464 C 448 490.5 426.5 512 400 512 L 48 512 C 21.5 512 0 490.5 0 464 L 0 112 C 0 85.5 21.5 64 48 64 L 96 64 L 96 12 C 96 5.4 101.4 0 108 0 L 148 0 C 154.6 0 160 5.4 160 12 L 160 64 L 288 64 L 288 12 C 288 5.4 293.4 0 300 0 L 340 0 C 346.6 0 352 5.4 352 12 L 352 64 L 400 64 C 426.5 64 448 85.5 448 112 Z  M 400 458 L 400 160 L 48 160 L 48 458 C 48 461.3 50.7 464 54 464 L 394 464 C 397.3 464 400 461.3 400 458 Z"},
+		"ma2p-folder" : {vbw : "24", vbh : "24", pathfill1 : "none", pathd1 : "M0 0h24v24H0z", pathd2 : "M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"},
+		"ma2p-folder-open" : {vbw : "24", vbh : "24", pathfill1 : "none", pathd1 : "M0 0h24v24H0z", pathd2 : "M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"},
+		"ma2p-file" : {vbw : "24", vbh : "24", pathd1 : "M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z", pathfill2 : "none", pathd2 : "M0 0h24v24H0z"}
+    },
+    
+    // EXPERIMENTAL - div tag per array entry - 
     // Guide - [width, height, left, top, red, green, blue, alpha] 
     DRAWINGS :
     {
@@ -113,8 +129,8 @@ qx.Class.define("sqv.theme.clean.Image",
     },
     
     CSSICONS :
-    {
-    	// ACTIVE
+    {	
+		// ACTIVE
     	"checkbox-checked" :
     	{
     		"html" : {},
@@ -133,6 +149,15 @@ qx.Class.define("sqv.theme.clean.Image",
 				"border-left" : "0px solid",
     			"color" : "black",
     			"content" : "''"
+    		}
+		},
+		
+		// ACTIVE
+    	"checkbox-checked-disabled" :
+    	{
+    		"include" : "checkbox-checked",
+    		"before" : {
+    			"color" : "#A7A6AA"
     		}
     	},
     	
@@ -208,8 +233,90 @@ qx.Class.define("sqv.theme.clean.Image",
     		{
     			"background-color" : "red"
     		}
-    	},
+		},
+
+		// ACTIVE
+		"cursor-nodrop-slash" : 
+		{
+			"before" : 
+    		{
+    			"width" : "2px",
+    			"height" : "13px",
+    			"left" : "6px",
+    			"transform" : "rotate(-45deg)",
+    			"position" : "absolute",
+    			"top" : "0px",
+    			"background-color" : "red",
+    			"content" : "''"
+    		}
+		},
+
+		// ACTIVE
+		"slider-line" :
+		{
+			"after" :
+			{
+				"border-top": "1px solid #D8D8D8",
+    			"width": "100%",
+    			"height": "50%",
+    			"position": "absolute",
+    			"bottom": "0",
+    			"left": "0",
+				"content": "''"			
+			}
+		},
+
+		// ACTIVE
+		"slider-line-focused" :
+		{
+			"include" : "slider-line",
+			"after" :
+			{
+				"border-top": "1px solid #85b7d9"
+			} 
+		},
+
+		// ACTIVE
+		"slider-line-invalid" :
+		{
+			"include" : "slider-line",
+			"after" :
+			{
+				"border-top": "1px solid red"
+			} 
+		},
     	
+    	"icss-bars" : 
+    	{
+    		"html" : {
+    			"display": "inline-block",
+    			"margin": ".41em  0"
+    		},
+    		"before" : {
+    			"position" : "absolute",
+  				"box-sizing": "border-box",
+    			"width": "1em",
+    			"height": ".18em",
+    			"border-radius": ".06em",
+    			"background-color": "black",
+    			"top": "-0.36em",
+    			"left": 0,
+    			"content":"''"
+    		},
+			"after" : {
+    			"position" : "absolute",
+  				"box-sizing": "border-box",
+    			"width": "1em",
+    			"height": ".18em",
+    			"border-radius": ".06em",
+    			"background-color": "black",
+    			"top": "0.36em",
+    			"left": 0,
+    			"content":"''"
+			}
+		},
+
+		
     	"icss-file-image" :
     	{
     		"html" : {
@@ -388,12 +495,11 @@ qx.Class.define("sqv.theme.clean.Image",
 			}
 		},
 		
-		//"padding": "0 0 .1667em .2083em"
 		"fileicon-dy" :
     	{
     		"include" : "fileicon",
 			"html" : {
-			  "border-radius": ".0625em",
+			  "border-radius": ".0625em"
 			},
 			"before" : {
   			  "border-width": ".1667em"
@@ -446,49 +552,51 @@ qx.Class.define("sqv.theme.clean.Image",
       "blank" : "qx/static/blank.png",
 
       // checkbox
-      "checkbox-checked" : "decoration/checkbox/checked.svg", //Replaced with CSS
+      "checkbox-checked" : "decoration/checkbox/checked.svg", //Replaced with Qx + CSS
       "checkbox-undetermined" : "decoration/checkbox/undetermined.png",  //Replaced by Decoration entry:: checkbox-undetermined
       "checkbox-checked-disabled" : "decoration/checkbox/checked-disabled.svg", //Replaced with SVG file - needs to be replaced with CSS
 
       // window
-      "window-minimize" : "decoration/window/minimize.gif", //Replaced with Decoration entry:: window-button-minimize-icon
-      "window-maximize" : "decoration/window/maximize.gif", //Replaced with Decoration entry:: window-button-maximize-icon
-      "window-restore" : "decoration/window/restore.gif",
-      "window-close" : "decoration/window/close.gif", //Replaced with window-button-close-icon and window-button-close-icon-hover
+      "window-minimize" : "decoration/window/minimize.gif", //Replaced with Decoration entry:: window-button-minimize-icon - pure Qx
+      "window-maximize" : "decoration/window/maximize.gif", //Replaced with Decoration entry:: window-button-maximize-icon - pure Qx
+      "window-restore" : "decoration/window/restore.gif", //Replaced with Decoration entry:: window-button-restore - icon pure Qx
+      "window-close" : "decoration/window/close.gif", //Replaced with Decoration entries:: window-button-close-icon and window-button-close-icon-hover - Qx + CSS
 
       // cursor
-      "cursor-copy" : "decoration/cursors/copy.gif",
-      "cursor-move" : "decoration/cursors/move.gif",
-      "cursor-alias" : "decoration/cursors/alias.gif",
-      "cursor-nodrop" : "decoration/cursors/nodrop.gif",
+      "cursor-copy" : "decoration/cursors/copy.gif", //Replaced with pure Qx
+      "cursor-move" : "decoration/cursors/move.gif", //Replaced with pure Qx
+      "cursor-alias" : "decoration/cursors/alias.gif", //Replaced with pure Qx
+      "cursor-nodrop" : "decoration/cursors/nodrop.gif", //Replaced with Qx + CSS
 
       // arrows
-      "arrow-right" : "decoration/arrows/right.gif", //Replaced by Decoration:: sqv-css-icon-arrow-right
-      "arrow-left" : "decoration/arrows/left.gif", //Replaced by Decoration:: sqv-css-icon-arrow-left
-      "arrow-up" : "decoration/arrows/up.gif", //Replaced by Decoration:: sqv-css-icon-arrow-up
-      "arrow-down" : "decoration/arrows/down.gif",  //Replaced by Decoration:: sqv-css-icon-arrow-down
-      "arrow-forward" : "decoration/arrows/forward.gif",
-      "arrow-rewind" : "decoration/arrows/rewind.gif",
-      "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by Decoration:: sqv-css-icon-arrow-down-small
-      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by Decoration:: sqv-css-icon-arrow-up-small
-      "arrow-up-invert" : "decoration/arrows/up-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-up-invert
-      "arrow-down-invert" : "decoration/arrows/down-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-down-invert
-      "arrow-right-invert" : "decoration/arrows/right-invert.gif", //Replaced by Decoration:: sqv-css-icon-arrow-right-invert
+      "arrow-right" : "decoration/arrows/right.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-right
+      "arrow-left" : "decoration/arrows/left.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-left
+      "arrow-up" : "decoration/arrows/up.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-up
+      "arrow-down" : "decoration/arrows/down.gif",  //Replaced by Decoration entry:: sqv-css-icon-arrow-down
+      //"arrow-forward" : "decoration/arrows/forward.gif", //Replaced by Qx code
+      //"arrow-rewind" : "decoration/arrows/rewind.gif", //Replaced by Qx code
+      "arrow-down-small" : "decoration/arrows/down-small.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-down-small
+      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by Decoration entry:: sqv-css-icon-arrow-up-small
+      "arrow-up-invert" : "decoration/arrows/up-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-up-invert
+      "arrow-down-invert" : "decoration/arrows/down-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-down-invert
+      "arrow-right-invert" : "decoration/arrows/right-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-right-invert
 
       // split pane
-      "knob-horizontal" : "decoration/splitpane/knob-horizontal.png",
-      "knob-vertical" : "decoration/splitpane/knob-vertical.png",
+      "knob-horizontal" : "decoration/splitpane/knob-horizontal.png", //Replaced by pure Qx
+      "knob-vertical" : "decoration/splitpane/knob-vertical.png", // Replaced by pure Qx
 
       // tree
-      "tree-minus" : "decoration/tree/minus.gif",
-      "tree-plus" : "decoration/tree/plus.gif",
+      //"tree-minus" : "decoration/tree/minus.gif", //Replaced
+      //"tree-plus" : "decoration/tree/plus.gif", //Replaced
 
       // table
-      "select-column-order" : "decoration/table/select-column-order.png", //Replaced by Decorations select-column-order and select-column-order-hover
+      "select-column-order" : "decoration/table/select-column-order.png", //Replaced by Decoration entries:: select-column-order and select-column-order-hover - Qx + CSS
       "table-ascending" : "decoration/table/ascending.png",  //Replaced by Decoration:: sqv-css-icon-arrow-up-dark-gray
       "table-descending" : "decoration/table/descending.png", //Replaced by Decoration:: sqv-css-icon-arrow-down-dark-gray
 
-      // tree virtual
+	  // tree virtual
+	  "tree-minus" : "decoration/treevirtual/minus.gif",
+      "tree-plus" : "decoration/treevirtual/plus.gif",
       "treevirtual-line" : "decoration/treevirtual/line.gif",
       "treevirtual-minus-only" : "decoration/treevirtual/only_minus.gif",
       "treevirtual-plus-only" : "decoration/treevirtual/only_plus.gif",
@@ -502,18 +610,18 @@ qx.Class.define("sqv.theme.clean.Image",
       "treevirtual-cross" : "decoration/treevirtual/cross.gif",
 
       // menu
-      "menu-checkbox" : "decoration/menu/checkbox.gif",
-      "menu-checkbox-invert" : "decoration/menu/checkbox-invert.gif",
-      "menu-radiobutton-invert" : "decoration/menu/radiobutton-invert.gif",
-      "menu-radiobutton" : "decoration/menu/radiobutton.gif",
+      "menu-checkbox" : "decoration/menu/checkbox.gif", //Replaced with Qx + CSS
+      "menu-checkbox-invert" : "decoration/menu/checkbox-invert.gif", //Replaced with Qx + CSS
+      "menu-radiobutton-invert" : "decoration/menu/radiobutton-invert.gif", //Replaced with Qx + CSS
+      "menu-radiobutton" : "decoration/menu/radiobutton.gif", //Replaced with Qx + CSS
 
       // tabview
-      "tabview-close" : "decoration/tabview/close.gif"
+      "tabview-close" : "decoration/tabview/close.gif" // Replaced by qx+css using freeStyleCss class and "window-button-close-icon"
     },
     
     paint : function(drawing)
     {
-  		return sqv.theme.clean.Image.DRAWINGS[drawing].map(this._convertstroke).join("");
+  		return qx.theme.clean.Image.DRAWINGS[drawing].map(this._convertstroke).join("");
     },
     
     /*

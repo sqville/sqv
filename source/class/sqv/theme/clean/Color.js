@@ -1,24 +1,22 @@
 /* ************************************************************************
 
-   qooxdoo - the new era of web development
+   SQville Software
 
-   http://qooxdoo.org
+   http://sqville.com
 
    Copyright:
-     2004-2011 1&1 Internet AG, Germany, http://www.1und1.de
+     None
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
-     See the LICENSE file in the project's top-level directory for details.
+     MIT
 
    Authors:
-     * Martin Wittemann (martinwittemann)
+     * Chris Eskew (chris.eskew@sqville.com)
 
 ************************************************************************ */
 
 /**
- * Simple color theme
+ * Clean color theme, based off of Simple color theme (qooxdoo) and Semantic default
  */
 qx.Theme.define("sqv.theme.clean.Color",
 {
@@ -51,7 +49,7 @@ qx.Theme.define("sqv.theme.clean.Color",
     
     // combobox
     "combobox-hovered" : "#F3F3F3",
-    "combobox-item-selected" : "#F8F8F8",
+    "combobox-item-selected" : "#F7F7F7",
 
     // text colors
     "link" : "#24B",
@@ -82,8 +80,9 @@ qx.Theme.define("sqv.theme.clean.Color",
     "button-focus-shadow" : qx.core.Environment.get("css.rgba") ? "rgba(81, 167, 232, 0.8)" : "#51A7E8",
     
     //SQ New
-	"textfield-selected" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.3)" : "#BDBEBE",
-	"textfield-selected-darker" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.5)" : "#BDBEBE",
+    //"textfield-selected" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.3)" : "#BDBEBE",
+    "textfield-selected" : qx.core.Environment.get("css.rgba") ? "rgba(133, 183, 217, 1)" : "#85b7d9",
+	  "textfield-selected-darker" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.5)" : "#BDBEBE",
 	
 	//SQ New
 	"progressbar-base" : qx.core.Environment.get("css.rgba") ? "rgba(229, 229, 229, 1)" : "#E5E5E5",
@@ -127,7 +126,6 @@ qx.Theme.define("sqv.theme.clean.Color",
 
     // window
     "window-border" : "#2E3A46",
-    //"window-border-inner" : "#9DCBFE",
     "window-border-inner" : "white",
 
     // group box
@@ -139,17 +137,13 @@ qx.Theme.define("sqv.theme.clean.Color",
     // shadows
     "shadow" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.4)" : "#999999",
     "shadow-light" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.2)" : "#CCCCCC",
-    //"shadow-light" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.1)" : "#E5E5E5",
 
     // borders
     // 'border-main' is an alias of 'background-selected' (compatibility reasons)
     "border-main" : "#6694E3",
-    //SQv "border-light" : "#B7B7B7",
-    //SQv "border-light-shadow" : "#686868",
     "border-light" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.15)" : "#D8D8D8",
     "border-light-darker" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.2)" : "#D8D8D8",
     "border-light-shadow" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.15)" : "#D8D8D8",
-    
     "border-super-light" : qx.core.Environment.get("css.rgba") ? "rgba(0, 0, 0, 0.06)" : "#EEEEEE",
 
     // separator

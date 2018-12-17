@@ -81,7 +81,13 @@ qx.Class.define("sqv.Application",
 	  // Add FontAwesome specific Appearance, Decoration and Font entries to the current theme 
 	  qx.Theme.include(sqv.theme.clean.Appearance, sqv.fonticon.FontAwesome.Appearance);
 	  qx.Theme.include(sqv.theme.clean.Decoration, sqv.fonticon.FontAwesome.Decoration);
-	  qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
+    qx.Theme.include(sqv.theme.clean.Font, sqv.fonticon.FontAwesome.Font);
+    
+    qx.Class.patch(qx.ui.popup.Popup, sqv.theme.clean.MPlacement);
+
+    qx.Class.include(qx.ui.form.SelectBox, sqv.theme.clean.MSelectBox);
+    
+    qx.Class.include(qx.ui.tree.core.AbstractItem, sqv.ui.basic.MAtom);
 	  
 	  
 	  
@@ -836,7 +842,8 @@ qx.Class.define("sqv.Application",
 
       var te1 = new qx.ui.tree.TreeFolder("Desktop");
       te1.setOpen(true);
-      te1.setIcon("icon/18/hardware/desktop-windows-black.png");
+      //te1.setIcon("icon/18/hardware/desktop-windows-black.png");
+      //te1.setIconProps({html:""});
       root.add(te1);
 
       var te1_1 = new qx.ui.tree.TreeFolder("Files");

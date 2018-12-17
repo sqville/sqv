@@ -1,15 +1,19 @@
 /* ************************************************************************
 
-   SQville Software - Always in dvelopment mode
+   SQville Software
 
    http://sqville.com
 
-   License:
-     
-   Authors:
-   * Chris Eskew 
+   Copyright:
+     None
 
-************************************************************************* */
+   License:
+     MIT
+
+   Authors:
+     * Chris Eskew (chris.eskew@sqville.com)
+
+************************************************************************ */
 
 /* ************************************************************************
 
@@ -18,12 +22,6 @@
 
 /**
  * The Clean appearance theme.
- *
- * @asset(qx/icon/Tango/16/mimetypes/text-plain.png)
- * @asset(qx/icon/Tango/16/actions/view-refresh.png)
- * @asset(qx/icon/Tango/16/actions/window-close.png)
- * @asset(qx/icon/Tango/16/actions/dialog-cancel.png)
- * @asset(qx/icon/Tango/16/actions/dialog-ok.png)
  * 
  */
 qx.Theme.define("sqv.theme.clean.Appearance",
@@ -76,6 +74,18 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	{
     		return {
     			font : "icssicon"
+    		};
+    	}
+    },
+    
+    "icss-bars" :
+    {
+    	include : "icss-common",
+    	
+    	style : function(states)
+    	{
+    		return {
+    			decorator : "icss-bars"
     		};
     	}
     },
@@ -237,15 +247,10 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         
-        var appss = qx.ui.style.Stylesheet.getInstance();
+        /*var appss = qx.ui.style.Stylesheet.getInstance();
         var cssstr = "fill: gray;";
-        
         var classname = ".qx-svg-icon svg";
-        
-        //appss.addRule(classname,cssstr);
-        
-        // Prep the Image widget to have font handling abilities
-	    //qx.Class.include(qx.ui.basic.Image, sqv.ui.basic.MImage);
+        appss.addRule(classname,cssstr);*/
         
         return {
           decorator : "svg-icon"
@@ -355,9 +360,14 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
 
         return {
-          source : sqv.theme.clean.Image.URLS["cursor-" + icon],
+          //source : sqv.theme.clean.Image.URLS["cursor-" + icon],
+          source : "",
+          decorator : "cursor-" + icon,
           position : "right-top",
-          offset : [ 2, 16, 2, 6 ]
+          offset : [ 2, 16, 2, 6 ],
+          width : 15,
+          height : 15,
+          backgroundColor: "white"
         };
       }
     },
@@ -376,7 +386,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           padding : 2,	
-          html : sqv.ui.embed.Svg.mapfasvg("bath")
+          //html : sqv.ui.embed.Svg.mapfasvg("bath")
+          html : qx.bom.Template.render(sqv.theme.clean.Image.SVGTEMPLATES["fontawesome"], sqv.theme.clean.Image.SVGCONTENT["fa-bath"])
         };
       }
     },
@@ -426,7 +437,10 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : sqv.theme.clean.Image.URLS["arrow-" + (states.vertical ? "down" : "right")]
+          //icon : sqv.theme.clean.Image.URLS["arrow-" + (states.vertical ? "down" : "right")]
+          icon : "",
+          iconProps : states.vertical ? { decorator : "sqv-css-icon-arrow-down" } : { decorator : "sqv-css-icon-arrow-right" },
+          padding : [10, 12] 
         };
       }
     },
@@ -439,7 +453,10 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : sqv.theme.clean.Image.URLS["arrow-" + (states.vertical ? "up" : "left")]
+          //icon : sqv.theme.clean.Image.URLS["arrow-" + (states.vertical ? "up" : "left")]
+          icon : "",
+          iconProps : states.vertical ? { decorator : "sqv-css-icon-arrow-up" } : { decorator : "sqv-css-icon-arrow-left" },
+          padding : [10, 12] 
         };
       }
     },
@@ -533,7 +550,15 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       }
     },
 
-    "table-scroller/pane" : {},
+    "table-scroller/pane" : 
+    {   
+        style : function(states)
+        {
+          return {
+            decorator : "table-pane"
+          };
+        }
+      },
 
     "table-scroller/focus-indicator" :
     {
@@ -565,7 +590,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           decorator : states.first ? "table-header-cell-first" : "table-header-cell",
           minWidth: 13,
-          font : "bold",
+          font : "groupbox-legend",
           alignY : "middle",
           padding : [14, 10],
           cursor : states.disabled ? undefined : "pointer",
@@ -672,7 +697,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       alias : "table",
       style : function(states, superStyles) {
         return {
-          padding : [superStyles.padding[0] + 2, superStyles.padding[1] + 1]
+          padding : [superStyles.padding[0] + 2, superStyles.padding[1] + 1],
+          rowHeight: 24
         };
       }
     },
@@ -681,9 +707,19 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     {
       style : function(states)
       {
+        var icon;
+        if (states.opened && states.selected) {
+          icon = "icon/16/places/folder-open-white.png";
+        } else if (states.opened && !states.selected) {
+          icon = "icon/16/places/folder-open.png";
+        } else if (!states.opened && states.selected) {
+          icon = "icon/16/places/folder-white.png";
+        } else {
+          icon = "icon/16/places/folder-black.png";
+        }
+        
         return {
-          icon : (states.opened ?
-                  "icon/16/places/folder-open.png" : "icon/16/places/folder.png"),
+          icon : icon,
           opacity : states.drag ? 0.5 : undefined
         };
       }
@@ -875,10 +911,15 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          source : sqv.theme.clean.Image.URLS[
-            "knob-" + (states.horizontal ? "horizontal" : "vertical")
-          ],
-          padding : 2
+          //source : sqv.theme.clean.Image.URLS["knob-" + (states.horizontal ? "horizontal" : "vertical")],
+          source : "",
+          //iconProps: states.horizontal ? { decorator : "knob-horizontal" } : { decorator : "knob-vertical" },
+          decorator : "splitpane-knob", 
+          padding : 0,
+          marginLeft : 3,
+          marginRight : 3,
+          width : states.horizontal ? 2 : 12,
+          height : states.horizontal ? 12 : 2
         };
       }
     },
@@ -915,9 +956,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           iconColumnWidth : 16,
           arrowColumnWidth : 8,
           padding : 0,
-          //placementModeY : states.submenu || states.contextmenu ? "best-fit" : "keep-align",
-          placementModeY : "direct",
-    	  position : "bottom-left",
+          placementModeY : states.submenu || states.contextmenu ? "best-fit" : "keep-align",
           offset : [8,0,0,0]
         };
 
@@ -944,7 +983,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : states.hovered  ? "background-selected" : undefined,
+          backgroundColor : states.hovered  ? "button-box-bright-hovered" : undefined,
           padding : 6,
           center : true
         };
@@ -958,10 +997,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          //icon : sqv.theme.clean.Image.URLS[
-          //  "arrow-up" + (states.hovered ? "-invert" : "")]
           icon : "",
-          decorator : states.hovered ? "sqv-css-icon-arrow-up-invert" : "sqv-css-icon-arrow-up"
+          iconProps : { source : "", decorator : "sqv-css-icon-arrow-up" }
         };
       }
     },
@@ -973,10 +1010,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          //icon : sqv.theme.clean.Image.URLS[
-          //  "arrow-down" + (states.hovered ? "-invert" : "")]
           icon : "",
-          decorator : states.hovered ? "sqv-css-icon-arrow-down-invert" : "sqv-css-icon-arrow-down"
+          iconProps : { source : "", decorator : "sqv-css-icon-arrow-down" }
         };
       }
     },
@@ -1032,10 +1067,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           alignY : "middle",
-          marginLeft : 14,
-          scale : true,
-          width : 18,
-          height : 18
+          marginLeft : 14
         };
       }
     },
@@ -1102,9 +1134,12 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           //source : sqv.theme.clean.Image.URLS["arrow-right" + (states.selected ? "-invert" : "")],
           source : "",
-          decorator : states.selected ? "sqv-css-icon-arrow-right-invert" : "sqv-css-icon-arrow-right",
+          //decorator : states.selected ? "sqv-css-icon-arrow-right-invert" : "sqv-css-icon-arrow-right",
+          decorator : "sqv-css-icon-arrow-right",
           alignY : "middle",
-          marginLeft : 6
+          marginLeft : 6,
+          width : 0,
+          height : 0
         };
       }
     },
@@ -1118,13 +1153,27 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           //icon : !states.checked ? undefined : sqv.theme.clean.Image.URLS["menu-checkbox"]
-          icon : sqv.theme.clean.Image.URLS["blank"]        
+          //icon : sqv.theme.clean.Image.URLS["blank"]
+          icon : !states.checked ? undefined : sqv.theme.clean.Image.URLS["blank"]
         };
       }
     },
     
     "menu-checkbox/icon" : {
-      include : "checkbox/icon"
+      
+      include : "image",
+      
+      style : function(states)
+      {
+        
+        return {
+          decorator : "menu-checkbox-checked",
+          width: 17,
+          height: 17,
+          marginLeft : 14,
+          padding: 0
+        };
+      }
     },
     
 
@@ -1135,7 +1184,31 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : !states.checked ? undefined : sqv.theme.clean.Image.URLS["menu-radiobutton"]   
+          //icon : !states.checked ? undefined : sqv.theme.clean.Image.URLS["menu-radiobutton"] 
+          icon : !states.checked ? undefined : sqv.theme.clean.Image.URLS["blank"]
+          //icon : sqv.theme.clean.Image.URLS["blank"]
+          //icon : undefined  
+        };
+      }
+    },
+
+
+    "menu-radiobutton/icon" : {
+      
+      include : "image",
+      
+      style : function(states)
+      {
+        var decorator = "menu-radiobutton";
+
+        decorator += states.invalid && !states.disabled ? "-invalid" : "";
+
+        return {
+          decorator : decorator,
+          width: 10,
+          height: 10,
+          backgroundColor : "text",
+          marginLeft : 17
         };
       }
     },
@@ -1152,32 +1225,39 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "light-background",
+          backgroundColor : "white",
           padding: [4, 2]
         };
       }
     },
 
+    //"menubar-button" : "menubutton",
+
     "menubar-button" :
     {
+      include : "menubutton",
+
       style : function(states)
       {
-        var decorator;
-        var padding = [2, 6];
+        var decorator = "button-box-blank";
+
         if (!states.disabled) {
-          if (states.pressed) {
-            decorator = "menubar-button-pressed";
-            padding = [1, 5, 2, 5];
-          } else if (states.hovered) {
-            decorator = "menubar-button-hovered";
-            padding = [1, 5];
+          if (states.hovered && !states.pressed && !states.checked) {
+            decorator = "button-box-hovered";
+          } else if (states.hovered && (states.pressed || states.checked)) {
+            decorator = "button-box-pressed-hovered";
+          } else if (states.pressed || states.checked) {
+            decorator = "button-box-pressed";
           }
         }
 
+        if (states.invalid && !states.disabled) {
+          decorator += "-invalid";
+        } else if (states.focused) {
+          decorator += "-focused";
+        }
+
         return {
-          padding : padding,
-          cursor : states.disabled ? undefined : "pointer",
-          textColor : "link",
           decorator : decorator
         };
       }
@@ -1225,19 +1305,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       alias : "virtual-list"
     },
     
-
-    "virtual-tree" :
-    {
-      include : "tree",
-      alias : "tree",
-
-      style : function(states)
-      {
-        return {
-          itemHeight : 21
-        };
-      }
-    },
+    "virtual-tree" : "tree",
 
     "virtual-tree-folder" : "tree-folder",
     "virtual-tree-file" : "tree-file",
@@ -1322,7 +1390,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 
 
     "scrollbar/button" :
-    {
+    {      
       style : function(states)
       {
         var styles = {};
@@ -1336,14 +1404,16 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           icon += "right";
           styles.marginLeft = 2;
         } else if (states.up) {
-          icon += "up";
+          icon += "up-small";
           styles.marginBottom = 2;
         } else {
-          icon += "down";
+          icon += "down-small";
           styles.marginTop = 2;
         }
 
-        styles.icon = sqv.theme.clean.Image.URLS["arrow-" + icon];
+        //styles.icon = sqv.theme.clean.Image.URLS["arrow-" + icon];
+        styles.icon = "";
+        styles.iconProps = { decorator : "sqv-css-icon-arrow-" + icon };
 
         styles.cursor = "pointer";
         styles.decorator = "button-box";
@@ -1397,7 +1467,6 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
 
         var decorator;
-        var padding = [9, 14];
         var backgroundcolor = "white";
         if (states.disabled) {
           decorator = "inset";
@@ -1413,8 +1482,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 
         return {
           decorator : decorator,
-          padding   : padding,
-          font : "input",
+          padding   : [9, 14],
           textColor : textColor,
           backgroundColor : backgroundcolor
         };
@@ -1447,10 +1515,6 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         var decorator = "radiobutton";
-
-        /*if (states.focused && !states.invalid) {
-          decorator = "radiobutton-focused";
-        }*/
 
         decorator += states.invalid && !states.disabled ? "-invalid" : "";
 
@@ -1525,7 +1589,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           icon = "";
         // Undetermined
         } else if (states.checked && states.disabled) {
-        	icon = sqv.theme.clean.Image.URLS["checkbox-checked-disabled"];
+          //icon = sqv.theme.clean.Image.URLS["checkbox-checked-disabled"];
+          icon = "";
         } else if (states.undetermined) {
           //icon = sqv.theme.clean.Image.URLS["checkbox-undetermined"];
           icon = "";
@@ -1559,15 +1624,35 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         decorator += states.invalid && !states.disabled ? "-invalid" : "";
 
         var padding;
+        var bckgrdcolr = "text";
         // Checked
         if (states.checked) {
           padding = 0;
           decorator = "checkbox-checked";
-        // Undetermined
+          if (states.focused) {
+            decorator = "checkbox-checked-focused"; 
+          }
+          if (states.invalid) {
+            decorator = "checkbox-checked-invalid"; 
+          } 
+          if (states.disabled) {
+            decorator = "checkbox-checked-disabled";   
+          }   
+          // Undetermined
         } else if (states.undetermined) {
           //padding = [4, 2];
           padding = 0;
           decorator = "checkbox-undetermined";
+          if (states.focused) {
+            decorator = "checkbox-undetermined-focused";
+          }
+          if (states.invalid) {
+            decorator = "checkbox-undetermined-invalid"; 
+          }
+          if (states.disabled) {
+            decorator = "checkbox-undetermined-disabled";
+            bckgrdcolr = "text-disabled";
+          }
         }
 
         return {
@@ -1575,7 +1660,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           width: 17,
           height: 17,
           padding: padding,
-          backgroundColor : states.undetermined ? "text" : "white",
+          backgroundColor : states.undetermined ? bckgrdcolr : "white",
           scale: true
         };
       }
@@ -1634,7 +1719,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	style : function()
     	{
     		return {
-    			decorator : "sqv-css-icon-arrow-up-small"
+    			decorator : "sqv-css-icon-arrow-up-small",
+    			width : 0,
+          height : 0
     		};
     	}
     },
@@ -1663,7 +1750,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	style : function()
     	{
     		return {
-    			decorator : "sqv-css-icon-arrow-down-small"
+    			decorator : "sqv-css-icon-arrow-down-small",
+    			width : 0,
+    			height : 0
     		};
     	}
     },
@@ -1679,7 +1768,19 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     "selectbox" : "textfield",
 
     "selectbox/atom" : "atom",
-    "selectbox/popup" : "combobox/popup",
+
+    "selectbox/popup" : {
+      
+      include : "popup",
+    	
+    	style : function(states)
+    	{
+    		return {
+          decorator : states.placementBottom ? "selectbox-popup-bottom" : "selectbox-popup-top"
+    		};
+    	}
+    },
+
     "selectbox/list" : {
       alias : "list",
       include : "list",
@@ -1702,8 +1803,6 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           //source : sqv.theme.clean.Image.URLS["arrow-down"],
           source : "",
           decorator : "sqv-css-icon-arrow-down",
-          //paddingRight : 4,
-          //paddingLeft : 5,
           width : 0,
           height : 0
         };
@@ -1755,25 +1854,14 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	style : function()
     	{
     		return {
-    			decorator : "sqv-css-icon-arrow-down"
+    			decorator : "sqv-css-icon-arrow-down",
+    			width : 0,
+          height : 0
     		};
     	}
     },
 
-    "combobox/popup" : 
-    {
-    	include : "popup",
-    	
-    	style : function(states)
-    	{
-    		return {
-    			decorator : "combobox-popup-bottom",
-    			offset : [-2,0,0,0],
-    			placementModeY: "direct",
-    			position : "bottom-left"
-    		};
-    	}
-    },
+    "combobox/popup" : "popup",
     
     "combobox/list" :     
     {
@@ -1841,8 +1929,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           width: 22,
           height: 24,
           padding : 2,	
-          //html : sqv.ui.embed.Svg.mapsvg({id:"calendar-alt", viewbox_width:"448", viewbox_height:"512"}, false),
-          html : sqv.ui.embed.Svg.mapfasvg("calendar-alt-1")
+          html : qx.bom.Template.render(sqv.theme.clean.Image.SVGTEMPLATES["fontawesome"], sqv.theme.clean.Image.SVGCONTENT["calendar-alt-1"])
         };
       }
     },
@@ -1916,7 +2003,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           decorator : decorator,
           padding   : padding,
-          font : "input",
+          //font : "input",
           textColor : textColor,
           backgroundColor : backgroundcolor
         };
@@ -1929,9 +2016,11 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 
       style : function(states)
       {
-        var padding = [3, 5, 3, 14];
+        //var padding = [3, 5, 3, 14];
+        var padding = [10, 10, 10, 14];
         if (states.lead) {
-          padding = [ 2, 4, 2, 13];
+          //padding = [ 2, 4, 2, 13];
+          padding = [9, 9, 9, 13];
         }
         if (states.dragover) {
           padding[2] -= 2;
@@ -1964,9 +2053,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         var padding = [10, 10, 10, 14];
-        var decorator;
         if (states.lead) {
-          padding = [ 2, 4 , 2, 4];
+          //padding = [ 2, 4 , 2, 4];
+          padding = [9, 9, 9, 13];
           //decorator = "lead-item";
         }
         if (states.dragover) {
@@ -2015,23 +2104,53 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         var decorator;
         if (states.disabled) {
-          decorator = "inset";
+          decorator = "inset-line";
         } else if (states.invalid) {
-          decorator = "border-invalid";
+          decorator = "invalid-line";
+          //backgroundcolor = "#dbb1b1";
         } else if (states.focused) {
-          decorator = "focused-inset";
+          decorator = "focused-inset-line";
+          //backgroundcolor = "textfield-selected";
         } else {
-          decorator = "inset";
+          decorator = "inset-line";
+          //backgroundcolor = "border-light";
         }
 
         return {
           decorator : decorator,
-          padding   : [2,3]
+          backgroundColor : "transparent",
+          padding   : [0,0]
         };
       }
     },
 
-    "slider/knob" : "scrollbar/slider/knob",
+    //"slider/knob" : "scrollbar/slider/knob",
+    "slider/knob" :
+    {
+      style : function(states)
+      {
+        var decorator = "slider-knob";
+
+        if (!states.disabled) {
+          if (states.hovered && !states.pressed && !states.checked) {
+            decorator = "slider-knob-hovered";
+          } else if (states.hovered && (states.pressed || states.checked)) {
+            decorator = "slider-knob-pressed-hovered";
+          } else if (states.pressed || states.checked) {
+            decorator = "slider-knob-pressed";
+          }
+        }
+
+        return {
+          height : 14,
+          width : 14,
+          cursor : states.disabled ? undefined : "pointer",
+          decorator : decorator,
+          minHeight : states.horizontal ? undefined : 20,
+          minWidth : states.horizontal ? 20 : undefined
+        };
+      }
+    },
 
 
     /*
@@ -2086,8 +2205,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          //SQ
-          //textColor : states.disabled ? "text-disabled" :  "button-text"
+          textColor : states.disabled ? "text-disabled" :  "button-text"
         };
       }
     },
@@ -2299,7 +2417,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : states.hovered ? sqv.ui.embed.Svg.mapsvg( 
+          /*icon : states.hovered ? sqv.ui.embed.Svg.mapsvg( 
           	{
           		id:"sqlogo",
 		  		width:"130",
@@ -2317,7 +2435,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 		  		viewbox_height:"130",
 		  		path1fill:"blue",
 		  		ellipsestroke:"green"
-          	})
+          	})*/
         };
       }
     },
@@ -2331,8 +2449,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           icon : "",
           width : 160,
-          height : 150,
-          iconProps : {width: 130, height: 130, html : sqv.ui.embed.Svg.mapsvg( 
+          height : 150
+          /*iconProps : {width: 130, height: 130, html : sqv.ui.embed.Svg.mapsvg( 
           	{
           		id:"sqlogo",
 		  		width:"130",
@@ -2341,7 +2459,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 		  		viewbox_height:"130",
 		  		path1fill:"red",
 		  		ellipsestroke:"yellow"
-          	}, false)}
+          	}, false)}*/
         };
       }
     },
@@ -2612,7 +2730,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           textColor : states.invalid ? "invalid" : undefined,
           padding : 5,
           margin : 4,
-          font: "bold"
+          font: "groupbox-legend"
         };
       }
     },
@@ -2761,10 +2879,13 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
         return {
           padding : [3, 8, 3, 5],
-          icon : states.opened ? "icon/folder-open.svg" : "icon/folder.svg",
-          //icon : states.opened ? "icon/folder-open.svg" : sqv.ui.embed.Svg.,
+          //icon : states.opened ? "icon/folder-open.svg" : "icon/folder.svg",
+          icon : "",
+          iconProps : states.opened ? 
+            { html : qx.bom.Template.render(sqv.theme.clean.Image.SVGTEMPLATES["material-2paths"], sqv.theme.clean.Image.SVGCONTENT["ma2p-folder-open"]) } : 
+            { html : qx.bom.Template.render(sqv.theme.clean.Image.SVGTEMPLATES["material-2paths"], sqv.theme.clean.Image.SVGCONTENT["ma2p-folder"]) },
           backgroundColor : backgroundColor,
-          iconOpened : "icon/folder-open.svg",
+          //iconOpened : "icon/folder-open.svg",
           opacity : states.drag ? 0.5 : undefined
         };
       }
@@ -2803,7 +2924,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          icon : "icon/insert-drive-file.svg",
+          //icon : "icon/insert-drive-file.svg",
+          icon : "",
+          iconProps : { html : qx.bom.Template.render(sqv.theme.clean.Image.SVGTEMPLATES["material-2paths"], sqv.theme.clean.Image.SVGCONTENT["ma2p-file"]) },
           opacity : states.drag ? 0.5 : undefined
         };
       }
@@ -2815,7 +2938,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          padding : [0, 4, 0, 0],
+          //padding : [0, 4, 0, 0],
           width : 18,
           height : 18,
           scale : true
@@ -2959,8 +3082,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           //icon : sqv.theme.clean.Image.URLS["window-restore"],
           icon : "",
           padding : [ 1, 2 ],
-          marginRight : 4,
-          marginLeft : 4,
+          marginRight : 5,
+          marginLeft : 5,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
@@ -2973,8 +3096,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          width : 12,
-          height : 12,
+          width : 10,
+          height : 10,
           decorator : states.hovered ? "window-button-restore-icon-hover" : "window-button-restore-icon"
         };
       }
@@ -3047,8 +3170,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          decorator : "statusbar",
-          padding : [ 2, 6 ]
+          decorator : "window-statusbar",
+          padding : [ 4, 12 ]
         };
       }
     },
@@ -3108,6 +3231,18 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     		};
     	}
     },
+
+    "datechooser/last-year-button/icon" : 
+    {
+    	include : "image",
+    	
+    	style : function()
+    	{
+    		return {
+    			decorator : "sqv-css-icon-arrow-rewind"
+    		};
+    	}
+    },
     
     "datechooser/next-month-button/icon" : 
     {
@@ -3116,12 +3251,14 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	style : function()
     	{
     		return {
-    			decorator : "sqv-css-icon-arrow-right-small"
+    			decorator : "sqv-css-icon-arrow-right-small",
+    			width : 0,
+          height : 0
     		};
     	}
     },
     
-    /*"datechooser/next-year-button/icon" : 
+    "datechooser/next-year-button/icon" : 
     {
     	include : "image",
     	
@@ -3131,7 +3268,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     			decorator : "sqv-css-icon-arrow-forward"
     		};
     	}
-    },*/
+    },
 
     "datechooser/button" :
     {
@@ -3145,14 +3282,16 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         };
 
         if (states.lastYear) {
-          result.icon = sqv.theme.clean.Image.URLS["arrow-rewind"];
+          //result.icon = sqv.theme.clean.Image.URLS["arrow-rewind"];
+          result.icon = "";
         } else if (states.lastMonth) {
           result.paddingLeft = 4;
           result.marginLeft = 6;
           result.icon = "";
         } else if (states.nextYear) {
-          result.icon = sqv.theme.clean.Image.URLS["arrow-forward"];
-          //result.icon = "";
+          //result.icon = sqv.theme.clean.Image.URLS["arrow-forward"];
+          result.icon = "";
+          result.paddingLeft = 6;
         } else if (states.nextMonth) {	
           result.icon = "";
           result.paddingLeft = 4;
@@ -3242,7 +3381,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           decorator: "progressbar",
           padding: 0,
-          //backgroundColor: "white",
+          backgroundColor: "progressbar-base",
           width : 200,
           height : 20
         };
@@ -3264,7 +3403,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     {
       style: function(states) {
         return {
-          backgroundColor: "primary"
+          backgroundColor: "progressbar-gray"
         };
       }
     },
@@ -3282,7 +3421,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "light-background",
+          backgroundColor : "white",
           padding : 0
         };
       }
@@ -3349,7 +3488,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           cursor  : states.disabled ? undefined : "pointer",
           decorator : decorator,
           margin : margin,
-          padding: [3, 5]
+          center : true,
+          padding : [10, 18],
+          gap : 8
         };
       }
     },
@@ -3369,7 +3510,6 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 
     "toolbar-menubutton/arrow" :
     {
-      alias : "image",
       include : "image",
 
       style : function(states)
@@ -3379,8 +3519,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           source : "",
           decorator : "sqv-css-icon-arrow-down",
           cursor : states.disabled ? undefined : "pointer",
-          padding : [0, 5],
-          marginLeft: 2
+          marginLeft: 2,
+          width : 6,
+          height : 0
         };
       }
     },
@@ -3415,7 +3556,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
 
         return {
-          icon : sqv.theme.clean.Image.URLS["arrow-down"],
+          //icon : sqv.theme.clean.Image.URLS["arrow-down"],
+          icon : "",
           decorator : decorator
         };
       }
@@ -3451,11 +3593,15 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
 
         return {
-          icon : sqv.theme.clean.Image.URLS["arrow-down"],
-          decorator : decorator
+          //icon : sqv.theme.clean.Image.URLS["arrow-down"],
+          icon : "",
+          decorator : decorator,
+          padding: [3, 6]
         };
       }
     },
+
+    "toolbar-splitbutton/arrow/icon" : "combobox/button/icon",
 
 
     /*
@@ -3505,25 +3651,29 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           return {
             marginTop : 4,
             marginBottom: 2,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-right" }
+            //decorator : null
           };
         } else if (states.barBottom) {
           return {
             marginTop : 2,
             marginBottom: 4,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-right" }
+            //decorator : null
           };
         } else if (states.barLeft) {
           return {
             marginLeft : 4,
             marginRight : 2,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-down" }
+           // decorator : null
           };
         } else {
           return {
             marginLeft : 2,
             marginRight : 4,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-down" }
+            //decorator : null
           };
         }
       }
@@ -3540,25 +3690,29 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           return {
             marginTop : 4,
             marginBottom: 2,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-left" }
+            //decorator : null
           };
         } else if (states.barBottom) {
           return {
             marginTop : 2,
             marginBottom: 4,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-left" }
+            //decorator : null
           };
         } else if (states.barLeft) {
           return {
             marginLeft : 4,
             marginRight : 2,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-up" }
+            //decorator : null
           };
         } else {
           return {
             marginLeft : 2,
             marginRight : 4,
-            decorator : null
+            iconProps : { decorator : "sqv-css-icon-arrow-up" }
+            //decorator : null
           };
         }
       }
@@ -3578,21 +3732,21 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 
     "tabview-page" : "widget",
     
-    
-
     "tabview-page/button" :
     {
       style : function(states)
       {
         var decorator;
+        var padding;
+        //var margin = [0,0,0,0];
 
         // default padding
         if (states.barTop || states.barBottom) {
           //var padding = [8, 16, 8, 13];
-          var padding = [12, 18, 12, 15];
+          padding = [12, 18, 12, 15];
         } else {
           //var padding = [8, 4, 8, 4];
-          var padding = [12, 8, 12, 8];
+          padding = [12, 8, 12, 8];
         }
 
         // decorator
@@ -3613,12 +3767,16 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           // reduce the size by 1 because we have different decorator border width
           if (states.barTop) {
             padding[2] -= 1;
+            //margin[0] -= 1;
           } else if (states.barBottom) {
             padding[0] -= 1;
+            //margin[2] += 1;
           } else if (states.barRight) {
             padding[3] -= 1;
+            //margin[1] += 1;
           } else if (states.barLeft) {
             padding[1] -= 1;
+            //margin[3] += 1;
           }
         }
 
@@ -3628,7 +3786,9 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           textColor : states.disabled ? "text-disabled" : states.checked ? null : "button-text",
           font : states.checked ? "bold" : "bold",
           padding : padding,
-          cursor: "pointer"
+          cursor: "pointer",
+          marginBottom : states.barBottom ? 1 : undefined,
+          marginLeft : states.barLeft ? 1 : undefined
         };
       }
     },
@@ -3653,7 +3813,22 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           cursor : states.disabled ? undefined : "pointer",
-          icon : sqv.theme.clean.Image.URLS["tabview-close"]
+          icon : "",
+          marginLeft: 12
+          //icon : sqv.theme.clean.Image.URLS["tabview-close"]
+        };
+      }
+    },
+
+    "tabview-page/button/close-button/icon" :
+    {
+      include : "image",
+      style : function(states)
+      {
+        return {
+          width : 14,
+          height : 14,
+          decorator : states.hovered ? "window-button-close-icon-hover" : "window-button-close-icon"
         };
       }
     },

@@ -1,21 +1,19 @@
 /* ************************************************************************
 
-   qooxdoo - the new era of web development
+   SQville Software
 
-   http://qooxdoo.org
+   http://sqville.com
 
    Copyright:
-     2004-2011 1&1 Internet AG, Germany, http://www.1und1.de
+     None
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
-     See the LICENSE file in the project's top-level directory for details.
+     MIT
 
    Authors:
-   * Martin Wittemann (martinwittemann)
+     * Chris Eskew (chris.eskew@sqville.com)
 
-************************************************************************* */
+************************************************************************ */
 
 /**
  * The simple qooxdoo font theme.
@@ -49,7 +47,16 @@ qx.Theme.define("sqv.theme.clean.Font",
       size : 20,
       family : ["Lato", "Helvetica Neue", "arial", "Helvetica", "sans-serif"],
       bold : false,
-      lineHeight: 1.33
+      lineHeight: 1.5
+    },
+
+    "groupbox-legend" :
+    {
+      size : 14,
+      family : ["Lato", "Helvetica Neue", "arial", "Helvetica", "sans-serif"],
+      color : "text",
+      bold : true,
+      lineHeight: 1.5
     },
     
     "unicode-icons-sm" :
@@ -93,9 +100,9 @@ qx.Theme.define("sqv.theme.clean.Font",
     
     "input" :
     {
-    	size : 14,
-    	family : ["Lato", "Helvetica Neue", "arial", "Helvetica", "sans-serif"],
-    	color : "text",
+      size : 14,
+      family : ["Lato", "Helvetica Neue", "arial", "Helvetica", "sans-serif"],
+      color : "text",
       lineHeight: 1.33
     },
    
@@ -136,6 +143,13 @@ qx.Theme.define("sqv.theme.clean.Font",
     {
     	include : "default",
     	size : 20
+    },
+
+    // TreeVirtual Legacy
+    "treevirtual" :
+    {
+      include : "default",
+    	size : 8
     }
   }
 });

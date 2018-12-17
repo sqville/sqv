@@ -1,34 +1,31 @@
 /* ************************************************************************
 
-   qooxdoo - the new era of web development
+   SQville Software
 
-   http://qooxdoo.org
+   http://sqville.com
 
    Copyright:
-     2004-2011 1&1 Internet AG, Germany, http://www.1und1.de
+     None
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
-     See the LICENSE file in the project's top-level directory for details.
+     MIT
 
    Authors:
-   * Martin Wittemann (martinwittemann)
+     * Chris Eskew (chris.eskew@sqville.com)
 
-************************************************************************* */
+************************************************************************ */
 
 /**
  * The simple qooxdoo decoration theme.
  * 
- * @require(sqv.ui.decoration.MFreestyleCss)
  */
 qx.Theme.define("sqv.theme.clean.Decoration",
 {
  
   aliases : {
-    decoration : "sqv/decoration/Clean"
+    decoration : "qx/decoration/Clean"
   },
- 
+   
 
   decorations :
   {
@@ -97,6 +94,43 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         bottom: [2, "solid", "dark-blue"]
       }
     },
+
+    "cursor-move" :
+    {
+      style : {
+        width: [2,2,2,2],
+        color : "gray",
+        style : "dotted"
+      }
+    },
+
+    "cursor-nodrop" :
+    {
+      style : {
+        freestyleCss : "cursor-nodrop-slash",
+        color : "red",
+        radius : 10,
+        width : 2
+      }
+    },
+
+    "cursor-copy" :
+    {
+      style : {
+        width: [2,3,3,2],
+        color : "gray",
+        style : ["dotted","inset","inset","dotted"]
+      }
+    },
+
+    "cursor-alias" :
+    {
+      style : {
+        width: [2,3,3,2],
+        color : "gray",
+        style : ["dotted","double","double","dotted"]
+      }
+    },
     
     /*
     ---------------------------------------------------------------------------
@@ -109,7 +143,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       style :
       {
-        //backgroundImage : sqv.theme.clean.Image.URLS["tree-minus"]
+        //backgroundImage : qx.theme.clean.Image.URLS["tree-minus"]
         //backgroundImage : qx.theme.simple.Image.URLS["tree-minus"]  
       }
     },
@@ -120,6 +154,14 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         backgroundImage  : "decoration/toolbar/toolbar-part.gif",
         backgroundRepeat : "repeat-y"
+      }
+    },
+    
+    "icss-bars" : 
+    {
+      style :
+      {
+        freestyleCss : "icss-bars"
       }
     },
     
@@ -468,11 +510,28 @@ qx.Theme.define("sqv.theme.clean.Decoration",
    	  style :
       {
         color : ["transparent",null,"transparent","sqv-black"],
-        innerColor : ["transparent",null,"transparent","green"],
         style : ["solid",null,"solid","solid"],
-        innerWidth : [3.5,0,3.5,4],
-        width : [3.5,0,3.5,4]
+        width : [3.5,0,3.5,4],
+        //innerWidth : [0,4,0,0],
+        //innerColor : "red"
+        shadowColor : "sqv-black",
+        shadowLength : [0, 2],
+        shadowBlurRadius : 0,
+        shadowSpreadRadius : 0
       }
+   },
+
+   "sqv-css-icon-arrow-rewind" :
+   {
+    include : "sqv-css-icon-arrow-left-small",   
+    
+    style :
+   	  {
+        shadowColor : "sqv-black",
+        shadowLength : [0, 2],
+        shadowBlurRadius : 0,
+        shadowSpreadRadius : 0
+   	  }
    },
    
    "sqv-css-icon-arrow-left" :
@@ -609,9 +668,17 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         radius : 3,
         width : 0,
         color : "button-border",
-        //gradientStart : ["button-box-bright", 40],
-        //gradientEnd : ["button-box-dark", 70],
         backgroundColor : "button-box-bright"
+      }
+    },
+
+    "button-box-blank" :
+    {
+      include : "button-box",
+
+      style :
+      {
+        backgroundColor : "white"
       }
     },
 
@@ -621,8 +688,6 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        //gradientStart : ["button-box-bright-pressed", 40],
-        //gradientEnd : ["button-box-dark-pressed", 70],
         backgroundColor : "button-box-bright-pressed"
       }
     },
@@ -873,7 +938,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
     /*
     ---------------------------------------------------------------------------
-      BUTTON BOTOM RIGHT
+      BUTTON BOTTOM RIGHT
     ---------------------------------------------------------------------------
     */
     "button-box-bottom-right" :
@@ -901,7 +966,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
     /*
     ---------------------------------------------------------------------------
-      BUTTON BOTOM LEFT
+      BUTTON BOTTOM LEFT
     ---------------------------------------------------------------------------
     */
     "button-box-bottom-left" :
@@ -1010,8 +1075,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : 0,
-        width : [1, 0, 1, 1]
+        radius : 0
+        //width : [1, 0, 1, 1]
       }
     },
 
@@ -1021,8 +1086,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : 0,
-        width : [1, 0, 1, 1]
+        radius : 0
+        //width : [1, 0, 1, 1]
       }
     },
 
@@ -1032,8 +1097,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : 0,
-        width : [1, 0, 1, 1]
+        radius : 0
+        //width : [1, 0, 1, 1]
       }
     },
 
@@ -1043,8 +1108,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : 0,
-        width : [1, 0, 1, 1]
+        radius : 0
+        //width : [1, 0, 1, 1]
       }
     },
 
@@ -1060,8 +1125,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
 
@@ -1071,8 +1135,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
 
@@ -1082,8 +1145,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
 
@@ -1093,8 +1155,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
 
@@ -1104,8 +1165,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
 
@@ -1115,8 +1175,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
 
@@ -1126,8 +1185,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
 
@@ -1137,11 +1195,35 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
+        radius : [3, 0, 0, 3]
       }
     },
-    
+
+        /*
+    ---------------------------------------------------------------------------
+      BUTTON LEFT BORDER
+    ---------------------------------------------------------------------------
+    */
+   "button-box-left-border" :
+   {
+     include : "button-box-left",
+
+     style :
+     {
+       width : [1,0,1,1]
+     }
+   },
+
+   "button-box-pressed-left-border" :
+   {
+     include : "button-box-pressed-left",
+
+     style :
+     {
+      width : 1
+     }
+   },
+       
     
     /*
     ---------------------------------------------------------------------------
@@ -1272,6 +1354,66 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
     /*
     ---------------------------------------------------------------------------
+      SLIDER KNOB
+    ---------------------------------------------------------------------------
+    */
+   "slider-knob" :
+   {
+    include : "scroll-knob", 
+    
+    style :
+     {
+       radius : 10
+     }
+   },
+
+   "slider-knob-pressed" :
+   {
+     include : "slider-knob",
+
+     style :
+     {
+       backgroundColor : "scrollbar-dark"
+     }
+   },
+
+   "slider-knob-hovered" :
+   {
+     include: "slider-knob",
+
+     style :
+     {
+       color : "button-border-hovered"
+     }
+   },
+
+   "slider-knob-pressed-hovered" :
+   {
+     include: "slider-knob-pressed",
+
+     style :
+     {
+       color : "button-border-hovered"
+     }
+   },
+
+    /*
+    ---------------------------------------------------------------------------
+      SPLITPANE KNOB
+    ---------------------------------------------------------------------------
+    */
+    "splitpane-knob" :
+    {
+      style : 
+      {
+        width : [0,2,0,0],
+        color : "gray",
+        style : "dotted"
+      }
+    },
+
+    /*
+    ---------------------------------------------------------------------------
       HOVER BUTTON
     ---------------------------------------------------------------------------
     */
@@ -1338,12 +1480,11 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         width : 1,
-        //color : "window-border",
-        color : "textfield-selected",
+        color : "border-light",
         innerWidth : 4,
         innerColor: "window-border-inner",
-        shadowLength : 1,
-        shadowBlurRadius : 3,
+        shadowLength : 0,
+        shadowBlurRadius : 0,
         shadowColor : "shadow",
         backgroundColor : "background",
         radius : 3
@@ -1356,8 +1497,9 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        shadowLength : 2,
-        shadowBlurRadius : 5
+        shadowLength : [1,2],
+        shadowBlurRadius : 2
+        //shadowColor : "#FFF8DD"
       }
     },
 
@@ -1368,6 +1510,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         width : [0, 0, 2, 0],
         //color : "window-border-inner"
         color : "background"
+      }
+    },
+
+    "window-statusbar" :
+    {
+      include : "statusbar",
+
+      style :
+      {
+        width : 0
       }
     },
     
@@ -1431,8 +1583,12 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       style :
       {
-        width : [0,10,4,0],
-        color : "gray"
+        width : [4,2,2,2],
+        color : "gray",
+        shadowColor : "gray",
+        shadowLength : [2, 2],
+        shadowBlurRadius : 0,
+        shadowSpreadRadius : 0
       }
     },
     
@@ -1459,11 +1615,11 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         width: 1,
         color: "white-box-border",
-        shadowBlurRadius : 0,
-        shadowColor : "#999999",
         radius: 3,
         backgroundColor : "white",
-        shadowLength: 0
+        shadowLength: 0,
+        shadowBlurRadius : 0,
+        shadowColor : "#999999"
       }
     },
     
@@ -1496,7 +1652,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         width: [2,1,1,1],
-        color: [ "box-border-blue", "white-box-border", "white-box-border", "white-box-border" ],
+        colorTop: "box-border-blue",
         radius: [ 4, 4, 3, 3 ]
       }
     },
@@ -1507,7 +1663,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       
       style :
       {
-        color: [ "box-border-orange", "white-box-border", "white-box-border", "white-box-border" ]
+        colorTop: "box-border-orange"
       }
     },
     
@@ -1517,7 +1673,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       
       style :
       {
-        color: [ "box-border-green", "white-box-border", "white-box-border", "white-box-border" ]
+        colorTop: "box-border-green"
       }
     },
 
@@ -1527,13 +1683,23 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       TEXT FIELD
     ---------------------------------------------------------------------------
     */
+
     "inset" :
     {
       style :
       {
         width : 1,
-        color : [ "border-light-shadow", "border-light", "border-light", "border-light" ],
+        color : "border-light",
         radius : 3
+      }
+    },
+
+    "inset-line" :
+    {
+      style :
+      {
+        width : 0,
+        freestyleCss : "slider-line"
       }
     },
 
@@ -1546,16 +1712,21 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         radius : 3
       }
     },
+
+    "focused-inset-line" :
+    {
+      include : "inset-line",
+      style :
+      {
+        freestyleCss : "slider-line-focused"
+      }
+    },
     
     "form-focused-inset" :
     {
       style :
       {
         width : [1,1,1,2],
-        //color : [ "textfield-selected", "textfield-selected", "textfield-selected", "textfield-selected-darker" ],
-        //color : "textfield-selected",
-        //radius : 1
-        //width: [2,1,1,1],
         color: [ "textfield-selected", "textfield-selected", "textfield-selected", "box-border-blue" ],
         radius: [ 3, 2, 2, 3 ]
       }
@@ -1567,6 +1738,15 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         width : 1,
         color : "#dbb1b1"
+      }
+    },
+
+    "invalid-line" :
+    {
+      include : "inset-line",
+      style :
+      {
+        freestyleCss : "slider-line-invalid"
       }
     },
     
@@ -1592,27 +1772,33 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
     
-    "combobox-popup-bottom" :
+    "selectbox-popup-bottom" :
     {
     	include : "popup",
     	
     	style :
     	{
-    	  width : [1,1,1,1],
-          color : ["white","textfield-selected","textfield-selected","textfield-selected"],
-          radius : [0,0,3,3]
-          //shadowColor : "shadow-light"
+    	  width : [0,1,1,1],
+        color : ["transparent","textfield-selected","textfield-selected","textfield-selected"],
+        radius : [0,0,3,3],
+        shadowLength : [0,1],
+        shadowColor : "shadow",
+        shadowBlurRadius : 0
     	}
     },
     
-    "combobox-popup-top" :
+    "selectbox-popup-top" :
     {
-    	include : "combobox-popup-bottom",
+    	include : "popup",
     	
     	style :
     	{
-          color : ["textfield-selected","textfield-selected","white","textfield-selected"],
-          radius : [3,3,0,0]
+        width : [1,1,0,1],  
+        color : ["textfield-selected","textfield-selected","transparent","textfield-selected"],
+        radius : [3,3,0,0],
+        shadowLength : [0,-1],
+        shadowColor : "shadow",
+        shadowBlurRadius : 0
     	}
     },
     
@@ -1621,8 +1807,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     	
     	style :
     	{
-    	  width : [0,0,1,0],
-          color : "border-super-light"
+    	  width : [0,0,0,0],
+        color : "border-super-light"
     	}
     },
 
@@ -1686,7 +1872,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       style :
       {
-        widthLeft : 1,
+        //widthLeft : 1,
         colorLeft : "button-border"
       }
     },
@@ -1703,6 +1889,31 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         widthTop: 1,
         colorTop : "border-light"
+      }
+    },
+
+    "menu-radiobutton" :
+    {
+      style :
+      {
+        radius : 10,
+        width : 0,
+        color : "transparent",
+        innerColor: "text",
+        innerWidth: 0
+      }
+    },
+
+    "menu-checkbox-checked" :
+    {
+      include: "checkbox-checked",
+      style :
+      {
+        radius : 0,
+        width : 0,
+        color : "transparent",
+        innerColor: "transparent",
+        innerWidth: 0
       }
     },
 
@@ -1804,8 +2015,10 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         width : [1, 1, 0, 1],
+        //width : 1,
         backgroundColor: "background",
         color : "white-box-border",
+        //color : ["white-box-border", "white-box-border", "white", "white-box-border"],
         radius : [3, 3, 0, 0]
       }
     },
@@ -1817,6 +2030,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         radius : [0, 0, 3, 3],
         width : [0, 1, 1, 1]
+        //color : ["white", "white-box-border", "white-box-border", "white-box-border"]
       }
     },
 
@@ -1827,6 +2041,7 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         radius : [3, 0, 0, 3],
         width : [1, 0, 1, 1]
+        //color : ["white-box-border", "white", "white-box-border", "white-box-border"]
       }
     },
 
@@ -1942,19 +2157,26 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style :
       {
         radius : 3,
-        width : 1,
-        color : "table-border",
+        width : 10,
+        color : "green",
         style : "solid"
       }
+    },
+
+    "table-pane" :
+    {
+      width : [0,1,0,1],
+      color : "table-border"
     },
 
     "statusbar" :
     {
       style :
       {
-        widthTop : 1,
-        colorTop : "table-border",
-        styleTop : "solid"
+        width : 1,
+        color : "table-border",
+        style : "solid",
+        radius : [0,0,3,3]
       }
     },
 
@@ -1974,8 +2196,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
 
       style :
       {
-        //radius : [3,0,0,3],
-        width : [0,0,1,0],
+        radius : [3,0,0,0],
+        width : [1,1,1,1],
         color : "table-border"
         
       }
@@ -1985,7 +2207,8 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     {
       include : "table-header",
       style : {
-        width : [0,0,1,0],
+        radius : [0,3,0,0],
+        width : [1,1,1,0],
         color : "table-border"
       }
     },
@@ -2067,15 +2290,15 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       style:
       {
         backgroundColor: "#FFF",
-        radius : 3,
-        width: 1,
+        radius : 0,
+        width: 0,
         color: "border-separator"
       }
     },
     
     "progressbar-trans" :
     {
-        radius : 3,
+        radius : 0,
         width: 0
     },
 
@@ -2164,6 +2387,17 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     		innerWidth : [0,0,4,0]
     	}
     },
+
+    "checkbox-checked-disabled" :
+    {
+    	include : "checkbox-checked",
+    	
+    	style :
+    	{
+    		freestyleCss : "checkbox-checked-disabled",
+    		innerWidth : [0,0,4,0]
+    	}
+    },
    
 
     "checkbox-focused" :
@@ -2175,6 +2409,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       }
     },
 
+    "checkbox-checked-focused" :
+    {
+    	include : "checkbox-checked",
+    	
+    	style :
+    	{
+    		color : "textfield-selected"
+    	}
+    },
+
     "checkbox-invalid" :
     {
       include : "checkbox",
@@ -2183,6 +2427,16 @@ qx.Theme.define("sqv.theme.clean.Decoration",
         color : "invalid"
       }
     },
+
+    "checkbox-checked-invalid" :
+    {
+      include : "checkbox-checked",
+      style :
+      {
+        color : "invalid"
+      }
+    },
+
     "checkbox-undetermined" :
     {
       include : "checkbox",
@@ -2190,6 +2444,34 @@ qx.Theme.define("sqv.theme.clean.Decoration",
       {
         innerWidth : [6,3],
         innerColor: "white"
+      }
+    },
+
+    "checkbox-undetermined-focused" :
+    {
+    	include : "checkbox-undetermined",
+    	
+    	style :
+    	{
+    		color : "textfield-selected"
+    	}
+    },
+
+    "checkbox-undetermined-disabled" :
+    {
+      include : "checkbox-undetermined",
+      style :
+      {
+        color : "text-disabled"
+      }
+    },
+
+    "checkbox-undetermined-invalid" :
+    {
+      include : "checkbox-undetermined",
+      style :
+      {
+        color : "invalid"
       }
     }
   }
