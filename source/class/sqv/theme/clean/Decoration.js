@@ -2215,7 +2215,6 @@ qx.Theme.define("sqv.theme.clean.Decoration",
     
     "select-column-order" :
     {
-    	//include: "sqv-css-icon-arrow-down",
     	style : {
     		freestyleCss : "select-column-order",
     		radius : 1,

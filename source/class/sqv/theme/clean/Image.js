@@ -621,7 +621,7 @@ qx.Class.define("sqv.theme.clean.Image",
     
     paint : function(drawing)
     {
-  		return qx.theme.clean.Image.DRAWINGS[drawing].map(this._convertstroke).join("");
+  		return sqv.theme.clean.Image.DRAWINGS[drawing].map(this._convertstroke).join("");
     },
     
     /*

@@ -327,7 +327,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "white",
+          backgroundColor : "background",
           decorator : "main-dark"
         };
       }
@@ -367,7 +367,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           offset : [ 2, 16, 2, 6 ],
           width : 15,
           height : 15,
-          backgroundColor: "white"
+          backgroundColor: "background"
         };
       }
     },
@@ -487,7 +487,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           decorator : "statusbar",
           padding : [14, 10],
-          backgroundColor : "#F9FAFB"
+          backgroundColor : "table-header"
         };
       }
     },
@@ -501,7 +501,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           decorator : "table-header-column-button",
           padding : [14, 8],
-          backgroundColor : "#F9FAFB",
+          backgroundColor : "table-header",
           icon : "",
           iconProps : states.hovered ? {decorator : "select-column-order-hover"} : {decorator : "select-column-order"}
         };
@@ -516,8 +516,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           width: 16,
-          height : 18,
-          decorator : "select-column-order"
+          height : 18
+          //decorator : "select-column-order"
           //html: sqv.theme.clean.Image.paint("select-column-order")
         };
       }
@@ -545,7 +545,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function() {
         return {
           decorator : "table-header",
-          backgroundColor : "#F9FAFB"
+          backgroundColor : "table-header"
         };
       }
     },
@@ -1039,7 +1039,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           backgroundColor : states.selected ? "combobox-item-selected" : undefined,
-          textColor : states.selected ? "black" : "text",
+          textColor : states.selected ? "text-selected" : "text",
           padding : [ 6, 6 ]
         };
       }
@@ -1052,7 +1052,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
     	style : function(states)
     	{
     		return {
-	          textColor : states.disabled ? "black" : "text",
+	          textColor : states.disabled ? "text-selected" : "text",
 	          font : "bold",
 	          padding : [ 8, 6 ]
         	};
@@ -1225,7 +1225,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "white",
+          backgroundColor : "background",
           padding: [4, 2]
         };
       }
@@ -1286,8 +1286,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           padding : 4,
-          backgroundColor : "#BABABA",
-          textColor : "white",
+          backgroundColor : "background-group-item",
+          textColor : "group-item",
           font: "bold"
         };
       }
@@ -1467,7 +1467,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
 
         var decorator;
-        var backgroundcolor = "white";
+        var backgroundcolor = "background";
         if (states.disabled) {
           decorator = "inset";
           backgroundcolor = "background-disabled";
@@ -1660,7 +1660,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           width: 17,
           height: 17,
           padding: padding,
-          backgroundColor : states.undetermined ? bckgrdcolr : "white",
+          backgroundColor : states.undetermined ? bckgrdcolr : "background",
           scale: true
         };
       }
@@ -1702,8 +1702,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
 
         return {
-          //icon : sqv.theme.clean.Image.URLS["arrow-up-small"],  SQV Elim URL Call
-          backgroundColor : "white",
+          backgroundColor : "background",
           decorator : states.hovered ? "button-box-hovered-top-right" : "button-box-top-right",
           padding : [0,3,0,4],
           icon : "",
@@ -1733,9 +1732,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
 
         return {
-          //icon : sqv.theme.clean.Image.URLS["arrow-down-small"], SQV Elim URL Call
           icon : "",
-          backgroundColor : "white",
+          backgroundColor : "background",
           decorator : states.hovered ? "button-box-hovered-bottom-right" : "button-box-bottom-right",
           padding : [0,3,0,4],
           width: 17
@@ -1837,9 +1835,8 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         }
 
         return {
-          //icon : sqv.theme.clean.Image.URLS["arrow-down"],  SQV-ELIM-URL-CALL
           icon : "",
-          backgroundColor : "white",
+          backgroundColor : "background",
           decorator : decorator,
           padding : [0,5,0,6],
           width: 24
@@ -1909,7 +1906,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         return {
           //icon : states.hovered ? "icon/18/editor/insert-invitation-black.png" : "icon/18/editor/insert-invitation-gray.png",
           //iconProps : states.hovered ? {html : sqv.theme.clean.Image.paint("insert-invitation-hover")} : {html : sqv.theme.clean.Image.paint("insert-invitation")},
-          iconProps : states.hovered ? {fill : "black"} : {fill : "gray"},
+          iconProps : states.hovered ? {fill : "icon-fill-hovered"} : {fill : "icon-fill"},
           icon : "",
           //padding : [2, 6, 3, 4],
           padding : 0,
@@ -1987,7 +1984,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
 
         var decorator;
         var padding = [2, 0];
-        var backgroundcolor = "white";
+        var backgroundcolor = "background";
         if (states.disabled) {
           decorator = "inset";
           backgroundcolor = "background-disabled";
@@ -2037,7 +2034,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
           gap : 4,
           padding : padding,
           backgroundColor : backgroundColor,
-          textColor : states.selected ? "black" : "text",
+          textColor : states.selected ? "text-selected" : "text",
           decorator : states.lead ? "lead-item" : states.dragover ? "dragover" : undefined,
           opacity : states.drag ? 0.5 : undefined
         };
@@ -2067,14 +2064,14 @@ qx.Theme.define("sqv.theme.clean.Appearance",
         var textcolor = "text";
         if (states.selected) {
           backgroundColor = "combobox-item-selected";
-          textcolor = "black";
+          textcolor = "text-selected";
           if (states.disabled) {
             backgroundColor = "background-selected-disabled";
           }
         }
         if (states.hovered) {
           backgroundColor = "combobox-hovered";
-          textcolor = "black";
+          textcolor = "text-selected";
           if (states.disabled) {
             backgroundColor = "background-selected-disabled";
           }
@@ -2707,8 +2704,6 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           backgroundColor : "background",
-          //padding : [6, 9],
-          //margin: [18, 2, 2, 2],
           decorator  : "white-box"
         };
       }
@@ -2911,7 +2906,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           padding : [ 1, 4 ],
-          textColor : states.selected && !states.disabled ? "black" : "text"
+          textColor : states.selected && !states.disabled ? "text-selected" : "text"
         };
       }
     },
@@ -3275,7 +3270,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         var result = {
-          backgroundColor : "white",
+          backgroundColor : "background",
           width  : 14,
           show   : "icon",
           cursor : states.disabled ? undefined : "pointer"
@@ -3359,7 +3354,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           textAlign : "center",
-          textColor : "black",
+          textColor : "text",
           padding   : [ 2, 4 ],
           decorator : states.header ? "datechooser-week-header" : "datechooser-week"
         };
@@ -3421,7 +3416,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "white",
+          backgroundColor : "background",
           padding : 0
         };
       }
@@ -4167,7 +4162,7 @@ qx.Theme.define("sqv.theme.clean.Appearance",
       {
         return {
           decorator : "main-dark",
-          backgroundColor : "white",
+          backgroundColor : "background",
           width : 50,
           height : 25
         };
